@@ -1,0 +1,45 @@
+.section {
+  padding-bottom: calc(var(--space-section) + 1rem);
+  background: linear-gradient(135deg, var(--color-dark) 0%, #111827 100%);
+}
+
+.inner {
+  color: #fff;
+  border-radius: 0;
+  padding: clamp(2.5rem, 6vw, 3.5rem);
+  text-align: center;
+  display: grid;
+  gap: 1.25rem;
+  justify-items: center;
+  border: 0;
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(1.625rem, 3.3vw, 2.275rem);
+  letter-spacing: -0.03em;
+  max-width: 18ch;
+}
+
+.lead {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.78);
+  line-height: 1.65;
+  max-width: 60ch;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  justify-content: center;
+}
+
+.outline {
+  border-color: #fff !important;
+  color: #fff !important;
+}
+
+.outline:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+}

@@ -1,0 +1,27 @@
+.portfolioMetrics {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+@media (min-width: 900px) {
+  .portfolioMetrics {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.portfolioMetricVal {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+}
+
+.portfolioMetricLabel {
+  margin: 0.45rem 0 0;
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}

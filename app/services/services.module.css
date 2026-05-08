@@ -1,0 +1,117 @@
+.metrics {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.25rem;
+  border-top: 1px solid var(--color-border);
+  padding-top: 1.75rem;
+}
+
+.metric {
+  border: 1px solid #0e172a;
+  border-radius: var(--radius-card);
+  padding: 1.25rem;
+  background: linear-gradient(135deg, #0e172a 0%, #152b4f 100%);
+  box-shadow: none;
+}
+
+.metricValue {
+  margin: 0;
+  font-size: 1.9rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #fff;
+}
+
+.metricLabel {
+  margin: 0.35rem 0 0;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.45;
+  font-size: 0.95rem;
+}
+
+.consultShell {
+  padding-block: var(--space-section);
+}
+
+.consultPanel {
+  width: min(100% - 2rem, var(--max-content));
+  margin-inline: auto;
+  background: linear-gradient(
+    145deg,
+    var(--color-dark-soft) 0%,
+    #151b2f 85%
+  );
+  color: #fff;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: clamp(2.25rem, 5vw, 3rem);
+}
+
+.consultPanel .pageKicker {
+  color: var(--color-accent);
+}
+
+.consultLead {
+  margin: 0 0 2rem;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.65;
+  max-width: 70ch;
+}
+
+.consultTitle {
+  margin: 0 0 0.75rem;
+  font-size: clamp(1.625rem, 3vw, 2.225rem);
+  letter-spacing: -0.035em;
+}
+
+.consultGrid {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 900px) {
+  .consultGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.mini {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-card);
+  padding: 1.2rem;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.miniTitle {
+  margin: 0 0 0.5rem;
+  color: var(--color-accent);
+  font-size: 1.08rem;
+}
+
+.miniBody {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.78);
+  line-height: 1.55;
+}
+
+@media (max-width: 480px) {
+  .consultPanel {
+    width: min(100% - 1.25rem, var(--max-content));
+    padding: 1.4rem;
+  }
+
+  .consultTitle {
+    font-size: clamp(1.225rem, 7vw, 1.525rem);
+  }
+
+  .consultLead {
+    font-size: 1rem;
+  }
+
+  .consultPanel a {
+    width: 100%;
+    justify-content: center;
+  }
+}

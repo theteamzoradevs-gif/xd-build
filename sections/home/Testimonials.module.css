@@ -1,0 +1,81 @@
+.section {
+  background: linear-gradient(135deg, var(--color-dark-soft), #111827);
+  color: #fff;
+}
+
+.header {
+  margin: 0 auto 1.5rem;
+  max-width: 760px;
+  text-align: center;
+}
+
+.title {
+  margin: 0 0 0.75rem;
+  font-size: clamp(1.625rem, 3vw, 2.125rem);
+  letter-spacing: -0.03em;
+}
+
+.lead {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.78);
+  max-width: 62ch;
+  line-height: 1.65;
+}
+
+.carousel {
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+  padding: clamp(1.15rem, 2.8vw, 1.8rem) clamp(1rem, 2.4vw, 1.5rem);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  display: grid;
+  gap: 0.7rem;
+}
+
+.quoteMark {
+  margin: 0;
+  font-size: 2rem;
+  line-height: 1;
+  color: var(--color-accent);
+}
+
+.quote {
+  margin: 0;
+  font-size: clamp(1.12rem, 2.2vw, 1.35rem);
+  line-height: 1.7;
+  color: #fff;
+}
+
+.author {
+  margin: 0.25rem 0 0;
+  font-weight: 700;
+  color: #fff;
+}
+
+.role {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.92rem;
+}
+
+.dots {
+  margin-top: 0.6rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.45rem;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  border: 0;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.dot[data-active="true"] {
+  background: var(--color-accent);
+}
