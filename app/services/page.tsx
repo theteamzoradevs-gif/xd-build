@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { AnimatedCounter } from "@/components/ui/animated-counter";
 import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
 import { CtaBand } from "@/sections/home/CtaBand";
@@ -33,7 +34,9 @@ export default function ServicesPage() {
         <div className={styles.metrics}>
           {METRICS.map((m) => (
             <div key={m.label} className={styles.metric}>
-              <p className={styles.metricValue}>{m.value}</p>
+              <p className={styles.metricValue}>
+                <AnimatedCounter value={m.value} />
+              </p>
               <p className={styles.metricLabel}>{m.label}</p>
             </div>
           ))}

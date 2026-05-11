@@ -1,3 +1,4 @@
+import { AnimatedCounter } from "@/components/ui/animated-counter";
 import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
 import styles from "./Hero.module.css";
@@ -32,7 +33,13 @@ export function HomeHero() {
             Decisive coordination. Outcomes you can stand behind.
           </p>
           <div className={styles.badges}>
-            <span className={styles.trustChip}>Trusted across 120+ engagements</span>
+            <span className={styles.trustChip}>
+              <span className="sr-only">Trusted across 120+ engagements</span>
+              <span className={styles.trustChipLive} aria-hidden>
+                Trusted across{" "}
+                <AnimatedCounter value="120+" accessibilityHidden /> engagements
+              </span>
+            </span>
           </div>
           <div className={styles.actions}>
             <Button href="/portfolio" variant="primary">

@@ -87,6 +87,10 @@
   color: rgba(255, 255, 255, 0.9);
 }
 
+.trustChipLive {
+  display: contents;
+}
+
 .actions {
   display: flex;
   flex-wrap: wrap;

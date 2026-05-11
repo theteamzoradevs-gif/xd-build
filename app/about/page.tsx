@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { AnimatedCounter } from "@/components/ui/animated-counter";
 import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
 import { FinalCta } from "@/sections/home/FinalCta";
@@ -151,7 +152,9 @@ export default function AboutPage() {
               className={styles.cover}
             />
             <div className={styles.metricCard}>
-              <p className={styles.metricValue}>500+</p>
+              <p className={styles.metricValue}>
+                <AnimatedCounter value="500+" />
+              </p>
               <p className={styles.metricLabel}>Projects coordinated</p>
             </div>
           </div>

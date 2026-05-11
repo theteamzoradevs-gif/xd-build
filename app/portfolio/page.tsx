@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { AnimatedCounter } from "@/components/ui/animated-counter";
 import { Section } from "@/components/ui/Section";
 import { CtaBand } from "@/sections/home/CtaBand";
 import { PortfolioGallery } from "@/sections/portfolio/PortfolioGallery";
@@ -29,19 +30,27 @@ export default function PortfolioPage() {
       <Section tight aria-label="Impact metrics">
         <div className={portfolioStyles.portfolioMetrics}>
           <div>
-            <p className={portfolioStyles.portfolioMetricVal}>500+</p>
+            <p className={portfolioStyles.portfolioMetricVal}>
+              <AnimatedCounter value="500+" />
+            </p>
             <p className={portfolioStyles.portfolioMetricLabel}>projects completed</p>
           </div>
           <div>
-            <p className={portfolioStyles.portfolioMetricVal}>12M+</p>
+            <p className={portfolioStyles.portfolioMetricVal}>
+              <AnimatedCounter value="12M+" />
+            </p>
             <p className={portfolioStyles.portfolioMetricLabel}>sq. ft. designed</p>
           </div>
           <div>
-            <p className={portfolioStyles.portfolioMetricVal}>98%</p>
+            <p className={portfolioStyles.portfolioMetricVal}>
+              <AnimatedCounter value="98%" />
+            </p>
             <p className={portfolioStyles.portfolioMetricLabel}>clients satisfied</p>
           </div>
           <div>
-            <p className={portfolioStyles.portfolioMetricVal}>15</p>
+            <p className={portfolioStyles.portfolioMetricVal}>
+              <AnimatedCounter value="15" />
+            </p>
             <p className={portfolioStyles.portfolioMetricLabel}>national awards</p>
           </div>
         </div>
