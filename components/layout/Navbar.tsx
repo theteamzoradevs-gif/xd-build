@@ -33,7 +33,7 @@ export function Navbar() {
         <Link href="/" className={styles.logo} aria-label={`${siteConfig.name} home`}>
           <Image
             src="/images/xd-logo.png"
-            alt="Modern digital solutions company"
+            alt={`${siteConfig.name} logo`}
             width={164}
             height={48}
             className={styles.logoImage}

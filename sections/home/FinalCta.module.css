@@ -1,6 +1,6 @@
 .section {
   padding-bottom: calc(var(--space-section) + 1rem);
-  background: linear-gradient(135deg, var(--color-dark) 0%, #111827 100%);
+  background: var(--color-dark);
 }
 
 .inner {

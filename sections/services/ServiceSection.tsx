@@ -10,6 +10,8 @@ type Props = {
   problem: string;
   solution: string;
   outcome: string;
+  /** When set, replaces the Problem / Solution / Outcome blocks with a single summary. */
+  summary?: string;
   imageSrc: string;
   imageAlt: string;
   imagePosition?: "left" | "right";
@@ -22,6 +24,7 @@ export function ServiceSection({
   problem,
   solution,
   outcome,
+  summary,
   imageSrc,
   imageAlt,
   imagePosition = "left",
@@ -47,20 +50,24 @@ export function ServiceSection({
           <h2 id={`${id}-heading`} className={styles.title}>
             {title}
           </h2>
-          <div className={styles.blocks}>
-            <div>
-              <h3 className={styles.blockLabel}>Problem</h3>
-              <p className={styles.blockText}>{problem}</p>
+          {summary ? (
+            <p className={styles.summary}>{summary}</p>
+          ) : (
+            <div className={styles.blocks}>
+              <div>
+                <h3 className={styles.blockLabel}>Problem</h3>
+                <p className={styles.blockText}>{problem}</p>
+              </div>
+              <div>
+                <h3 className={styles.blockLabel}>Solution</h3>
+                <p className={styles.blockText}>{solution}</p>
+              </div>
+              <div>
+                <h3 className={styles.blockLabel}>Outcome</h3>
+                <p className={styles.blockText}>{outcome}</p>
+              </div>
             </div>
-            <div>
-              <h3 className={styles.blockLabel}>Solution</h3>
-              <p className={styles.blockText}>{solution}</p>
-            </div>
-            <div>
-              <h3 className={styles.blockLabel}>Outcome</h3>
-              <p className={styles.blockText}>{outcome}</p>
-            </div>
-          </div>
+          )}
           <Button href="/contact" variant="primary">
             Get Consultation on this scope
           </Button>

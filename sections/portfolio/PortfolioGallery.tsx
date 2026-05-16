@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import type { ProjectCategory } from "@/lib/projects";
-import { PROJECTS } from "@/lib/projects";
+import { PROJECT_PLACEHOLDERS, PROJECTS } from "@/lib/projects";
 import { ProjectCard } from "@/components/cards/ProjectCard";
 import styles from "./PortfolioGallery.module.css";
 
@@ -43,6 +43,24 @@ export function PortfolioGallery() {
       </div>
       {visible.length === 0 ? (
         <p className={styles.empty}>No projects in this filter yet.</p>
+      ) : null}
+
+      {filter === "All" && PROJECT_PLACEHOLDERS.length > 0 ? (
+        <div className={styles.comingSoon}>
+          <h2 className={styles.comingSoonTitle}>More projects</h2>
+          <p className={styles.comingSoonLead}>
+            Additional case studies (projects 7–15) are in progress — details to be
+            supplied.
+          </p>
+          <ul className={styles.placeholderList}>
+            {PROJECT_PLACEHOLDERS.map((p) => (
+              <li key={p.id} className={styles.placeholderItem}>
+                <span className={styles.placeholderTitle}>{p.title}</span>
+                <span className={styles.placeholderMeta}>Details to be supplied</span>
+              </li>
+            ))}
+          </ul>
+        </div>
       ) : null}
     </div>
   );

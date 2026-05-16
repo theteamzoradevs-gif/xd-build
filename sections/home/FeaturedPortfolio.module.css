@@ -2,6 +2,23 @@
   background: var(--color-surface-blue);
 }
 
+.qualityQuote {
+  margin: 0 0 2rem;
+  padding: 1rem 0 1.25rem;
+  border-block: 1px solid var(--color-border);
+  text-align: center;
+}
+
+.qualityQuote p {
+  margin: 0 auto;
+  max-width: 52rem;
+  font-size: clamp(1.05rem, 2.1vw, 1.35rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.45;
+  color: var(--color-text);
+}
+
 .header {
   display: grid;
   gap: 1.25rem;
@@ -49,7 +66,7 @@
 }
 
 .card {
-  background: #f4f8ff;
+  background: var(--color-surface);
   border-radius: var(--radius-card);
   overflow: hidden;
   border: 1px solid var(--color-border);
@@ -102,8 +119,16 @@
   letter-spacing: -0.02em;
 }
 
+.budget {
+  margin: 0;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--color-muted);
+}
+
 .outcome {
   margin: 0;
   color: var(--color-text);
   line-height: 1.5;
+  font-size: 0.95rem;
 }

@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 };
 
 const mapEmbedSrc =
-  "https://maps.google.com/maps?q=7015%20Macleod%20Trail%20SW%20%23400%2C%20Calgary%2C%20AB%20T2H%202K6&t=m&z=17&output=embed";
+  "https://maps.google.com/maps?q=35+Bartlett+Crescent+SE%2C+Calgary%2C+AB+T3S+0P6&t=m&z=17&output=embed";
 
 export default function ContactPage() {
   return (
@@ -55,6 +55,17 @@ export default function ContactPage() {
                   <br />
                   {siteConfig.addressLines[1]}
                 </p>
+              </div>
+              <div>
+                <p className={styles.label}>LinkedIn</p>
+                <Link
+                  className={styles.linkStrong}
+                  href={siteConfig.linkedInCompany}
+                  rel="noreferrer"
+                  target="_blank"
+                >
+                  XD Build on LinkedIn
+                </Link>
               </div>
             </div>
             <div className={styles.quickActions}>

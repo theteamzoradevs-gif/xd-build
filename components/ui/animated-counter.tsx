@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState, type LegacyRef } from "react";
 import { useInViewOnce } from "@/hooks/useInViewOnce";
 import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
 import { parseMetricValue } from "@/lib/parseMetricValue";
@@ -90,7 +90,7 @@ export function AnimatedCounter({
   const shown = formatRunning(display, decimals);
 
   return (
-    <span ref={containerRef} className="inline-flex min-w-0 items-baseline">
+    <span ref={containerRef as LegacyRef<HTMLSpanElement>} className="inline-flex min-w-0 items-baseline">
       {!accessibilityHidden ? (
         <span className="sr-only">{value.trim() || `${prefix}${shown}${suffix}`}</span>
       ) : null}

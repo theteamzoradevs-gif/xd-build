@@ -3,6 +3,7 @@ import { AnimatedCounter } from "@/components/ui/animated-counter";
 import { Section } from "@/components/ui/Section";
 import { CtaBand } from "@/sections/home/CtaBand";
 import { PortfolioGallery } from "@/sections/portfolio/PortfolioGallery";
+import { PORTFOLIO_QUALITY_LINE } from "@/lib/portfolioCopy";
 import portfolioStyles from "./portfolio-page.module.css";
 
 export const metadata: Metadata = {
@@ -15,14 +16,18 @@ export default function PortfolioPage() {
   return (
     <>
       <Section aria-labelledby="portfolio-title">
-        <p className="pageKicker">Our work</p>
+        <p className="pageKicker">Portfolio</p>
         <h1 id="portfolio-title" className="pageTitle">
-          Projects built on clarity and clean handoffs
+          Confirmed projects
         </h1>
         <p className="pageLead">
-          Every engagement below includes a blunt outcome statement, because
-          trust should not require a glossary.
+          Calgary, Alberta, and regional work spanning museums, healthcare, academic
+          campuses, and critical infrastructure — with BIM, scanning, and prefabrication
+          at the centre of delivery.
         </p>
+        <blockquote className={portfolioStyles.qualityQuote}>
+          <p>{PORTFOLIO_QUALITY_LINE}</p>
+        </blockquote>
       </Section>
       <Section tight aria-label="Portfolio projects">
         <PortfolioGallery />

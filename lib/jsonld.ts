@@ -11,12 +11,13 @@ export function organizationJsonLd() {
     address: {
       "@type": "PostalAddress",
       streetAddress: siteConfig.addressLines[0],
-      addressLocality: "San Francisco",
-      addressRegion: "CA",
-      postalCode: "94103",
-      addressCountry: "US",
+      addressLocality: "Calgary",
+      addressRegion: "AB",
+      postalCode: "T3S 0P6",
+      addressCountry: "CA",
     },
-    areaServed: "US",
+    areaServed: "CA",
     description: siteConfig.tagline,
+    sameAs: [siteConfig.linkedInCompany],
   };
 }

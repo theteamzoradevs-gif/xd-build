@@ -1,5 +1,5 @@
 .hero {
-  background: linear-gradient(135deg, var(--color-dark-soft) 0%, #111827 100%);
+  background: var(--color-dark);
   color: #fff;
   border-radius: 0;
   margin-inline: 0;
@@ -236,7 +236,7 @@
   display: grid;
   place-items: center;
   background: linear-gradient(135deg, #d1d5db, #9ca3af);
-  color: #111827;
+  color: var(--color-text);
   font-size: 2rem;
   font-weight: 800;
   letter-spacing: 0.04em;
@@ -316,4 +316,137 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.65rem;
+}
+
+.overview {
+  display: grid;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.leadQuiet {
+  color: rgba(255, 255, 255, 0.88);
+  max-width: 75ch;
+}
+
+.missionVision {
+  display: grid;
+  gap: 1.25rem;
+}
+
+@media (min-width: 900px) {
+  .missionVision {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.mvCard {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: clamp(1.15rem, 2.5vw, 1.5rem);
+  background: var(--color-surface);
+}
+
+.mvBody {
+  margin: 0;
+  color: var(--color-text);
+  line-height: 1.7;
+}
+
+.founder {
+  display: grid;
+  gap: 1.75rem;
+  align-items: start;
+}
+
+@media (min-width: 900px) {
+  .founder {
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1fr);
+    gap: 2.5rem;
+  }
+}
+
+.founderMedia {
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+}
+
+.founderPhoto {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.founderName {
+  margin: 0.35rem 0 0.5rem;
+  font-size: clamp(1.5rem, 2.8vw, 2rem);
+  letter-spacing: -0.03em;
+}
+
+.founderCred {
+  margin: 0 0 1rem;
+  font-weight: 600;
+  color: var(--color-muted);
+}
+
+.bioNote {
+  margin: 0.85rem 0 0;
+  font-style: italic;
+  color: var(--color-muted);
+}
+
+.linkedIn {
+  display: inline-block;
+  margin-top: 1rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.galleryHeader {
+  max-width: 640px;
+  margin-bottom: 1.5rem;
+}
+
+.galleryLead {
+  margin: 0.5rem 0 0;
+  color: var(--color-muted);
+  line-height: 1.65;
+}
+
+.galleryGrid {
+  display: grid;
+  gap: 0.85rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 600px) {
+  .galleryGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1000px) {
+  .galleryGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.galleryCell {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+}
+
+.galleryImg {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  aspect-ratio: 4 / 3;
 }
