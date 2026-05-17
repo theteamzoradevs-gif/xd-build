@@ -45,6 +45,10 @@ export default function ProjectDetailPage({ params }: Props) {
             {project.title}
           </h1>
           <p className={styles.heroMeta}>{project.location}</p>
+          {project.budget ? (
+            <p className={styles.heroBudget}>Budget: {project.budget}</p>
+          ) : null}
+          <p className={styles.heroScope}>{project.scope}</p>
           <p className={styles.heroOutcome}>{project.outcome}</p>
           <div className={styles.heroMedia}>
             <Image

@@ -71,7 +71,7 @@
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 12px;
   padding: 1rem;
-  background: linear-gradient(135deg, #0e172a 0%, #152b4f 100%);
+  background: var(--color-dark);
   color: #fff;
 }
 

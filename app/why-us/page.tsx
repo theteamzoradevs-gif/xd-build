@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { AnimatedCounter } from "@/components/ui/animated-counter";
 import { Section } from "@/components/ui/Section";
 import { CtaBand } from "@/sections/home/CtaBand";
 import { FinalCta } from "@/sections/home/FinalCta";
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
 };
 
 const STATS = [
-  { value: "", label: "Projects completed" },
+  { value: "250+", label: "Projects completed" },
   { value: "12k+", label: "BIM models iterated" },
   { value: "100%", label: "Regulatory documentation traceable" },
   { value: "98%", label: "Clients who return with new scopes" },
@@ -67,7 +68,9 @@ export default function WhyUsPage() {
         <div className={styles.stats}>
           {STATS.map((s) => (
             <div key={s.label}>
-              <p className={styles.statValue}>{s.value}</p>
+              <p className={styles.statValue}>
+                <AnimatedCounter value={s.value} />
+              </p>
               <p className={styles.statLabel}>{s.label}</p>
             </div>
           ))}

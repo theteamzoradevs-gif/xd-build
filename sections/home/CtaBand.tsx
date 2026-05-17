@@ -17,10 +17,13 @@ export function CtaBand({
   subtitle,
   primaryLabel = "View full portfolio",
   primaryHref = "/portfolio",
-  secondaryLabel = "Get Consultation",
-  secondaryHref = "/contact",
+  secondaryLabel,
+  secondaryHref,
   dark,
 }: Props) {
+  const showSecondary =
+    Boolean(secondaryLabel) && Boolean(secondaryHref);
+
   return (
     <Section tight className={dark ? styles.dark : styles.light}>
       <div className={styles.inner}>
@@ -32,13 +35,15 @@ export function CtaBand({
           <Button href={primaryHref} variant="primary">
             {primaryLabel}
           </Button>
-          <Button
-            href={secondaryHref}
-            variant="secondary"
-            className={dark ? styles.secondaryOnDark : undefined}
-          >
-            {secondaryLabel}
-          </Button>
+          {showSecondary ? (
+            <Button
+              href={secondaryHref!}
+              variant="secondary"
+              className={dark ? styles.secondaryOnDark : undefined}
+            >
+              {secondaryLabel}
+            </Button>
+          ) : null}
         </div>
       </div>
     </Section>

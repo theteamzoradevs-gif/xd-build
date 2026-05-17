@@ -4,7 +4,7 @@
   overflow: hidden;
   min-height: 360px;
   border: 1px solid #dbe1ed;
-  background: linear-gradient(135deg, var(--color-dark-soft), #111827);
+  background: var(--color-dark);
 }
 
 .content {
@@ -52,11 +52,11 @@
   justify-content: center;
   border-radius: 8px;
   padding: 0.6rem 1rem;
-  background: #ffc107;
-  color: #0e172a;
+  background: var(--color-accent);
+  color: var(--color-dark);
   font-weight: 700;
 }
 
 .cta:hover {
-  background: #ffb300;
+  background: var(--color-accent-hover);
 }

@@ -8,10 +8,10 @@
 }
 
 .metric {
-  border: 1px solid #0e172a;
+  border: 1px solid var(--color-dark);
   border-radius: var(--radius-card);
   padding: 1.25rem;
-  background: linear-gradient(135deg, #0e172a 0%, #152b4f 100%);
+  background: var(--color-dark);
   box-shadow: none;
 }
 

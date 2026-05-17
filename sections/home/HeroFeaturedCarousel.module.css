@@ -1,0 +1,132 @@
+.root {
+  width: 100%;
+  max-width: 320px;
+  margin-inline: auto;
+  display: grid;
+  gap: 0.75rem;
+}
+
+@media (min-width: 900px) {
+  .root {
+    margin-inline: 0;
+    margin-left: auto;
+    max-width: min(100%, 300px);
+  }
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 12px;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.slide {
+  display: flex;
+  flex-direction: column;
+}
+
+.mediaLink {
+  display: block;
+}
+
+.media {
+  position: relative;
+  aspect-ratio: 16 / 11;
+}
+
+.img {
+  object-fit: cover;
+}
+
+.body {
+  padding: 0.75rem 0.85rem 0.85rem;
+}
+
+.cardTitle {
+  margin: 0;
+  font-size: 0.92rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.cardTitle a {
+  color: inherit;
+}
+
+.cardTitle a:hover {
+  color: var(--color-accent);
+}
+
+.outcome {
+  margin: 0.35rem 0 0;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0 1rem 0.85rem;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  border: 0;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.35);
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.dot[data-active="true"] {
+  background: var(--color-accent);
+  transform: scale(1.15);
+}
+
+.ctaRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 0.45rem;
+  width: 100%;
+  align-items: stretch;
+}
+
+.btnViewProject {
+  justify-content: center;
+  text-align: center;
+  font-weight: 700;
+  box-shadow: 0 2px 14px rgba(245, 178, 5, 0.35);
+  padding-inline: clamp(0.5rem, 1.5vw, 0.75rem) !important;
+  font-size: clamp(0.78rem, 2.2vw, 0.88rem) !important;
+  line-height: 1.2 !important;
+}
+
+.btnViewProject:hover:not(:disabled) {
+  box-shadow: 0 4px 18px rgba(245, 178, 5, 0.45);
+}
+
+.btnAllProjects {
+  justify-content: center;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(255, 255, 255, 0.42) !important;
+  color: rgba(255, 255, 255, 0.96) !important;
+  font-weight: 600;
+  padding-inline: clamp(0.5rem, 1.5vw, 0.75rem) !important;
+  font-size: clamp(0.78rem, 2.2vw, 0.88rem) !important;
+  line-height: 1.2 !important;
+}
+
+.btnAllProjects:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.14) !important;
+  border-color: rgba(255, 255, 255, 0.55) !important;
+  color: #fff !important;
+}

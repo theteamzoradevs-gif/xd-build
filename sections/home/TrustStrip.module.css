@@ -48,12 +48,12 @@
 
 .itemTitle {
   margin: 0 0 0.35rem;
-  color: #0e172a;
+  color: var(--color-text);
   font-size: 1.08rem;
 }
 
 .itemBody {
   margin: 0;
-  color: #6b7280;
+  color: var(--color-muted);
   line-height: 1.6;
 }

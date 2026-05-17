@@ -1,3 +1,4 @@
+import { AnimatedCounter } from "@/components/ui/animated-counter";
 import { Section } from "@/components/ui/Section";
 import styles from "./Metrics.module.css";
 
@@ -21,7 +22,9 @@ export function HomeMetrics() {
       <div className={styles.bar}>
         {STATS.map((s) => (
           <div key={s.label} className={styles.item}>
-            <p className={styles.value}>{s.value}</p>
+            <p className={styles.value}>
+              <AnimatedCounter value={s.value} />
+            </p>
             <p className={styles.label}>{s.label}</p>
           </div>
         ))}

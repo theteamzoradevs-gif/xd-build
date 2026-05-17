@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Section } from "@/components/ui/Section";
 import { CtaBand } from "@/sections/home/CtaBand";
 import { PortfolioGallery } from "@/sections/portfolio/PortfolioGallery";
-import portfolioStyles from "./portfolio-page.module.css";
+import { WORK_WITH_US_CTA } from "@/lib/workWithUsCta";
 
 export const metadata: Metadata = {
   title: "Portfolio",
@@ -14,43 +14,20 @@ export default function PortfolioPage() {
   return (
     <>
       <Section aria-labelledby="portfolio-title">
-        <p className="pageKicker">Our work</p>
+        <p className="pageKicker">Portfolio</p>
         <h1 id="portfolio-title" className="pageTitle">
-          Projects built on clarity and clean handoffs
+          Confirmed projects
         </h1>
         <p className="pageLead">
-          Every engagement below includes a blunt outcome statement, because
-          trust should not require a glossary.
+          Calgary, Alberta, and regional work spanning museums, healthcare, academic
+          campuses, and critical infrastructure — with BIM, scanning, and prefabrication
+          at the centre of delivery.
         </p>
       </Section>
       <Section tight aria-label="Portfolio projects">
         <PortfolioGallery />
       </Section>
-      <Section tight aria-label="Impact metrics">
-        <div className={portfolioStyles.portfolioMetrics}>
-          <div>
-            <p className={portfolioStyles.portfolioMetricVal}>500+</p>
-            <p className={portfolioStyles.portfolioMetricLabel}>projects completed</p>
-          </div>
-          <div>
-            <p className={portfolioStyles.portfolioMetricVal}>12M+</p>
-            <p className={portfolioStyles.portfolioMetricLabel}>sq. ft. designed</p>
-          </div>
-          <div>
-            <p className={portfolioStyles.portfolioMetricVal}>98%</p>
-            <p className={portfolioStyles.portfolioMetricLabel}>clients satisfied</p>
-          </div>
-          <div>
-            <p className={portfolioStyles.portfolioMetricVal}>15</p>
-            <p className={portfolioStyles.portfolioMetricLabel}>national awards</p>
-          </div>
-        </div>
-      </Section>
-      <CtaBand
-        dark
-        title="Interested in working with us?"
-        subtitle="We’ll tell you plainly if XD Build is right for your next milestone, or point you elsewhere."
-      />
+      <CtaBand dark {...WORK_WITH_US_CTA} />
     </>
   );
 }

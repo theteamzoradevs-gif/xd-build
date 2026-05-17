@@ -1,0 +1,49 @@
+.banner {
+  background: linear-gradient(
+    115deg,
+    #141820 0%,
+    #1c1610 38%,
+    #3a3428 55%,
+    #252a32 78%,
+    #12151c 100%
+  );
+  color: #fff;
+  padding-block: clamp(2rem, 5vw, 3rem);
+  margin-inline: 0;
+  width: 100%;
+  box-shadow: inset 0 1px 0 rgba(245, 178, 5, 0.22),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.inner {
+  width: min(100% - 2rem, var(--max-content));
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .inner {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+    gap: 2rem;
+  }
+}
+
+.quote {
+  margin: 0;
+  font-size: clamp(1.05rem, 2.2vw, 1.35rem);
+  font-weight: 600;
+  line-height: 1.45;
+  letter-spacing: -0.02em;
+  color: rgba(255, 255, 255, 0.95);
+  max-width: 46rem;
+}
+
+.cta {
+  flex-shrink: 0;
+}

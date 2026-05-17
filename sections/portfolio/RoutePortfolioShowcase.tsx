@@ -80,7 +80,7 @@ export function RoutePortfolioShowcase({ routeKey }: Props) {
             <h3 className={styles.blockTitle}>{config.otherLabel}</h3>
             <div className={styles.grid}>
               {other.map((project) => (
-                <ProjectCard key={project.slug} project={project} />
+                <ProjectCard key={project.slug} project={project} compact />
               ))}
             </div>
           </div>

@@ -90,5 +90,5 @@
 }
 
 .dot[data-active="true"] {
-  background: #0e172a;
+  background: var(--color-dark);
 }

@@ -2,7 +2,7 @@
 }
 
 .dark {
-  background: linear-gradient(135deg, var(--color-dark-soft), #111827);
+  background: var(--color-dark);
   color: #fff;
 }
 

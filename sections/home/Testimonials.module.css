@@ -1,81 +1,275 @@
 .section {
-  background: linear-gradient(135deg, var(--color-dark-soft), #111827);
-  color: #fff;
+  --td-bg: #161616;
+  --td-muted: #c9cbcc;
+  --td-accent: #f5b205;
+
+  position: relative;
+  overflow: hidden;
+  background: var(--td-bg);
+  color: #ffffff;
 }
 
-.header {
-  margin: 0 auto 1.5rem;
-  max-width: 760px;
+.wrap {
+  position: relative;
+  z-index: 1;
+}
+
+.aura {
+  position: absolute;
+  inset: -20% -10% auto;
+  height: 70%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.blob {
+  position: absolute;
+  width: min(420px, 70vw);
+  height: min(420px, 70vw);
+  border-radius: 50%;
+  left: 10%;
+  top: 0;
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba(245, 178, 5, 0.22),
+    transparent 65%
+  );
+  filter: blur(48px);
+  opacity: 0.9;
+  animation: testimonialsFloat 14s ease-in-out infinite;
+}
+
+.blobSecondary {
+  left: auto;
+  right: 4%;
+  top: 15%;
+  background: radial-gradient(
+    circle at 40% 40%,
+    rgba(255, 255, 255, 0.12),
+    transparent 60%
+  );
+  animation-duration: 18s;
+  animation-delay: -4s;
+}
+
+@keyframes testimonialsFloat {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(0, 12px, 0) scale(1.04);
+  }
+}
+
+.content {
+  position: relative;
+  z-index: 1;
   text-align: center;
+}
+
+.eyebrow {
+  margin: 0 0 0.85rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--td-accent);
 }
 
 .title {
-  margin: 0 0 0.75rem;
-  font-size: clamp(1.625rem, 3vw, 2.125rem);
-  letter-spacing: -0.03em;
+  margin: 0 0 0.85rem;
+  font-size: clamp(1.85rem, 4.2vw, 2.65rem);
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  line-height: 1.06;
+  color: #ffffff;
 }
 
-.lead {
-  margin: 0;
-  color: rgba(255, 255, 255, 0.78);
-  max-width: 62ch;
-  line-height: 1.65;
-}
-
-.carousel {
-  max-width: 760px;
+.sublead {
   margin: 0 auto;
+  max-width: 42rem;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: rgba(201, 203, 204, 0.95);
+}
+
+.logoRail {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.65rem 0.75rem;
+  margin: clamp(2.25rem, 5vw, 3rem) auto clamp(2rem, 4vw, 2.75rem);
+  max-width: 52rem;
+}
+
+.logoPill {
+  position: relative;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 999px;
+}
+
+.logoGlow {
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(245, 178, 5, 0.45),
+    transparent 70%
+  );
+  filter: blur(10px);
+}
+
+.logoPill[data-active="true"] .logoGlow {
+  opacity: 1;
+}
+
+.logoFrame {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0.5rem 1.15rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.045);
+  transition:
+    background 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+}
+
+.logoPill[data-active="true"] .logoFrame {
+  background: rgba(255, 255, 255, 0.09);
+  box-shadow:
+    0 0 0 1px rgba(245, 178, 5, 0.35),
+    0 12px 40px rgba(0, 0, 0, 0.35);
+}
+
+.logoImg {
+  display: block;
+  height: 30px;
+  width: auto;
+  max-width: 132px;
+  object-fit: contain;
+  filter: grayscale(1) brightness(1.15);
+  opacity: 0.55;
+  transition:
+    filter 0.35s ease,
+    opacity 0.35s ease,
+    transform 0.35s ease;
+}
+
+.logoImg[data-active="true"] {
+  filter: none;
+  opacity: 1;
+}
+
+.logoPill:hover .logoImg[data-active="false"] {
+  opacity: 0.78;
+  transform: translateY(-1px);
+}
+
+.logoFallback {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 11rem;
+  line-height: 1.2;
   text-align: center;
-  padding: clamp(1.15rem, 2.8vw, 1.8rem) clamp(1rem, 2.4vw, 1.5rem);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.04);
-  display: grid;
-  gap: 0.7rem;
 }
 
-.quoteMark {
-  margin: 0;
-  font-size: 2rem;
+.cardShell {
+  position: relative;
+  max-width: 42rem;
+  margin: 0 auto;
+}
+
+.decoQuote {
+  position: absolute;
+  left: 50%;
+  top: -2.75rem;
+  transform: translateX(-50%);
+  font-size: clamp(6rem, 18vw, 9rem);
   line-height: 1;
-  color: var(--color-accent);
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.035);
+  pointer-events: none;
+  user-select: none;
 }
 
-.quote {
+.card {
+  position: relative;
+  border-radius: 28px;
+  padding: clamp(2rem, 4.5vw, 3rem) clamp(1.35rem, 4vw, 2.75rem);
+  background: linear-gradient(
+    155deg,
+    rgba(255, 255, 255, 0.075) 0%,
+    rgba(255, 255, 255, 0.03) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 28px 90px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.cardMotion {
+  display: grid;
+  gap: 0;
+}
+
+.blockquote {
   margin: 0;
-  font-size: clamp(1.12rem, 2.2vw, 1.35rem);
-  line-height: 1.7;
-  color: #fff;
+}
+
+.quoteText {
+  margin: 0;
+  font-size: clamp(1.18rem, 2.6vw, 1.42rem);
+  line-height: 1.72;
+  letter-spacing: -0.015em;
+  color: rgba(255, 255, 255, 0.94);
+  font-weight: 500;
+}
+
+.quoteAccent {
+  color: var(--td-accent);
+  font-weight: 700;
+}
+
+.attribution {
+  margin: 1.85rem 0 0;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .author {
-  margin: 0.25rem 0 0;
-  font-weight: 700;
-  color: #fff;
-}
-
-.role {
   margin: 0;
-  color: rgba(255, 255, 255, 0.72);
-  font-size: 0.92rem;
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #ffffff;
 }
 
-.dots {
-  margin-top: 0.6rem;
-  display: flex;
-  justify-content: center;
-  gap: 0.45rem;
+.company {
+  margin: 0.4rem 0 0;
+  font-size: 0.95rem;
+  color: var(--td-muted);
+  line-height: 1.45;
 }
 
-.dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 999px;
-  border: 0;
-  cursor: pointer;
-  background: rgba(255, 255, 255, 0.35);
-}
-
-.dot[data-active="true"] {
-  background: var(--color-accent);
+@media (max-width: 640px) {
+  .aura {
+    opacity: 0.75;
+  }
 }

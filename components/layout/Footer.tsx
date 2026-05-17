@@ -26,7 +26,7 @@ export function Footer() {
             </Link>
             <p className={styles.blurb}>{siteConfig.tagline}</p>
             <div className={styles.social}>
-              <a href="https://www.linkedin.com/" rel="noreferrer" target="_blank">
+              <a href={siteConfig.linkedInCompany} rel="noreferrer" target="_blank">
                 LinkedIn
               </a>
               <span aria-hidden> · </span>
@@ -49,13 +49,16 @@ export function Footer() {
             <p className={styles.colTitle}>Expertise</p>
             <ul className={styles.links}>
               <li>
-                <Link href="/services#bim">BIM coordination</Link>
+                <Link href="/services#bim-solutions">BIM solutions</Link>
               </li>
               <li>
-                <Link href="/services#mep">MEP systems</Link>
+                <Link href="/services#prefab-design">Pre-fab design</Link>
               </li>
               <li>
-                <Link href="/services#vdc">VDC &amp; planning</Link>
+                <Link href="/services#laser-scanning">Laser scanning</Link>
+              </li>
+              <li>
+                <Link href="/services#renovation-design">Renovation design</Link>
               </li>
             </ul>
           </div>
