@@ -1,17 +1,16 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
+import { AboutTeam } from "@/sections/about/AboutTeam";
+import { MissionVision } from "@/sections/about/MissionVision";
 import { FinalCta } from "@/sections/home/FinalCta";
 import { RoutePortfolioShowcase } from "@/sections/portfolio/RoutePortfolioShowcase";
 import {
   COMPANY_OVERVIEW,
-  FOUNDER,
-  MISSION,
-  VISION,
   WORK_GALLERY_PLACEHOLDERS,
 } from "@/lib/about";
+import { COMPANY_INTRO_REST } from "@/lib/home";
 import styles from "./about.module.css";
 
 export const metadata: Metadata = {
@@ -35,60 +34,14 @@ export default function AboutPage() {
                 {paragraph}
               </p>
             ))}
+            <p className={`${styles.blockText} ${styles.leadQuiet}`}>{COMPANY_INTRO_REST}</p>
           </div>
         </div>
       </Section>
 
-      <Section aria-labelledby="mission-vision">
-        <h2 id="mission-vision" className="sr-only">
-          Mission and vision
-        </h2>
-        <div className={styles.missionVision}>
-          <article className={styles.mvCard}>
-            <p className="pageKicker">Mission</p>
-            <p className={styles.mvBody}>{MISSION}</p>
-          </article>
-          <article className={styles.mvCard}>
-            <p className="pageKicker">Vision</p>
-            <p className={styles.mvBody}>{VISION}</p>
-          </article>
-        </div>
-      </Section>
+      <MissionVision />
 
-      <Section aria-labelledby="founder-title">
-        <div className={styles.founder}>
-          <div className={styles.founderMedia}>
-            <Image
-              src={FOUNDER.photo}
-              alt={`${FOUNDER.name}, ${FOUNDER.title}`}
-              width={480}
-              height={600}
-              className={styles.founderPhoto}
-              sizes="(max-width: 900px) 100vw, 420px"
-              priority
-            />
-          </div>
-          <div>
-            <p className="pageKicker">Founder</p>
-            <h2 id="founder-title" className={styles.founderName}>
-              {FOUNDER.name}
-            </h2>
-            <p className={styles.founderCred}>
-              {FOUNDER.title}&nbsp;&nbsp;|&nbsp;&nbsp;{FOUNDER.credentials}
-            </p>
-            <p className={styles.blockText}>{FOUNDER.interimBio}</p>
-            <p className={styles.bioNote}>{FOUNDER.bioPlaceholder}</p>
-            <Link
-              className={styles.linkedIn}
-              href={FOUNDER.linkedIn}
-              rel="noreferrer"
-              target="_blank"
-            >
-              LinkedIn profile
-            </Link>
-          </div>
-        </div>
-      </Section>
+      <AboutTeam />
 
       <Section aria-labelledby="gallery-title">
         <div className={styles.galleryHeader}>

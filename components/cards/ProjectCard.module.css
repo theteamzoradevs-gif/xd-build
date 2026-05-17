@@ -77,9 +77,13 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.35rem;
+  align-items: center;
 }
 
 .tag {
+  flex: 0 0 auto;
+  align-self: center;
+  white-space: nowrap;
   font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.06em;
@@ -122,4 +126,29 @@
   font-size: 0.95rem;
   color: var(--color-text);
   line-height: 1.5;
+}
+
+.compact .body {
+  gap: 0.28rem;
+  padding: 0.85rem 1rem 1.15rem;
+}
+
+.compact .title {
+  font-size: 1.05rem;
+}
+
+.compact .meta {
+  margin: 0;
+  font-size: 0.86rem;
+  line-height: 1.35;
+}
+
+.compact .outcome {
+  margin: 0.22rem 0 0;
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.compact .tags {
+  gap: 0.28rem;
 }

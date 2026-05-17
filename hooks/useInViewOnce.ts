@@ -8,9 +8,6 @@ const defaultOptions: IntersectionObserverInit = {
   rootMargin: "0px 0px -6% 0px",
 };
 
-/**
- * Fires once when the element intersects the viewport (or is already visible on mount).
- */
 export function useInViewOnce<T extends Element = HTMLElement>(
   options?: IntersectionObserverInit,
 ): readonly [RefObject<T | null>, boolean] {

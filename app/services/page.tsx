@@ -4,6 +4,7 @@ import { Section } from "@/components/ui/Section";
 import { CtaBand } from "@/sections/home/CtaBand";
 import { RoutePortfolioShowcase } from "@/sections/portfolio/RoutePortfolioShowcase";
 import { ServiceSection } from "@/sections/services/ServiceSection";
+import { WORK_WITH_US_CTA } from "@/lib/workWithUsCta";
 
 export const metadata: Metadata = {
   title: "Services",
@@ -91,6 +92,8 @@ export default function ServicesPage() {
       </Section>
 
       <RoutePortfolioShowcase routeKey="services" />
+
+      <CtaBand dark {...WORK_WITH_US_CTA} />
     </>
   );
 }

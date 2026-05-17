@@ -14,22 +14,14 @@ function formatRunning(n: number, decimals: number): string {
 }
 
 export type AnimatedCounterProps = {
-  /** Original display string for parsing and assistive text (e.g. "500+", "98%"). */
   value: string;
   className?: string;
-  /** Override parsed numeric end. */
   end?: number;
-  /** Override parsed prefix. */
   prefix?: string;
-  /** Override parsed suffix. */
   suffix?: string;
-  /** Override inferred decimal places. */
   decimals?: number;
-  /** Animation length in milliseconds. */
   duration?: number;
-  /** Easing on normalized time in [0, 1]. */
   easing?: (t: number) => number;
-  /** When true, no sr-only span; parent must expose the full phrase to assistive tech. */
   accessibilityHidden?: boolean;
 };
 

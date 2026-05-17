@@ -9,7 +9,7 @@ export const siteConfig = {
   whatsappE164: "14038882657",
   linkedInCompany: "https://www.linkedin.com/company/xdbuild",
   addressLines: ["35 Bartlett Crescent SE", "Calgary, AB T3S 0P6"],
-  ogImage: "/images/xd-logo.png",
+  ogImage: "/images/logo/2.png",
 } as const;
 
 export type NavKey =

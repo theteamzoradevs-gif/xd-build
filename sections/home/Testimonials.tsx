@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import {
-  Fragment,
   type ReactNode,
   useCallback,
   useEffect,
@@ -11,7 +10,7 @@ import {
   useState,
 } from "react";
 import { Section } from "@/components/ui/Section";
-import { TESTIMONIALS, TRUST_STATS } from "@/lib/testimonials";
+import { TESTIMONIALS } from "@/lib/testimonials";
 import styles from "./Testimonials.module.css";
 
 function quoteWithHighlights(
@@ -52,7 +51,7 @@ function quoteWithHighlights(
   return (
     <>
       {nodes.map((n, i) => (
-        <Fragment key={i}>{n}</Fragment>
+        <span key={i}>{n}</span>
       ))}
     </>
   );
@@ -81,100 +80,88 @@ export function Testimonials() {
         onMouseEnter={() => setPause(true)}
         onMouseLeave={() => setPause(false)}
       >
-      <div className={styles.aura} aria-hidden>
-        <span className={styles.blob} />
-        <span className={`${styles.blob} ${styles.blobSecondary}`} />
-      </div>
-
-      <div className={styles.content}>
-        <p className={styles.eyebrow}>Trusted by industry leaders</p>
-        <h2 id={labelId} className={styles.title}>
-          Social proof from teams who ship in the field
-        </h2>
-        <p className={styles.sublead}>
-          Builders, trades, and owners who measure us on outcomes — not slide decks.
-        </p>
-
-        <div
-          className={styles.logoRail}
-          role="tablist"
-          aria-label="Select client testimonial"
-        >
-          {TESTIMONIALS.map((t, idx) => {
-            const selected = idx === index;
-            return (
-              <motion.button
-                key={t.company}
-                type="button"
-                role="tab"
-                aria-selected={selected}
-                className={styles.logoPill}
-                data-active={selected ? "true" : "false"}
-                onClick={() => onPick(idx)}
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.98 }}
-                transition={{ type: "spring", stiffness: 420, damping: 28 }}
-              >
-                <span className={styles.logoGlow} aria-hidden />
-                <span className={styles.logoFrame}>
-                  {t.logoSrc ? (
-                    <Image
-                      src={t.logoSrc}
-                      alt=""
-                      width={140}
-                      height={36}
-                      className={styles.logoImg}
-                      data-active={selected ? "true" : "false"}
-                    />
-                  ) : (
-                    <span className={styles.logoFallback}>{t.company}</span>
-                  )}
-                </span>
-              </motion.button>
-            );
-          })}
+        <div className={styles.aura} aria-hidden>
+          <span className={styles.blob} />
+          <span className={`${styles.blob} ${styles.blobSecondary}`} />
         </div>
 
-        <div className={styles.cardShell}>
-          <span className={styles.decoQuote} aria-hidden>
-            &ldquo;
-          </span>
-          <div className={styles.card}>
-            <AnimatePresence mode="wait" initial={false}>
-              <motion.div
-                key={active.company + index}
-                className={styles.cardMotion}
-                initial={{ opacity: 0, y: 14 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.38, ease: [0.22, 1, 0.36, 1] }}
-              >
-                <blockquote className={styles.blockquote}>
-                  <p className={styles.quoteText}>
-                    {quoteWithHighlights(active.quote, active.quoteHighlights)}
-                  </p>
-                </blockquote>
-                <footer className={styles.attribution}>
-                  <p className={styles.author}>{active.name}</p>
-                  <p className={styles.company}>{active.company}</p>
-                </footer>
-              </motion.div>
-            </AnimatePresence>
+        <div className={styles.content}>
+          <p className={styles.eyebrow}>Trusted by industry leaders</p>
+          <h2 id={labelId} className={styles.title}>
+            Social proof from teams who ship in the field
+          </h2>
+          <p className={styles.sublead}>
+            Builders, trades, and owners who measure us on outcomes — not slide decks.
+          </p>
+
+          <div
+            className={styles.logoRail}
+            role="tablist"
+            aria-label="Select client testimonial"
+          >
+            {TESTIMONIALS.map((t, idx) => {
+              const selected = idx === index;
+              return (
+                <motion.button
+                  key={t.company}
+                  type="button"
+                  role="tab"
+                  aria-selected={selected}
+                  className={styles.logoPill}
+                  data-active={selected ? "true" : "false"}
+                  onClick={() => onPick(idx)}
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.98 }}
+                  transition={{ type: "spring", stiffness: 420, damping: 28 }}
+                >
+                  <span className={styles.logoGlow} aria-hidden />
+                  <span className={styles.logoFrame}>
+                    {t.logoSrc ? (
+                      <Image
+                        src={t.logoSrc}
+                        alt=""
+                        width={140}
+                        height={36}
+                        className={styles.logoImg}
+                        data-active={selected ? "true" : "false"}
+                      />
+                    ) : (
+                      <span className={styles.logoFallback}>{t.company}</span>
+                    )}
+                  </span>
+                </motion.button>
+              );
+            })}
+          </div>
+
+          <div className={styles.cardShell}>
+            <span className={styles.decoQuote} aria-hidden>
+              &ldquo;
+            </span>
+            <div className={styles.card}>
+              <AnimatePresence mode="wait" initial={false}>
+                <motion.div
+                  key={active.company + index}
+                  className={styles.cardMotion}
+                  initial={{ opacity: 0, y: 14 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.38, ease: [0.22, 1, 0.36, 1] }}
+                >
+                  <blockquote className={styles.blockquote}>
+                    <p className={styles.quoteText}>
+                      {quoteWithHighlights(active.quote, active.quoteHighlights)}
+                    </p>
+                  </blockquote>
+                  <footer className={styles.attribution}>
+                    <p className={styles.author}>{active.name}</p>
+                    <p className={styles.company}>{active.company}</p>
+                  </footer>
+                </motion.div>
+              </AnimatePresence>
+            </div>
           </div>
         </div>
-
-        <div className={styles.stats} aria-label="Trust metrics">
-          {TRUST_STATS.map((s, i) => (
-            <Fragment key={s.label}>
-              {i > 0 ? <span className={styles.statSep} aria-hidden /> : null}
-              <div className={styles.stat}>
-                <p className={styles.statValue}>{s.value}</p>
-                <p className={styles.statLabel}>{s.label}</p>
-              </div>
-            </Fragment>
-          ))}
-        </div>
-      </div>
       </div>
     </Section>
   );

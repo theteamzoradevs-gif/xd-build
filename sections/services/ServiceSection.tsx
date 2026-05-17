@@ -10,7 +10,6 @@ type Props = {
   problem: string;
   solution: string;
   outcome: string;
-  /** When set, replaces the Problem / Solution / Outcome blocks with a single summary. */
   summary?: string;
   imageSrc: string;
   imageAlt: string;

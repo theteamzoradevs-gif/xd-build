@@ -10,17 +10,6 @@ export const MISSION =
 export const VISION =
   "We envision a future where our innovation and collaborative approach enhance every aspect of construction projects, from planning to execution. By prioritising our clients' needs, we aim to create lasting value in the industry.";
 
-export const FOUNDER = {
-  name: "Vinay Levaka",
-  title: "Founder & Director",
-  credentials: "PMP, LEED AP, EIT",
-  linkedIn: "https://www.linkedin.com/in/vinay-kumar-levaka/",
-  photo: "/images/vinay-levaka.jpg",
-  bioPlaceholder: "Updated bio to be given",
-  interimBio:
-    "Vinay brings over 12 years of construction industry expertise, with a Master's in Aerospace Engineering. With a global perspective, he has spearheaded projects across Singapore, India, the Middle East, USA, and Canada.",
-} as const;
-
 export const WORK_GALLERY_PLACEHOLDERS = [
   {
     src: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1200&auto=format&fit=crop",

@@ -3,7 +3,6 @@ import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
 import { FEATURED_PROJECT_SLUGS } from "@/lib/home";
-import { PORTFOLIO_QUALITY_LINE } from "@/lib/portfolioCopy";
 import { getFeaturedProjects } from "@/lib/projects";
 import styles from "./FeaturedPortfolio.module.css";
 
@@ -15,9 +14,6 @@ export function FeaturedPortfolio() {
       className={styles.section}
       aria-labelledby="featured-portfolio-title"
     >
-      <blockquote className={styles.qualityQuote}>
-        <p>{PORTFOLIO_QUALITY_LINE}</p>
-      </blockquote>
       <div className={styles.header}>
         <div>
           <p className={styles.kicker}>Portfolio preview</p>

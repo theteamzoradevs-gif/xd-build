@@ -2,14 +2,16 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { cn } from "@/utils/cn";
 import type { Project } from "@/lib/projects";
 import styles from "./ProjectCard.module.css";
 
 type Props = {
   project: Project;
+  compact?: boolean;
 };
 
-export function ProjectCard({ project }: Props) {
+export function ProjectCard({ project, compact }: Props) {
   const span =
     project.gridSize === "large"
       ? styles.spanWide
@@ -18,7 +20,7 @@ export function ProjectCard({ project }: Props) {
         : styles.spanNormal;
 
   return (
-    <article className={`${styles.card} ${span}`}>
+    <article className={cn(styles.card, span, compact && styles.compact)}>
       <Link href={`/portfolio/${project.slug}`} className={styles.mediaLink}>
         <div className={styles.media}>
           <Image

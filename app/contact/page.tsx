@@ -4,6 +4,8 @@ import { Suspense } from "react";
 import { Section } from "@/components/ui/Section";
 import { ContactForm } from "@/components/forms/ContactForm";
 import { RoutePortfolioShowcase } from "@/sections/portfolio/RoutePortfolioShowcase";
+import { CtaBand } from "@/sections/home/CtaBand";
+import { WORK_WITH_US_CTA } from "@/lib/workWithUsCta";
 import { siteConfig } from "@/lib/site";
 import styles from "./contact.module.css";
 
@@ -111,6 +113,8 @@ export default function ContactPage() {
       </Section>
 
       <RoutePortfolioShowcase routeKey="contact" />
+
+      <CtaBand dark {...WORK_WITH_US_CTA} />
     </>
   );
 }

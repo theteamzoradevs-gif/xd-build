@@ -36,7 +36,6 @@ export const PROJECTS: Project[] = [
     heroSrc:
       "https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=2048&auto=format&fit=crop",
     heroAlt: "University of Calgary veterinary learning expansion",
-    gridSize: "large",
     problem:
       "A new teaching facility needed mechanical and electrical systems coordinated across three floors while supporting flexible classrooms, wellness programs, and a doubling of training seats.",
     solution:
@@ -57,7 +56,6 @@ export const PROJECTS: Project[] = [
     heroSrc:
       "https://images.unsplash.com/photo-1565008576549-57569a49371d?q=80&w=2048&auto=format&fit=crop",
     heroAlt: "Glenbow Museum revitalization, Calgary",
-    gridSize: "large",
     problem:
       "A museum-wide renewal required mechanical systems to be coordinated across eight floors, a new rooftop, and multiple public venues without compromising the architectural vision.",
     solution:

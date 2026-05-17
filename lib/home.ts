@@ -3,6 +3,10 @@ export const COMPANY_INTRO = [
   "From laser scanning and MEP coordination to full prefabrication detailing and on-site representation, XD Build covers every phase of the project lifecycle — so your team can focus on what they do best.",
 ] as const;
 
+export const COMPANY_INTRO_LEAD = COMPANY_INTRO[0];
+
+export const COMPANY_INTRO_REST = COMPANY_INTRO[1];
+
 export const WHY_US_PILLARS = [
   {
     title: "Expertise",

@@ -20,9 +20,9 @@ export const metadata: Metadata = {
   },
   description: siteConfig.tagline,
   icons: {
-    icon: "/images/xd-logo.png",
-    shortcut: "/images/xd-logo.png",
-    apple: "/images/xd-logo.png",
+    icon: "/images/logo/2.png",
+    shortcut: "/images/logo/2.png",
+    apple: "/images/logo/2.png",
   },
   openGraph: {
     title: siteConfig.name,

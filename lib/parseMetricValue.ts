@@ -5,9 +5,6 @@ export type ParsedMetric = {
   decimals: number;
 };
 
-/**
- * Parses display strings like "500+", "98%", "12M+", "12k+", "15", "9.5%".
- */
 export function parseMetricValue(input: string): ParsedMetric {
   const trimmed = input.trim();
   if (!trimmed) {

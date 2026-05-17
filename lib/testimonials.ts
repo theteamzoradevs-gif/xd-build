@@ -3,7 +3,6 @@ export type Testimonial = {
   name: string;
   company: string;
   logoSrc?: string;
-  /** Substrings to emphasize in accent (longer phrases first avoids partial clashes). */
   quoteHighlights?: readonly string[];
 };
 
@@ -41,9 +40,3 @@ export const TESTIMONIALS: Testimonial[] = [
     quoteHighlights: ["outstanding support", "efficient service delivery"],
   },
 ];
-
-export const TRUST_STATS = [
-  { value: "150+", label: "Projects delivered" },
-  { value: "98%", label: "Client retention" },
-  { value: "12+", label: "Enterprise partners" },
-] as const;
