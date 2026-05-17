@@ -163,6 +163,11 @@ export function Testimonials() {
           </div>
         </div>
       </div>
+
+      <div className={styles.sectionBridge} aria-hidden>
+        <span className={styles.bridgeGlow} />
+        <span className={styles.bridgeLine} />
+      </div>
     </Section>
   );
 }

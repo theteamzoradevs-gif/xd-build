@@ -9,11 +9,6 @@
   color: #ffffff;
 }
 
-.wrap {
-  position: relative;
-  z-index: 1;
-}
-
 .aura {
   position: absolute;
   inset: -20% -10% auto;
@@ -159,21 +154,12 @@
   width: auto;
   max-width: 132px;
   object-fit: contain;
-  filter: grayscale(1) brightness(1.15);
-  opacity: 0.55;
-  transition:
-    filter 0.35s ease,
-    opacity 0.35s ease,
-    transform 0.35s ease;
-}
-
-.logoImg[data-active="true"] {
   filter: none;
   opacity: 1;
+  transition: transform 0.35s ease;
 }
 
 .logoPill:hover .logoImg[data-active="false"] {
-  opacity: 0.78;
   transform: translateY(-1px);
 }
 
@@ -272,4 +258,45 @@
   .aura {
     opacity: 0.75;
   }
+}
+
+.sectionBridge {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  padding-block: clamp(2.25rem, 5vw, 3.75rem);
+  pointer-events: none;
+}
+
+.bridgeGlow {
+  position: absolute;
+  width: min(92%, 720px);
+  height: 56px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(
+    ellipse 50% 100% at 50% 50%,
+    rgba(245, 178, 5, 0.14),
+    transparent 70%
+  );
+  filter: blur(18px);
+  opacity: 0.85;
+}
+
+.bridgeLine {
+  position: relative;
+  width: min(82%, 560px);
+  height: 1px;
+  border-radius: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(201, 203, 204, 0.15) 18%,
+    rgba(245, 178, 5, 0.5) 50%,
+    rgba(201, 203, 204, 0.15) 82%,
+    transparent
+  );
+  box-shadow: 0 0 24px rgba(245, 178, 5, 0.12);
 }
