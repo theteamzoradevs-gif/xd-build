@@ -26,9 +26,9 @@ export default function HomePage() {
       <WhyOutsource />
       <CompanyIntro />
       <HomeServicesGrid />
-      <ValuePropositionSection />
+      {/* <ValuePropositionSection /> */}
       <QualityLineBanner />
-      <WorkflowSection />
+      {/* <WorkflowSection /> */}
       <WhyUs />
       <FeaturedPortfolio />
       <Testimonials />

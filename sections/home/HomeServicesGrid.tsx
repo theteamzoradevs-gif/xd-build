@@ -11,7 +11,7 @@ export function HomeServicesGrid() {
     <Section bleed className={styles.section} aria-labelledby="home-services-title">
       <div className={styles.header}>
         <h2 id="home-services-title" className={styles.title}>
-          Glimpse of our services
+          Our services
         </h2>
         <p className={styles.subquote}>{HOME_SERVICES_SUBQUOTE}</p>
       </div>
