@@ -27,12 +27,19 @@ export function HomeHero() {
         loop
         playsInline
         preload="metadata"
+<<<<<<< HEAD
+        poster="/images/hero-poster.jpg"
+        aria-hidden
+      >
+        <source src="/videos/xdHeroVideo.mp4" type="video/mp4" />
+=======
         poster="https://images.unsplash.com/photo-1541888946425-d81bb940b71e?q=80&w=1800&auto=format&fit=crop"
       >
         <source
           src="https://cdn.coverr.co/videos/coverr-construction-site-at-sunset-1579/1080p.mp4"
           type="video/mp4"
         />
+>>>>>>> a23b02491cd3a51a0982677aa750229bd2541b66
       </video>
       <div className={styles.videoTint} aria-hidden />
       <div className={styles.grid}>

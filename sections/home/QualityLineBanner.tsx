@@ -15,6 +15,18 @@ export function QualityLineBanner() {
       className={styles.banner}
       aria-labelledby="quality-line-heading"
     >
+<<<<<<< HEAD
+      <div
+        className={`${styles.inner} ${visible ? styles.innerInView : ""}`}
+      >
+        <span className={styles.accent} aria-hidden />
+        <div className={styles.copy}>
+          <span className={styles.badge}>Standard we hold</span>
+          <h2 id="quality-line-heading" className={styles.title}>
+            Quality you can trust on every handoff
+          </h2>
+          <p className={styles.lead}>{PORTFOLIO_QUALITY_LINE}</p>
+=======
       <div className={styles.texture} aria-hidden />
       <div
         className={`${styles.inner} ${visible ? styles.innerInView : ""}`}
@@ -25,6 +37,7 @@ export function QualityLineBanner() {
           <p id="quality-line-heading" className={styles.quote}>
             {PORTFOLIO_QUALITY_LINE}
           </p>
+>>>>>>> a23b02491cd3a51a0982677aa750229bd2541b66
         </div>
         <Button href="/contact" variant="primary" className={styles.cta}>
           Book a call
