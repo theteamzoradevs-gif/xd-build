@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import type { LegacyRef } from "react";
 import { Button } from "@/components/ui/Button";
@@ -15,20 +15,25 @@ export function QualityLineBanner() {
       className={styles.banner}
       aria-labelledby="quality-line-heading"
     >
-      <div className={styles.texture} aria-hidden />
       <div
         className={`${styles.inner} ${visible ? styles.innerInView : ""}`}
       >
-        <span className={styles.spine} aria-hidden />
+        <span className={styles.accent} aria-hidden />
         <div className={styles.copy}>
-          <p className={styles.kicker}>Standard we hold</p>
-          <p id="quality-line-heading" className={styles.quote}>
-            {PORTFOLIO_QUALITY_LINE}
-          </p>
+          <span className={styles.badge}>Standard we hold</span>
+          <h2 id="quality-line-heading" className={styles.title}>
+            Quality you can trust on every handoff
+          </h2>
+          <p className={styles.lead}>{PORTFOLIO_QUALITY_LINE}</p>
         </div>
-        <Button href="/contact" variant="primary" className={styles.cta}>
-          Book a call
-        </Button>
+        <div className={styles.actions}>
+          <Button href="/contact" variant="primary" className={styles.cta}>
+            Book a call
+          </Button>
+          <Button href="/contact" variant="secondary" className={styles.ctaSecondary}>
+            Contact us
+          </Button>
+        </div>
       </div>
     </aside>
   );

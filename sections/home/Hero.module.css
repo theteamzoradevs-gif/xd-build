@@ -1,4 +1,4 @@
-.wrap {
+﻿.wrap {
   background: linear-gradient(135deg, var(--color-dark) 0%, #121826 65%);
   color: #fff;
   margin-inline: 0;
@@ -34,6 +34,8 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  filter: saturate(0.95) contrast(1.02) brightness(0.85);
+  opacity: 0.98;
 }
 
 .videoTint {
@@ -41,11 +43,12 @@
   inset: 0;
   background: linear-gradient(
     135deg,
-    rgba(14, 23, 42, 0.86) 0%,
-    rgba(21, 43, 79, 0.78) 60%,
-    rgba(14, 23, 42, 0.9) 100%
+    rgba(14, 23, 42, 0.44) 0%,
+    rgba(21, 43, 79, 0.36) 60%,
+    rgba(14, 23, 42, 0.42) 100%
   );
   z-index: 1;
+  backdrop-filter: blur(2px);
 }
 
 .kicker {
@@ -106,6 +109,7 @@
   flex-wrap: wrap;
   gap: 0.65rem 0.75rem;
   align-items: center;
+  margin-top: 65px;
 }
 
 .actionEmail {

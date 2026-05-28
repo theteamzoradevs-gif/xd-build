@@ -11,6 +11,9 @@ import {
   WORK_GALLERY_PLACEHOLDERS,
 } from "@/lib/about";
 import { COMPANY_INTRO_REST } from "@/lib/home";
+import { FEATURED_PROJECT_SLUGS } from "@/lib/home";
+import { getFeaturedProjects } from "@/lib/projects";
+import { HeroFeaturedCarousel } from "@/sections/home/HeroFeaturedCarousel";
 import styles from "./about.module.css";
 
 export const metadata: Metadata = {
@@ -20,6 +23,15 @@ export const metadata: Metadata = {
 };
 
 export default function AboutPage() {
+  const featured = getFeaturedProjects(FEATURED_PROJECT_SLUGS);
+  const carouselProjects = featured.map((p) => ({
+    slug: p.slug,
+    title: p.title,
+    heroSrc: p.heroSrc,
+    heroAlt: p.heroAlt,
+    outcome: p.outcome,
+  }));
+
   return (
     <>
       <Section className={styles.hero} aria-labelledby="about-hero-title">
@@ -28,13 +40,19 @@ export default function AboutPage() {
           <h1 id="about-hero-title" className="pageTitle">
             Company overview
           </h1>
-          <div className={styles.overview}>
-            {COMPANY_OVERVIEW.map((paragraph) => (
-              <p key={paragraph.slice(0, 40)} className={`${styles.blockText} ${styles.leadQuiet}`}>
-                {paragraph}
-              </p>
-            ))}
-            <p className={`${styles.blockText} ${styles.leadQuiet}`}>{COMPANY_INTRO_REST}</p>
+          <div className={styles.twoCol}>
+            <div className={styles.overview}>
+              {COMPANY_OVERVIEW.map((paragraph) => (
+                <p key={paragraph.slice(0, 40)} className={`${styles.blockText} ${styles.leadQuiet}`}>
+                  {paragraph}
+                </p>
+              ))}
+              <p className={`${styles.blockText} ${styles.leadQuiet}`}>{COMPANY_INTRO_REST}</p>
+            </div>
+
+            <div>
+              <HeroFeaturedCarousel projects={carouselProjects} />
+            </div>
           </div>
         </div>
       </Section>

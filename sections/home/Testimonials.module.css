@@ -1,4 +1,4 @@
-.section {
+﻿.section {
   --td-bg: #161616;
   --td-muted: #c9cbcc;
   --td-accent: #f5b205;
@@ -265,14 +265,14 @@
   z-index: 2;
   display: grid;
   place-items: center;
-  padding-block: clamp(2.25rem, 5vw, 3.75rem);
+  padding-block: clamp(0.35rem, 1vw, 0.8rem);
   pointer-events: none;
 }
 
 .bridgeGlow {
   position: absolute;
   width: min(92%, 720px);
-  height: 56px;
+  height: 24px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);

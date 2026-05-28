@@ -31,10 +31,9 @@ export const PROJECTS: Project[] = [
     scope:
       "Backed with $68.5 million in provincial capital funding, the new facility provides flexible active classrooms, student gathering areas, and wellness spaces, while doubling annual veterinary medicine training seats from 50 to 100. Scope includes design and coordination of all mechanical and electrical contracting work across this three-floor building.",
     categories: ["BIM", "MEP"],
-    outcome:
-      "Academic expansion with fully coordinated MEP — doubling training capacity across three floors.",
+    outcome: "Education + veterinary facility — matches Veterinary Learning Commons",
     heroSrc:
-      "https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=2048&auto=format&fit=crop",
+      "/images/portfolio_images/Veterinary Learning Commons at the University of Calgary.jpg",
     heroAlt: "University of Calgary veterinary learning expansion",
     problem:
       "A new teaching facility needed mechanical and electrical systems coordinated across three floors while supporting flexible classrooms, wellness programs, and a doubling of training seats.",
@@ -51,10 +50,9 @@ export const PROJECTS: Project[] = [
     scope:
       "With an estimated $120 million budget, the Glenbow Museum was renovated and modernised into a world-class gallery space. All eight floors were renewed, with a new 13,000 sq ft rooftop, theatre, shop, and restaurant to create distinct experiences throughout the building and encourage return visits. BIM scope included complete mechanical renovation design support and prefabrication.",
     categories: ["BIM", "MEP"],
-    outcome:
-      "Major cultural renewal — eight floors, new rooftop, and hospitality program with mechanical prefabrication support.",
+    outcome: "Modern architecture + public/commercial vibe — museum/gallery type",
     heroSrc:
-      "https://images.unsplash.com/photo-1565008576549-57569a49371d?q=80&w=2048&auto=format&fit=crop",
+      "/images/portfolio_images/MNP Community and Sports Centre.webp",
     heroAlt: "Glenbow Museum revitalization, Calgary",
     problem:
       "A museum-wide renewal required mechanical systems to be coordinated across eight floors, a new rooftop, and multiple public venues without compromising the architectural vision.",
@@ -70,10 +68,9 @@ export const PROJECTS: Project[] = [
     scope:
       "As part of a chilled water system upgrade, the system was modelled with two chillers, a heat exchanger, three pumps, and a cooling tower with a 32\" pump header, with the majority of piping at 16\". The facility was laser scanned; phased demolition was planned and new services coordinated with existing heating and secondary cooling. Spool drawings helped the mechanical contractor shift roughly 90% of welding offsite — improving site safety and keeping the project on schedule.",
     categories: ["MEP", "BIM"],
-    outcome:
-      "Hospital plant upgrade with laser-scanned phasing, coordinated tie-ins, and fabrication-first spool packages.",
+    outcome: "Medical/research facility — mechanical/chiller systems project fit",
     heroSrc:
-      "https://images.unsplash.com/photo-1581093196277-9f608bb3fdbb?q=80&w=2048&auto=format&fit=crop",
+      "/images/portfolio_images/Heritage Medical Research Building.jpg",
     heroAlt: "RGH chilled water system upgrade",
     gridSize: "tall",
     problem:
@@ -90,10 +87,9 @@ export const PROJECTS: Project[] = [
     scope:
       "The data centre’s chilled water system was upgraded to serve unit expansion. The challenge was fitting the new system into the existing mechanical room. XD Build laser scanned to capture structure and conduits, modelled in BIM against the point cloud, and coordinated with existing conditions. Approximately 600 spool drawings supported offsite fabrication, reducing onsite labour hours by about 80%.",
     categories: ["MEP", "BIM"],
-    outcome:
-      "Dense existing plant — point cloud coordination and ~600 spools cutting onsite labour dramatically.",
+    outcome: "Tech / data centre — corporate infrastructure vibe",
     heroSrc:
-      "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=2048&auto=format&fit=crop",
+      "/images/portfolio_images/CAMH-2026.jpg",
     heroAlt: "Data centre mechanical upgrade, Alberta",
     gridSize: "medium",
     problem:
@@ -111,10 +107,9 @@ export const PROJECTS: Project[] = [
     scope:
       "With an estimated $73M budget, this project redevelops Rockyview General Hospital’s Intensive Care Unit, Coronary Care Unit, and Gastrointestinal Clinic. BIM scope included modelling and coordinating mechanical services and resolving major issues before installation. Laser scanning captured as-built structure and sanitary services, coordinating work to avoid shutdowns in the emergency unit above the renovation space.",
     categories: ["BIM", "MEP"],
-    outcome:
-      "Critical-care redevelopment beneath an active emergency unit — scanning, coordination, and clash resolution before install.",
+    outcome: "Hospital redevelopment — ICU and critical-care upgrades (exact match)",
     heroSrc:
-      "https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?q=80&w=2048&auto=format&fit=crop",
+      "/images/portfolio_images/Rockyview General hospital.jpg",
     heroAlt: "Rockyview General Hospital expansion",
     gridSize: "tall",
     problem:
@@ -131,10 +126,9 @@ export const PROJECTS: Project[] = [
     scope:
       "Renovation of a municipal facility in Camrose, Alberta, including heating and cooling upgrades. BIM scope included laser scanning for as-built conditions, demolition planning, coordination of new services with existing systems, and modelling with a target to prefabricate at least 40% of piping and ducting offsite to reduce onsite labour.",
     categories: ["BIM", "MEP"],
-    outcome:
-      "Municipal renewal with scan-to-BIM coordination and a strong prefabrication target for ducts and piping.",
+    outcome: "Institutional renovation — government / public facility look",
     heroSrc:
-      "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2048&auto=format&fit=crop",
+      "/images/portfolio_images/Olds College Renovation.jpg",
     heroAlt: "Camrose Provincial Building renovation",
     gridSize: "medium",
     problem:

@@ -27,7 +27,17 @@
 
 @media (min-width: 900px) {
   .twoCol {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    /* Left column: flexible text, Right column: fixed-width carousel */
+    grid-template-columns: 1fr minmax(300px, 360px);
+    gap: 2rem;
+    align-items: start;
+  }
+
+  /* Center the carousel card vertically in the right column */
+  .twoCol > div:last-child {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 
