@@ -10,16 +10,16 @@ export function MissionVision() {
         Mission and vision
       </h2>
       <div className={styles.grid}>
-        <article className={`${styles.card} ${styles.cardDark}`}>
+        <article className={`${styles.card} ${styles.cardLight}`}>
           <div className={styles.texture} aria-hidden />
-          <span className={`${styles.corner} ${styles.cornerTl}`} aria-hidden />
-          <span className={`${styles.corner} ${styles.cornerBr}`} aria-hidden />
-          <div className={`${styles.blob} ${styles.blobDark}`} aria-hidden />
-          <span className={`${styles.accentTop} ${styles.accentTopDark}`} aria-hidden />
+          <span className={`${styles.corner} ${styles.cornerTlLight}`} aria-hidden />
+          <span className={`${styles.corner} ${styles.cornerBrLight}`} aria-hidden />
+          <div className={`${styles.blob} ${styles.blobLight}`} aria-hidden />
+          <span className={`${styles.accentTop} ${styles.accentTopLight}`} aria-hidden />
 
           <div className={styles.content}>
             <div className={styles.iconOrbit}>
-              <div className={`${styles.iconCircle} ${styles.iconCircleDark}`}>
+              <div className={`${styles.iconCircle} ${styles.iconCircleLight}`}>
                 <Image
                   src="/images/mission.png"
                   alt=""
@@ -29,8 +29,8 @@ export function MissionVision() {
                 />
               </div>
             </div>
-            <p className={`${styles.label} ${styles.labelDark}`}>Mission</p>
-            <p className={`${styles.body} ${styles.bodyDark}`}>{MISSION}</p>
+            <p className={`${styles.label} ${styles.labelLight}`}>Mission</p>
+            <p className={`${styles.body} ${styles.bodyLight}`}>{MISSION}</p>
           </div>
         </article>
 

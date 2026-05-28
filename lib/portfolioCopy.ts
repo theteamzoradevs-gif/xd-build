@@ -1,2 +1,2 @@
 export const PORTFOLIO_QUALITY_LINE =
-  "Quality is never an accident; it is always the result of intelligent effort." as const;
+  "Innovation is where imagination meets execution. Beyond the boundaries of ordinary thinking lies the extraordinary impact of intelligent design." as const;

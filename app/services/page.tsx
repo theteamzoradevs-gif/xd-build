@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
 import { CtaBand } from "@/sections/home/CtaBand";
 import { RoutePortfolioShowcase } from "@/sections/portfolio/RoutePortfolioShowcase";
@@ -84,12 +83,6 @@ export default function ServicesPage() {
         imageAlt="Healthcare and institutional renovation coordination"
         imagePosition="right"
       />
-
-      <Section aria-label="Services call to action">
-        <Button href="/contact" variant="primary">
-          Discuss your scope with XD Build
-        </Button>
-      </Section>
 
       <RoutePortfolioShowcase routeKey="services" />
 

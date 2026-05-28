@@ -24,11 +24,11 @@
 
 @media (min-width: 900px) {
   .spanWide {
-    grid-column: span 2;
+    grid-column: span 1;
   }
 
   .spanTall {
-    grid-row: span 2;
+    grid-row: span 1;
   }
 }
 
@@ -43,11 +43,11 @@
 }
 
 .spanTall .media {
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 4 / 3;
 }
 
 .spanWide .media {
-  aspect-ratio: 21 / 9;
+  aspect-ratio: 4 / 3;
 }
 
 .img {

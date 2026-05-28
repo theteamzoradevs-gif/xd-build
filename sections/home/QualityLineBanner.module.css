@@ -1,48 +1,16 @@
-.banner {
+﻿.banner {
   position: relative;
   overflow: hidden;
-<<<<<<< HEAD
   background: #fff;
   color: var(--color-text);
   margin-inline: 0;
   width: 100%;
   padding-block: clamp(1rem, 2vw, 1.5rem);
-=======
-  background: linear-gradient(
-    180deg,
-    #f7f8f9 0%,
-    #ffffff 38%,
-    #fafbfc 100%
-  );
-  color: var(--color-text);
-  margin-inline: 0;
-  width: 100%;
-  border-block: 1px solid rgba(201, 203, 204, 0.55);
-}
-
-.texture {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  opacity: 0.45;
-  background-image:
-    linear-gradient(rgba(22, 22, 22, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(22, 22, 22, 0.04) 1px, transparent 1px);
-  background-size: 36px 36px;
-  mask-image: linear-gradient(
-    90deg,
-    transparent 0%,
-    #000 18%,
-    #000 82%,
-    transparent 100%
-  );
->>>>>>> a23b02491cd3a51a0982677aa750229bd2541b66
 }
 
 .inner {
   position: relative;
   z-index: 1;
-<<<<<<< HEAD
   width: min(100% - 2rem, var(--max-content));
   margin-inline: auto;
   padding: clamp(1.35rem, 2.8vw, 1.9rem) clamp(1.35rem, 3vw, 2rem);
@@ -58,16 +26,6 @@
   box-shadow:
     0 10px 28px rgba(22, 22, 22, 0.07),
     inset 0 1px 0 rgba(255, 255, 255, 0.95);
-=======
-  width: min(100% - 2rem, min(52rem, var(--max-content)));
-  margin-inline: auto;
-  padding-block: clamp(2.25rem, 4.5vw, 3.35rem);
-  display: grid;
-  gap: clamp(1.35rem, 3vw, 1.75rem);
-  align-items: center;
-  justify-items: center;
-  text-align: center;
->>>>>>> a23b02491cd3a51a0982677aa750229bd2541b66
   opacity: 0;
   transform: translateY(12px);
   transition:
@@ -82,20 +40,12 @@
 
 @media (min-width: 768px) {
   .inner {
-<<<<<<< HEAD
     grid-template-columns: auto minmax(0, 1fr) auto;
     gap: clamp(1.15rem, 2vw, 1.75rem);
-=======
-    grid-template-columns: auto 1fr auto;
-    justify-items: stretch;
-    text-align: left;
-    gap: clamp(1.5rem, 3vw, 2rem);
->>>>>>> a23b02491cd3a51a0982677aa750229bd2541b66
     align-items: center;
   }
 }
 
-<<<<<<< HEAD
 .accent {
   display: none;
   width: 4px;
@@ -106,28 +56,12 @@
     rgba(245, 178, 5, 0.1) 0%,
     #f5b205 42%,
     rgba(245, 178, 5, 0.82) 100%
-=======
-.spine {
-  display: none;
-  width: 3px;
-  height: clamp(2.75rem, 5vw, 3.5rem);
-  border-radius: 2px;
-  background: linear-gradient(
-    180deg,
-    rgba(245, 178, 5, 0.15) 0%,
-    #f5b205 45%,
-    rgba(22, 22, 22, 0.18) 100%
->>>>>>> a23b02491cd3a51a0982677aa750229bd2541b66
   );
   flex-shrink: 0;
 }
 
 @media (min-width: 768px) {
-<<<<<<< HEAD
   .accent {
-=======
-  .spine {
->>>>>>> a23b02491cd3a51a0982677aa750229bd2541b66
     display: block;
     justify-self: end;
   }
@@ -139,7 +73,6 @@
   min-width: 0;
 }
 
-<<<<<<< HEAD
 .badge {
   justify-self: start;
   display: inline-flex;
@@ -173,49 +106,41 @@
   line-height: 1.6;
   letter-spacing: -0.01em;
   color: var(--color-muted);
-  max-width: 48ch;
+  /* Chgange max-width from 48ch to 65ch or 70ch to handle longer text */
+  max-width: 65ch; 
 }
 
 @media (min-width: 768px) {
   .title {
-=======
-.kicker {
-  margin: 0;
-  font-size: 0.625rem;
-  font-weight: 800;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--color-muted);
-  line-height: 1.3;
-}
-
-.quote {
-  margin: 0;
-  font-size: clamp(1rem, 2vw, 1.2rem);
-  font-weight: 500;
-  font-style: italic;
-  line-height: 1.65;
-  letter-spacing: -0.018em;
-  color: #2d2f33;
-  max-width: 40rem;
-}
-
-@media (min-width: 768px) {
-  .quote {
->>>>>>> a23b02491cd3a51a0982677aa750229bd2541b66
     max-width: none;
   }
 }
 
 .cta {
   flex-shrink: 0;
-<<<<<<< HEAD
   justify-self: end;
-=======
->>>>>>> a23b02491cd3a51a0982677aa750229bd2541b66
   transition:
     transform 0.22s ease,
     box-shadow 0.22s ease;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-self: end;
+  align-items: center;
+}
+
+.ctaSecondary {
+  background: transparent !important;
+  color: var(--color-text) !important;
+  border-color: rgba(17, 24, 39, 0.18) !important;
+}
+
+.ctaSecondary:hover:not(:disabled) {
+  background: rgba(17, 24, 39, 0.04) !important;
+  border-color: rgba(17, 24, 39, 0.28) !important;
 }
 
 .cta:hover {
@@ -223,7 +148,6 @@
   box-shadow: 0 10px 28px rgba(245, 178, 5, 0.28);
 }
 
-<<<<<<< HEAD
 @media (max-width: 767px) {
   .inner {
     width: min(100% - 1.25rem, min(52rem, var(--max-content)));
@@ -238,10 +162,17 @@
   .cta {
     margin-top: 0.15rem;
   }
+
+  .actions {
+    width: 100%;
+    justify-self: start;
+  }
+
+  .actions > * {
+    flex: 1 1 100%;
+  }
 }
 
-=======
->>>>>>> a23b02491cd3a51a0982677aa750229bd2541b66
 @media (prefers-reduced-motion: reduce) {
   .inner {
     opacity: 1;

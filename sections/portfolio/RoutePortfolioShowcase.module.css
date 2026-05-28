@@ -1,3 +1,28 @@
+.topCtaWrap {
+  display: flex;
+  justify-content: center;
+  padding: 1rem 1rem 0.85rem;
+  background: #fff;
+}
+
+.topCta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.9rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--color-accent);
+  color: var(--color-dark);
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.96rem;
+  line-height: 1.2;
+}
+
+.topCta:hover {
+  background: var(--color-accent-hover);
+}
+
 .wrap {
   background: #f7f8fb;
 }
@@ -9,20 +34,36 @@
 
 @media (min-width: 1024px) {
   .layout {
-    grid-template-columns: minmax(0, 1fr) 300px;
+    /* single-column layout (removed rail) */
+    grid-template-columns: minmax(0, 1fr);
     align-items: start;
   }
 }
 
 .main {
   display: grid;
-  gap: 1.25rem;
+  gap: 1.05rem;
 }
 
 .title {
   margin: 0;
-  font-size: clamp(1.6rem, 2.9vw, 2.1rem);
+  font-size: clamp(1.9rem, 3.6vw, 2.7rem);
+  letter-spacing: -0.04em;
+  line-height: 1.02;
+}
+
+.subtitle {
+  margin: -0.1rem 0 0;
+  font-size: clamp(1.1rem, 2vw, 1.8rem);
   letter-spacing: -0.03em;
+  line-height: 1.05;
+  text-transform: uppercase;
+}
+
+.subtitle + .lead {
+  padding-top: 0.1rem;
+  border-bottom: 1px solid #cfd4dd;
+  padding-bottom: 0.85rem;
 }
 
 .lead {
@@ -51,57 +92,8 @@
 
 @media (min-width: 900px) {
   .grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
-.stickyRail {
-  display: none;
-}
-
-@media (min-width: 1024px) {
-  .stickyRail {
-    display: block;
-    position: sticky;
-    top: 5.5rem;
-  }
-}
-
-.stickyCard {
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 12px;
-  padding: 1rem;
-  background: var(--color-dark);
-  color: #fff;
-}
-
-.stickyEyebrow {
-  margin: 0 0 0.4rem;
-  font-size: 0.72rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: rgba(255, 255, 255, 0.72);
-}
-
-.stickyTitle {
-  margin: 0;
-  font-size: 1.05rem;
-}
-
-.stickyText {
-  margin: 0.5rem 0 0;
-  line-height: 1.55;
-  color: rgba(255, 255, 255, 0.82);
-}
-
-.stickyCta {
-  margin-top: 0.85rem;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  border-radius: 8px;
-  padding: 0.55rem 0.8rem;
-  font-weight: 700;
-  color: #fff;
-}
+/* sticky rail removed */

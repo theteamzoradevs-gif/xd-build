@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import Image from "next/image";
 import type { ProjectCategory } from "@/lib/projects";
 import { PROJECT_PLACEHOLDERS, PROJECTS } from "@/lib/projects";
 import { ProjectCard } from "@/components/cards/ProjectCard";
@@ -39,6 +40,33 @@ export function PortfolioGallery() {
       <div className={styles.grid}>
         {visible.map((p) => (
           <ProjectCard key={p.slug} project={p} />
+        ))}
+
+        {/* Extra image-only cards */}
+        {(
+          [
+            "Bethany Care Hillhurst -Senior care facility.png",
+            "Calgary Zoo – Polar Bear Holding.webp",
+            "CSF-École La Vallee Pemberton.jpg",
+            "Driftpile Health Centre.png",
+            "NEW Wainwright Elementary School.jpg",
+            "Rangeview High School.jpg",
+            "Telus Sky renovations.webp",
+            "University of Yukon Polaris project.jpg",
+            "Vera M. Welsh Elementary School.jpg",
+          ] as string[]
+        ).map((name) => (
+          <article key={name} className={styles.imageCard}>
+            <div className={styles.imageMedia}>
+              <Image
+                src={`/images/portfolio_images/${name}`}
+                alt={name}
+                fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 33vw"
+                className={styles.imageOnlyImg}
+              />
+            </div>
+          </article>
         ))}
       </div>
       {visible.length === 0 ? (

@@ -1,4 +1,4 @@
-.section {
+﻿.section {
   --td-bg: #161616;
   --td-muted: #c9cbcc;
   --td-accent: #f5b205;
@@ -265,22 +265,14 @@
   z-index: 2;
   display: grid;
   place-items: center;
-<<<<<<< HEAD
   padding-block: clamp(0.35rem, 1vw, 0.8rem);
-=======
-  padding-block: clamp(2.25rem, 5vw, 3.75rem);
->>>>>>> a23b02491cd3a51a0982677aa750229bd2541b66
   pointer-events: none;
 }
 
 .bridgeGlow {
   position: absolute;
   width: min(92%, 720px);
-<<<<<<< HEAD
   height: 24px;
-=======
-  height: 56px;
->>>>>>> a23b02491cd3a51a0982677aa750229bd2541b66
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);

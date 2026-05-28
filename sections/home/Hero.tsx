@@ -1,4 +1,4 @@
-import { AnimatedCounter } from "@/components/ui/animated-counter";
+﻿import { AnimatedCounter } from "@/components/ui/animated-counter";
 import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
 import { FEATURED_PROJECT_SLUGS } from "@/lib/home";
@@ -27,26 +27,17 @@ export function HomeHero() {
         loop
         playsInline
         preload="metadata"
-<<<<<<< HEAD
         poster="/images/hero-poster.jpg"
         aria-hidden
       >
         <source src="/videos/xdHeroVideo.mp4" type="video/mp4" />
-=======
-        poster="https://images.unsplash.com/photo-1541888946425-d81bb940b71e?q=80&w=1800&auto=format&fit=crop"
-      >
-        <source
-          src="https://cdn.coverr.co/videos/coverr-construction-site-at-sunset-1579/1080p.mp4"
-          type="video/mp4"
-        />
->>>>>>> a23b02491cd3a51a0982677aa750229bd2541b66
       </video>
       <div className={styles.videoTint} aria-hidden />
       <div className={styles.grid}>
         <div className={styles.copy}>
           <p className={styles.kicker}>Build with clarity from day one</p>
           <h1 id="home-hero-title" className={styles.title}>
-            Construction delivery that stays clear when projects get complex.
+            Construction delivery that stays clear when <br/>projects get complex.
           </h1>
           <p className={styles.lead}>
             XD Build helps owners and contractors align on what will be built,

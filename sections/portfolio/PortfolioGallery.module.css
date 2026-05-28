@@ -32,8 +32,30 @@
 
 @media (min-width: 900px) {
   .grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
+}
+
+/* Image-only card to match ProjectCard sizing */
+.imageCard {
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.imageMedia {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+}
+
+.imageOnlyImg {
+  object-fit: cover;
 }
 
 .empty {
