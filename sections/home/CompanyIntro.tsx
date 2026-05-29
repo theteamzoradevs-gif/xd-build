@@ -3,6 +3,10 @@ import { Section } from "@/components/ui/Section";
 import { COMPANY_INTRO_LEAD } from "@/lib/home";
 import styles from "./CompanyIntro.module.css";
 
+
+
+
+
 export function CompanyIntro() {
   return (
     <Section
