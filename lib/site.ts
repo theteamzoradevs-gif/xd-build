@@ -12,7 +12,7 @@ export const siteConfig = {
   ogImage: "/images/logo/2.png",
 } as const;
 
-export type NavKey =
+export type NavKey      =
   | "home"
   | "portfolio"
   | "blog"
