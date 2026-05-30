@@ -10,68 +10,37 @@ import {
   useState,
 } from "react";
 import { Section } from "@/components/ui/Section";
-import { TESTIMONIALS } from "@/lib/testimonials";
+import type { HomeTestimonial, HomeTestimonialsSection } from "@/types/home";
 import styles from "./Testimonials.module.css";
 
-function quoteWithHighlights(
-  quote: string,
-  highlights: readonly string[] | undefined,
-): ReactNode {
-  if (!highlights?.length) return quote;
+type Props = {
+  section: HomeTestimonialsSection;
+  testimonials: HomeTestimonial[];
+};
 
-  const phrases = [...highlights].sort((a, b) => b.length - a.length);
-  let nodes: ReactNode[] = [quote];
-
-  phrases.forEach((phrase, pi) => {
-    const next: ReactNode[] = [];
-    nodes.forEach((node, ni) => {
-      if (typeof node !== "string") {
-        next.push(node);
-        return;
-      }
-      if (!node.includes(phrase)) {
-        next.push(node);
-        return;
-      }
-      const parts = node.split(phrase);
-      parts.forEach((part, i) => {
-        if (part) next.push(part);
-        if (i < parts.length - 1) {
-          next.push(
-            <span key={`h-${phrase}-${pi}-${ni}-${i}`} className={styles.quoteAccent}>
-              {phrase}
-            </span>,
-          );
-        }
-      });
-    });
-    nodes = next;
-  });
-
-  return (
-    <>
-      {nodes.map((n, i) => (
-        <span key={i}>{n}</span>
-      ))}
-    </>
-  );
+function quoteWithHighlights(quote: string): ReactNode {
+  return quote;
 }
 
-export function Testimonials() {
+export function Testimonials({ section, testimonials }: Props) {
   const [index, setIndex] = useState(0);
   const [pause, setPause] = useState(false);
   const labelId = useId();
-  const active = TESTIMONIALS[index];
+
+  const count = testimonials.length;
+  const active = testimonials[index];
 
   useEffect(() => {
-    if (pause) return;
+    if (pause || count <= 1) return;
     const timer = window.setInterval(() => {
-      setIndex((prev) => (prev + 1) % TESTIMONIALS.length);
+      setIndex((prev) => (prev + 1) % count);
     }, 5000);
     return () => window.clearInterval(timer);
-  }, [pause]);
+  }, [pause, count]);
 
   const onPick = useCallback((i: number) => setIndex(i), []);
+
+  if (!active || count === 0) return null;
 
   return (
     <Section className={styles.section} aria-labelledby={labelId}>
@@ -86,24 +55,23 @@ export function Testimonials() {
         </div>
 
         <div className={styles.content}>
-          <p className={styles.eyebrow}>Trusted by industry leaders</p>
+          <p className={styles.eyebrow}>{section.eyebrow}</p>
           <h2 id={labelId} className={styles.title}>
-            Social proof from teams who ship in the field
+            {section.title}
           </h2>
-          <p className={styles.sublead}>
-            Builders, trades, and owners who measure us on outcomes — not slide decks.
-          </p>
+          <p className={styles.sublead}>{section.subtitle}</p>
 
           <div
             className={styles.logoRail}
             role="tablist"
             aria-label="Select client testimonial"
           >
-            {TESTIMONIALS.map((t, idx) => {
+            {testimonials.map((t, idx) => {
               const selected = idx === index;
+              const logoAlt = t.logoAlt?.trim() || t.authorCompany;
               return (
                 <motion.button
-                  key={t.company}
+                  key={t.id}
                   type="button"
                   role="tab"
                   aria-selected={selected}
@@ -116,17 +84,19 @@ export function Testimonials() {
                 >
                   <span className={styles.logoGlow} aria-hidden />
                   <span className={styles.logoFrame}>
-                    {t.logoSrc ? (
+                    {t.logoSrc?.trim() ? (
                       <Image
                         src={t.logoSrc}
-                        alt=""
+                        alt={logoAlt}
                         width={140}
                         height={36}
                         className={styles.logoImg}
                         data-active={selected ? "true" : "false"}
                       />
                     ) : (
-                      <span className={styles.logoFallback}>{t.company}</span>
+                      <span className={styles.logoFallback}>
+                        {t.authorCompany}
+                      </span>
                     )}
                   </span>
                 </motion.button>
@@ -141,7 +111,7 @@ export function Testimonials() {
             <div className={styles.card}>
               <AnimatePresence mode="wait" initial={false}>
                 <motion.div
-                  key={active.company + index}
+                  key={active.id + index}
                   className={styles.cardMotion}
                   initial={{ opacity: 0, y: 14 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -150,12 +120,14 @@ export function Testimonials() {
                 >
                   <blockquote className={styles.blockquote}>
                     <p className={styles.quoteText}>
-                      {quoteWithHighlights(active.quote, active.quoteHighlights)}
+                      {active.quote?.trim()
+                        ? quoteWithHighlights(active.quote)
+                        : "—"}
                     </p>
                   </blockquote>
                   <footer className={styles.attribution}>
-                    <p className={styles.author}>{active.name}</p>
-                    <p className={styles.company}>{active.company}</p>
+                    <p className={styles.author}>{active.authorName}</p>
+                    <p className={styles.company}>{active.authorCompany}</p>
                   </footer>
                 </motion.div>
               </AnimatePresence>

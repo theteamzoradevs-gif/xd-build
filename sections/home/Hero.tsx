@@ -4,9 +4,18 @@ import { Section } from "@/components/ui/Section";
 import { getFeaturedProjects } from "@/lib/projects";
 import { siteConfig } from "@/lib/site";
 import { HeroFeaturedCarousel } from "@/sections/home/HeroFeaturedCarousel";
+import type { HomeHero } from "@/types/home";
 import styles from "./Hero.module.css";
 
-export async function HomeHero() {
+const FALLBACK_VIDEO = "/videos/xdHeroVideo.mp4";
+const FALLBACK_POSTER = "/images/hero-poster.jpg";
+const FALLBACK_TRUST_BADGE = "120+";
+
+type Props = {
+  hero: HomeHero;
+};
+
+export async function HomeHero({ hero }: Props) {
   let carouselProjects: {
     slug: string;
     title: string;
@@ -30,6 +39,13 @@ export async function HomeHero() {
     }
   }
 
+  const videoSrc = hero.videoSrc?.trim() || FALLBACK_VIDEO;
+  const videoPoster = hero.videoPoster?.trim();
+  const poster =
+    videoPoster ||
+    (videoSrc === FALLBACK_VIDEO ? FALLBACK_POSTER : undefined);
+  const trustBadgeValue = hero.trustBadgeValue?.trim() || FALLBACK_TRUST_BADGE;
+
   return (
     <Section bleed className={styles.wrap} aria-labelledby="home-hero-title">
       <video
@@ -39,10 +55,10 @@ export async function HomeHero() {
         loop
         playsInline
         preload="metadata"
-        poster="/images/hero-poster.jpg"
+        {...(poster ? { poster } : {})}
         aria-hidden
       >
-        <source src="/videos/xdHeroVideo.mp4" type="video/mp4" />
+        <source src={videoSrc} type="video/mp4" />
       </video>
       <div className={styles.videoTint} aria-hidden />
       <div className={styles.grid}>
@@ -59,10 +75,13 @@ export async function HomeHero() {
           </p>
           <div className={styles.badges}>
             <span className={styles.trustChip}>
-              <span className="sr-only">Trusted across 120+ engagements</span>
+              <span className="sr-only">
+                Trusted across {trustBadgeValue} engagements
+              </span>
               <span className={styles.trustChipLive} aria-hidden>
                 Trusted across{" "}
-                <AnimatedCounter value="120+" accessibilityHidden /> engagements
+                <AnimatedCounter value={trustBadgeValue} accessibilityHidden />{" "}
+                engagements
               </span>
             </span>
           </div>
