@@ -2,21 +2,26 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Section } from "@/components/ui/Section";
-import { BLOG_POSTS, getBlogPostBySlug } from "@/lib/blog";
+import { getAllBlogSlugs, getBlogPostBySlug } from "@/lib/blog";
 import styles from "./post.module.css";
 
 type Props = {
-  params: {
-    slug: string;
-  };
+  params: { slug: string };
 };
 
-export function generateStaticParams() {
-  return BLOG_POSTS.map((post) => ({ slug: post.slug }));
+export const dynamicParams = true;
+
+export async function generateStaticParams() {
+  try {
+    const slugs = await getAllBlogSlugs();
+    return slugs.map((slug) => ({ slug }));
+  } catch {
+    return [];
+  }
 }
 
-export function generateMetadata({ params }: Props): Metadata {
-  const post = getBlogPostBySlug(params.slug);
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const post = await getBlogPostBySlug(params.slug);
   if (!post) {
     return { title: "Blog" };
   }
@@ -26,8 +31,8 @@ export function generateMetadata({ params }: Props): Metadata {
   };
 }
 
-export default function BlogPostPage({ params }: Props) {
-  const post = getBlogPostBySlug(params.slug);
+export default async function BlogPostPage({ params }: Props) {
+  const post = await getBlogPostBySlug(params.slug);
   if (!post) {
     notFound();
   }
@@ -46,12 +51,16 @@ export default function BlogPostPage({ params }: Props) {
         </div>
 
         <div className={styles.heroMedia}>
-          <img src={post.image} alt={post.title} className={styles.heroImage} />
+          <img
+            src={post.image}
+            alt={post.imageAlt}
+            className={styles.heroImage}
+          />
         </div>
 
         <article className={styles.body}>
           {post.body.map((paragraph) => (
-            <p key={paragraph}>{paragraph}</p>
+            <p key={paragraph.slice(0, 48)}>{paragraph}</p>
           ))}
         </article>
 

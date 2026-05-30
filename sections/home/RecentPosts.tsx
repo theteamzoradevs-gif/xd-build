@@ -2,11 +2,20 @@ import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
-import { BLOG_POSTS } from "@/lib/blog";
+import { getFeaturedBlogPost } from "@/lib/blog";
 import styles from "./RecentPosts.module.css";
 
-export function RecentPosts() {
-  const featuredPost = BLOG_POSTS[0];
+export async function RecentPosts() {
+  let featuredPost: Awaited<ReturnType<typeof getFeaturedBlogPost>>;
+
+  try {
+    featuredPost = await getFeaturedBlogPost();
+  } catch (error) {
+    if (process.env.NODE_ENV === "development") {
+      console.error("[RecentPosts]", error);
+    }
+    featuredPost = undefined;
+  }
 
   return (
     <Section className={styles.section} aria-labelledby="recent-posts-title">
@@ -22,25 +31,32 @@ export function RecentPosts() {
         </div>
       </div>
 
-      <article className={styles.card}>
-        <p className={styles.meta}>Insight · 6 min read</p>
-        <h3 className={styles.postTitle}>
-          Exploring the High-Risk World of Chicken Road: A Crash-Style Game of Skill
-        </h3>
-        <p className={styles.excerpt}>
-          A look at risk-reward decision making and what fast feedback loops can teach teams
-          managing high-stakes project milestones.
-        </p>
-        <div className={styles.actions}>
-          <Button href="/contact" variant="primary">
-            Get Consultation
-          </Button>
-          <Link href={`/blog/${featuredPost.slug}`} className={styles.readMore}>
-            Read post
-            <Image src="/icons/right-arrow.svg" alt="" width={12} height={12} aria-hidden />
-          </Link>
-        </div>
-      </article>
+      {featuredPost ? (
+        <article className={styles.card}>
+          <p className={styles.meta}>
+            {featuredPost.category} · {featuredPost.date}
+          </p>
+          <h3 className={styles.postTitle}>{featuredPost.title}</h3>
+          <p className={styles.excerpt}>{featuredPost.excerpt}</p>
+          <div className={styles.actions}>
+            <Button href="/contact" variant="primary">
+              Get Consultation
+            </Button>
+            <Link href={`/blog/${featuredPost.slug}`} className={styles.readMore}>
+              Read post
+              <Image
+                src="/icons/right-arrow.svg"
+                alt=""
+                width={12}
+                height={12}
+                aria-hidden
+              />
+            </Link>
+          </div>
+        </article>
+      ) : (
+        <p className={styles.lead}>New posts will appear here soon.</p>
+      )}
     </Section>
   );
 }

@@ -10,12 +10,19 @@ type Props = {
   params: { slug: string };
 };
 
-export function generateStaticParams() {
-  return getAllProjectSlugs().map((slug) => ({ slug }));
+export const dynamicParams = true;
+
+export async function generateStaticParams() {
+  try {
+    const slugs = await getAllProjectSlugs();
+    return slugs.map((slug) => ({ slug }));
+  } catch {
+    return [];
+  }
 }
 
-export function generateMetadata({ params }: Props): Metadata {
-  const project = getProjectBySlug(params.slug);
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const project = await getProjectBySlug(params.slug);
   if (!project) return { title: "Project" };
   return {
     title: project.title,
@@ -24,8 +31,8 @@ export function generateMetadata({ params }: Props): Metadata {
   };
 }
 
-export default function ProjectDetailPage({ params }: Props) {
-  const project = getProjectBySlug(params.slug);
+export default async function ProjectDetailPage({ params }: Props) {
+  const project = await getProjectBySlug(params.slug);
   if (!project) notFound();
 
   const qs = encodeURIComponent(project.title);

@@ -1,22 +1,34 @@
 ﻿import { AnimatedCounter } from "@/components/ui/animated-counter";
 import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
-import { FEATURED_PROJECT_SLUGS } from "@/lib/home";
 import { getFeaturedProjects } from "@/lib/projects";
 import { siteConfig } from "@/lib/site";
 import { HeroFeaturedCarousel } from "@/sections/home/HeroFeaturedCarousel";
 import styles from "./Hero.module.css";
 
-const featured = getFeaturedProjects(FEATURED_PROJECT_SLUGS);
+export async function HomeHero() {
+  let carouselProjects: {
+    slug: string;
+    title: string;
+    heroSrc: string;
+    heroAlt: string;
+    outcome: string;
+  }[] = [];
 
-export function HomeHero() {
-  const carouselProjects = featured.map((p) => ({
-    slug: p.slug,
-    title: p.title,
-    heroSrc: p.heroSrc,
-    heroAlt: p.heroAlt,
-    outcome: p.outcome,
-  }));
+  try {
+    const featured = await getFeaturedProjects();
+    carouselProjects = featured.map((p) => ({
+      slug: p.slug,
+      title: p.title,
+      heroSrc: p.heroSrc,
+      heroAlt: p.heroAlt,
+      outcome: p.outcome,
+    }));
+  } catch (error) {
+    if (process.env.NODE_ENV === "development") {
+      console.error("[HomeHero]", error);
+    }
+  }
 
   return (
     <Section bleed className={styles.wrap} aria-labelledby="home-hero-title">
@@ -37,7 +49,8 @@ export function HomeHero() {
         <div className={styles.copy}>
           <p className={styles.kicker}>Build with clarity from day one</p>
           <h1 id="home-hero-title" className={styles.title}>
-            Construction delivery that stays clear when <br/>projects get complex.
+            Construction delivery that stays clear when <br />
+            projects get complex.
           </h1>
           <p className={styles.lead}>
             XD Build helps owners and contractors align on what will be built,

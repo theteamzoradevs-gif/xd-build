@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { PROJECTS } from "@/lib/projects";
+import { getProjects } from "@/lib/projects";
 import { ProjectCard } from "@/components/cards/ProjectCard";
 import { Section } from "@/components/ui/Section";
 import styles from "./RoutePortfolioShowcase.module.css";
@@ -50,11 +50,25 @@ type Props = {
   routeKey: RouteKey;
 };
 
-export function RoutePortfolioShowcase({ routeKey }: Props) {
+export async function RoutePortfolioShowcase({ routeKey }: Props) {
   const config = CONFIG[routeKey];
-  const related = PROJECTS.filter((project) =>
-    project.categories.some((category) => config.categories.includes(category))
-  ).slice(0, 3);
+  let projects: Awaited<ReturnType<typeof getProjects>> = [];
+
+  try {
+    projects = await getProjects();
+  } catch (error) {
+    if (process.env.NODE_ENV === "development") {
+      console.error("[RoutePortfolioShowcase]", error);
+    }
+  }
+
+  const related = projects
+    .filter((project) =>
+      project.categories.some((category) =>
+        config.categories.includes(category),
+      ),
+    )
+    .slice(0, 3);
 
   return (
     <>

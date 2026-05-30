@@ -11,7 +11,6 @@ import {
   WORK_GALLERY_PLACEHOLDERS,
 } from "@/lib/about";
 import { COMPANY_INTRO_REST } from "@/lib/home";
-import { FEATURED_PROJECT_SLUGS } from "@/lib/home";
 import { getFeaturedProjects } from "@/lib/projects";
 import { HeroFeaturedCarousel } from "@/sections/home/HeroFeaturedCarousel";
 import styles from "./about.module.css";
@@ -22,15 +21,29 @@ export const metadata: Metadata = {
     "XD Build is a Calgary-based digital delivery partner for BIM, VDC, and MEP coordination across the construction lifecycle.",
 };
 
-export default function AboutPage() {
-  const featured = getFeaturedProjects(FEATURED_PROJECT_SLUGS);
-  const carouselProjects = featured.map((p) => ({
-    slug: p.slug,
-    title: p.title,
-    heroSrc: p.heroSrc,
-    heroAlt: p.heroAlt,
-    outcome: p.outcome,
-  }));
+export default async function AboutPage() {
+  let carouselProjects: {
+    slug: string;
+    title: string;
+    heroSrc: string;
+    heroAlt: string;
+    outcome: string;
+  }[] = [];
+
+  try {
+    const featured = await getFeaturedProjects();
+    carouselProjects = featured.map((p) => ({
+      slug: p.slug,
+      title: p.title,
+      heroSrc: p.heroSrc,
+      heroAlt: p.heroAlt,
+      outcome: p.outcome,
+    }));
+  } catch (error) {
+    if (process.env.NODE_ENV === "development") {
+      console.error("[AboutPage]", error);
+    }
+  }
 
   return (
     <>

@@ -2,20 +2,24 @@
 
 import { useMemo, useState } from "react";
 import Image from "next/image";
-import type { ProjectCategory } from "@/lib/projects";
-import { PROJECT_PLACEHOLDERS, PROJECTS } from "@/lib/projects";
+import type { Project, ProjectCategory } from "@/lib/projects";
+import { PROJECT_PLACEHOLDERS } from "@/lib/projects";
 import { ProjectCard } from "@/components/cards/ProjectCard";
 import styles from "./PortfolioGallery.module.css";
 
 const FILTERS: ProjectCategory[] = ["All", "MEP", "BIM", "VDC"];
 
-export function PortfolioGallery() {
+type Props = {
+  projects: Project[];
+};
+
+export function PortfolioGallery({ projects }: Props) {
   const [filter, setFilter] = useState<ProjectCategory>("All");
 
   const visible = useMemo(() => {
-    if (filter === "All") return PROJECTS;
-    return PROJECTS.filter((p) => p.categories.includes(filter));
-  }, [filter]);
+    if (filter === "All") return projects;
+    return projects.filter((p) => p.categories.includes(filter));
+  }, [filter, projects]);
 
   return (
     <div>
