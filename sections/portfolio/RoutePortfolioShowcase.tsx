@@ -57,9 +57,7 @@ export async function RoutePortfolioShowcase({ routeKey }: Props) {
   try {
     projects = await getProjects();
   } catch (error) {
-    if (process.env.NODE_ENV === "development") {
-      console.error("[RoutePortfolioShowcase]", error);
-    }
+    console.error("[RoutePortfolioShowcase]", error);
   }
 
   const related = projects
@@ -69,10 +67,8 @@ export async function RoutePortfolioShowcase({ routeKey }: Props) {
       ),
     )
     .slice(0, 3);
+
   const showTopCta = routeKey !== "about";
-  const related = PROJECTS.filter((project) =>
-    project.categories.some((category) => config.categories.includes(category))
-  ).slice(0, 3);
 
   return (
     <>
@@ -80,18 +76,25 @@ export async function RoutePortfolioShowcase({ routeKey }: Props) {
         <div className={styles.topCtaWrap}>
           <div className={styles.topCtaInner}>
             <Link href="/contact" className={styles.topCta}>
-              <span className={styles.topCtaLabel}>Discuss your scope with XD Build</span>
+              <span className={styles.topCtaLabel}>
+                Discuss your scope with XD Build
+              </span>
               <span className={styles.topCtaTagline}>
-                Fast, honest guidance — we’ll tell you what’s practical and what’s not.
+                Fast, honest guidance — we’ll tell you what’s practical and what’s
+                not.
               </span>
             </Link>
           </div>
         </div>
       ) : null}
-      <Section tight className={styles.wrap} aria-labelledby={`${routeKey}-related-projects`}>
+      <Section
+        tight
+        className={styles.wrap}
+        aria-labelledby={`${routeKey}-related-projects`}
+      >
         <div className={styles.layout}>
           <div className={styles.main}>
-          <p className="pageKicker">Portfolio spotlight</p>
+            <p className="pageKicker">Portfolio spotlight</p>
             <h2 id={`${routeKey}-related-projects`} className={styles.title}>
               {config.title}
             </h2>
