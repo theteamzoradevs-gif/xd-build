@@ -1,0 +1,119 @@
+import type { Metadata } from "next";
+import Image from "next/image";
+import { Button } from "@/components/ui/Button";
+import { Section } from "@/components/ui/Section";
+import { AboutTeam } from "@/sections/about/AboutTeam";
+import { MissionVision } from "@/sections/about/MissionVision";
+import { FinalCta } from "@/sections/home/FinalCta";
+import { RoutePortfolioShowcase } from "@/sections/portfolio/RoutePortfolioShowcase";
+import {
+  COMPANY_OVERVIEW,
+  WORK_GALLERY_PLACEHOLDERS,
+} from "@/lib/about";
+import { COMPANY_INTRO_REST } from "@/lib/home";
+import { FEATURED_PROJECT_SLUGS } from "@/lib/home";
+import { getFeaturedProjects } from "@/lib/projects";
+import { HeroFeaturedCarousel } from "@/sections/home/HeroFeaturedCarousel";
+import styles from "./about.module.css";
+
+export const metadata: Metadata = {
+  title: "About",
+  description:
+    "XD Build is a Calgary-based digital delivery partner for BIM, VDC, and MEP coordination across the construction lifecycle.",
+};
+
+export default function AboutPage() {
+  const featured = getFeaturedProjects(FEATURED_PROJECT_SLUGS);
+  const carouselProjects = featured.map((p) => ({
+    slug: p.slug,
+    title: p.title,
+    heroSrc: p.heroSrc,
+    heroAlt: p.heroAlt,
+    outcome: p.outcome,
+  }));
+
+  return (
+    <>
+      <Section className={styles.hero} aria-labelledby="about-hero-title">
+        <div className={styles.heroInner}>
+          <p className={`${styles.heroKicker} pageKicker`}>About XD Build</p>
+          <h1 id="about-hero-title" className="pageTitle">
+            Company overview
+          </h1>
+          <div className={styles.twoCol}>
+            <div className={styles.overview}>
+              {COMPANY_OVERVIEW.map((paragraph) => (
+                <p key={paragraph.slice(0, 40)} className={`${styles.blockText} ${styles.leadQuiet}`}>
+                  {paragraph}
+                </p>
+              ))}
+              <p className={`${styles.blockText} ${styles.leadQuiet}`}>{COMPANY_INTRO_REST}</p>
+            </div>
+
+            <div>
+              <HeroFeaturedCarousel projects={carouselProjects} />
+            </div>
+          </div>
+        </div>
+      </Section>
+
+      <MissionVision />
+
+      <AboutTeam />
+
+      <Section aria-labelledby="gallery-title">
+        <div className={styles.galleryHeader}>
+          <p className="pageKicker">Work photos</p>
+          <h2 id="gallery-title" className={styles.sectionTitle}>
+            Project gallery
+          </h2>
+          <p className={styles.galleryLead}>
+            A snapshot of coordination, scanning, and delivery in the field — swap in
+            project photography as it becomes available.
+          </p>
+        </div>
+        <div className={styles.galleryGrid}>
+          {WORK_GALLERY_PLACEHOLDERS.map((item) => (
+            <div key={item.src} className={styles.galleryCell}>
+              <Image
+                src={item.src}
+                alt={item.alt}
+                width={640}
+                height={480}
+                className={styles.galleryImg}
+                sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 33vw"
+              />
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      <Section aria-labelledby="about-cta">
+        <div className={styles.splitCta}>
+          <div>
+            <p className="pageKicker">Next step</p>
+            <h2 id="about-cta" className={styles.sectionTitle}>
+              Ready to align office and field?
+            </h2>
+            <p className={styles.sectionLeadPlain}>
+              Tell us about your next milestone — we’ll map coordination risk and a
+              practical delivery plan.
+            </p>
+          </div>
+          <div className={styles.ctaActions}>
+            <Button href="/portfolio" variant="primary">
+              View portfolio
+            </Button>
+            <Button href="/contact" variant="secondary">
+              Contact us
+            </Button>
+          </div>
+        </div>
+      </Section>
+
+      <RoutePortfolioShowcase routeKey="about" />
+
+      <FinalCta />
+    </>
+  );
+}

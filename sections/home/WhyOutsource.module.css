@@ -1,0 +1,134 @@
+﻿.section {
+  background: linear-gradient(180deg, #ffffff 0%, #fbfbfb 100%);
+  padding: 56px 24px 44px;
+  border-top: 1px solid rgba(16, 24, 32, 0.03);
+  border-bottom: 1px solid rgba(16, 24, 32, 0.03);
+}
+
+.inner {
+  width: min(100%, 1240px);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .inner {
+    align-items: flex-start;
+    text-align: left;
+  }
+}
+
+.kicker {
+  margin: 0 0 10px;
+  color: #f5b205;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-weight: 800;
+  font-size: 0.68rem;
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(2rem, 4.5vw, 2.75rem);
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  line-height: 1.0;
+  color: #0f1419;
+}
+
+.lead {
+  margin: 14px 0 0;
+  color: #9aa3af;
+  font-size: 0.9rem;
+  line-height: 1.75;
+  font-weight: 400;
+}
+
+/* ── Cards ── */
+.grid {
+  list-style: none;
+  margin: 36px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    align-items: stretch;
+  }
+}
+
+.card {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 18px 16px;
+  border-radius: 16px;
+  border: 2px solid rgba(16, 24, 32, 0.06);
+  background: #ffffff;
+  box-shadow: 0 20px 66px rgba(16, 24, 32, 0.08);
+  text-align: left;
+  width: 100%;
+}
+
+.iconWrap {
+  flex-shrink: 0;
+  margin-top: 30px;
+  width: 44px;
+  height: 44px;
+  border-radius: 11px;
+  background: #fff8e6;
+  color: #f5b205;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.copy {
+  min-width: 0;
+  padding-top: 1px;
+}
+
+.cardTitle {
+  margin: 0;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #0f1419;
+  letter-spacing: -0.015em;
+}
+
+.cardBody {
+  margin: 5px 0 0;
+  font-size: 0.8rem;
+  color: #9aa3af;
+  line-height: 1.65;
+  font-weight: 400;
+}
+
+/* ── Bottom rule ── */
+.rule {
+  width: 56px;
+  height: 2px;
+  margin: 32px auto 0;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(245, 178, 5, 0.9) 40%,
+    rgba(220, 195, 130, 0.35) 70%,
+    transparent
+  );
+}
+
+/* ── Mobile ── */
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

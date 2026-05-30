@@ -1,0 +1,122 @@
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  justify-content: flex-start;
+  margin-bottom: 1.75rem;
+}
+
+.pill {
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  background: #fff;
+  padding: 0.55rem 1rem;
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background-color 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+}
+
+.pill[data-active="true"] {
+  background: var(--color-dark);
+  color: #fff;
+  border-color: var(--color-dark);
+}
+
+.grid {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: 1fr;
+  grid-auto-flow: dense;
+}
+
+@media (min-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* Image-only card to match ProjectCard sizing */
+.imageCard {
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.imageMedia {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+}
+
+.imageOnlyImg {
+  object-fit: cover;
+}
+
+.empty {
+  margin: 1rem 0 0;
+  color: var(--color-muted);
+}
+
+.comingSoon {
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.comingSoonTitle {
+  margin: 0 0 0.35rem;
+  font-size: 1.35rem;
+  letter-spacing: -0.02em;
+}
+
+.comingSoonLead {
+  margin: 0 0 1.25rem;
+  color: var(--color-muted);
+  line-height: 1.65;
+  max-width: 62ch;
+}
+
+.placeholderList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.65rem;
+}
+
+@media (min-width: 700px) {
+  .placeholderList {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1000px) {
+  .placeholderList {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.placeholderItem {
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-card);
+  padding: 0.85rem 1rem;
+  display: grid;
+  gap: 0.2rem;
+  background: var(--color-surface);
+}
+
+.placeholderTitle {
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.placeholderMeta {
+  font-size: 0.88rem;
+  color: var(--color-muted);
+}

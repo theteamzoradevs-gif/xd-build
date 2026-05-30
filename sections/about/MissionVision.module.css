@@ -1,0 +1,310 @@
+.wrap {
+  background: linear-gradient(180deg, #fafafa 0%, #ffffff 45%, #f7f7f7 100%);
+}
+
+.grid {
+  display: grid;
+  gap: clamp(1.35rem, 3.5vw, 2rem);
+  align-items: stretch;
+}
+
+@media (min-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(1.25rem, 2.5vw, 1.75rem);
+    align-items: stretch;
+  }
+}
+
+.card {
+  position: relative;
+  border-radius: 24px;
+  padding: clamp(1.75rem, 4vw, 2.5rem) clamp(1.5rem, 3.5vw, 2.25rem);
+  min-height: min(100%, 320px);
+  overflow: hidden;
+  isolation: isolate;
+  transition:
+    transform 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.38s ease,
+    border-color 0.38s ease;
+}
+
+@media (min-width: 900px) {
+  .cardDark {
+    box-shadow:
+      0 1px 0 rgba(245, 178, 5, 0.35) inset,
+      0 22px 48px rgba(0, 0, 0, 0.28),
+      0 0 0 1px rgba(245, 178, 5, 0.18),
+      0 0 60px rgba(245, 178, 5, 0.08);
+  }
+
+  .cardLight {
+    box-shadow:
+      0 1px 0 rgba(245, 178, 5, 0.55) inset,
+      0 26px 56px rgba(22, 22, 22, 0.1),
+      0 0 0 1px rgba(245, 178, 5, 0.22),
+      0 0 48px rgba(245, 178, 5, 0.14);
+  }
+
+  .card:hover {
+    transform: translateY(-6px);
+    box-shadow:
+      0 1px 0 rgba(245, 178, 5, 0.55) inset,
+      0 28px 64px rgba(22, 22, 22, 0.14),
+      0 0 0 1px rgba(245, 178, 5, 0.45),
+      0 0 72px rgba(245, 178, 5, 0.22);
+  }
+}
+
+@media (max-width: 899px) {
+  .cardDark {
+    box-shadow:
+      0 1px 0 rgba(245, 178, 5, 0.35) inset,
+      0 18px 40px rgba(0, 0, 0, 0.22),
+      0 0 0 1px rgba(245, 178, 5, 0.16),
+      0 0 40px rgba(245, 178, 5, 0.06);
+  }
+
+  .cardLight {
+    box-shadow:
+      0 1px 0 rgba(245, 178, 5, 0.45) inset,
+      0 20px 44px rgba(22, 22, 22, 0.08),
+      0 0 0 1px rgba(245, 178, 5, 0.2),
+      0 0 36px rgba(245, 178, 5, 0.1);
+  }
+
+  .card:hover {
+    transform: translateY(-4px);
+  }
+}
+
+.cardDark {
+  background:
+    linear-gradient(155deg, rgba(245, 178, 5, 0.07) 0%, transparent 42%),
+    linear-gradient(180deg, #1f1f1f 0%, #161616 100%);
+  border: 1px solid rgba(245, 178, 5, 0.22);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.cardLight {
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.95) 0%, rgba(250, 250, 250, 0.88) 100%);
+  border: 1px solid rgba(201, 203, 204, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.texture {
+  position: absolute;
+  inset: 0;
+  opacity: 0.055;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.cardLight .texture {
+  opacity: 0.07;
+  background-image:
+    linear-gradient(rgba(22, 22, 22, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(22, 22, 22, 0.06) 1px, transparent 1px);
+}
+
+.corner {
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.9;
+}
+
+.cornerTl {
+  top: 0;
+  left: 0;
+  width: 52px;
+  height: 52px;
+  background: linear-gradient(135deg, rgba(245, 178, 5, 0.45) 0%, transparent 62%);
+  border-radius: 24px 0 0 0;
+}
+
+.cornerBr {
+  bottom: 0;
+  right: 0;
+  width: 44px;
+  height: 44px;
+  background: linear-gradient(315deg, rgba(245, 178, 5, 0.28) 0%, transparent 65%);
+  border-radius: 0 0 24px 0;
+}
+
+.cornerTlLight {
+  top: 0;
+  left: 0;
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, rgba(245, 178, 5, 0.35) 0%, transparent 60%);
+  border-radius: 24px 0 0 0;
+}
+
+.cornerBrLight {
+  bottom: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(315deg, rgba(22, 22, 22, 0.06) 0%, transparent 70%);
+  border-radius: 0 0 24px 0;
+}
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(48px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.blobDark {
+  width: 140px;
+  height: 140px;
+  background: rgba(245, 178, 5, 0.2);
+  top: -40px;
+  left: -30px;
+  opacity: 0.65;
+}
+
+.blobLight {
+  width: 160px;
+  height: 160px;
+  background: rgba(245, 178, 5, 0.28);
+  bottom: -50px;
+  right: -40px;
+  opacity: 0.5;
+}
+
+.accentTop {
+  position: absolute;
+  top: 0;
+  left: 20%;
+  right: 20%;
+  height: 2px;
+  border-radius: 0 0 4px 4px;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.accentTopDark {
+  background: linear-gradient(90deg, transparent, #f5b205, transparent);
+  opacity: 0.85;
+}
+
+.accentTopLight {
+  background: linear-gradient(90deg, transparent, #f5b205 30%, #dba004 70%, transparent);
+  opacity: 0.9;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  gap: 1.15rem;
+  max-width: 52ch;
+}
+
+.iconOrbit {
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.card:hover .iconOrbit {
+  transform: translateY(-6px);
+}
+
+.iconCircle {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  box-shadow:
+    0 4px 16px rgba(245, 178, 5, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+.iconCircleDark {
+  background: linear-gradient(145deg, #f5d04a 0%, #f5b205 45%, #c48a04 100%);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.iconCircleLight {
+  background: linear-gradient(145deg, #ffe082 0%, #f5b205 50%, #e6a800 100%);
+  border: 1px solid rgba(22, 22, 22, 0.1);
+}
+
+.iconImg {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+.label {
+  margin: 0;
+  font-size: 0.6875rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  line-height: 1.3;
+}
+
+.labelDark {
+  color: #f5b205;
+}
+
+.labelLight {
+  color: #161616;
+  letter-spacing: 0.16em;
+  opacity: 0.92;
+}
+
+.body {
+  margin: 0;
+  font-size: clamp(0.98rem, 1.9vw, 1.08rem);
+  line-height: 1.75;
+  letter-spacing: -0.01em;
+}
+
+.bodyDark {
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.bodyLight {
+  color: #2d2d2d;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .iconOrbit {
+    transition: none;
+  }
+
+  @media (min-width: 900px) {
+    .cardDark,
+    .cardLight,
+    .card:hover,
+    .cardLight:hover {
+      transform: none;
+    }
+  }
+
+  @media (max-width: 899px) {
+    .card:hover {
+      transform: none;
+    }
+  }
+
+  .card:hover .iconOrbit {
+    transform: none;
+  }
+}

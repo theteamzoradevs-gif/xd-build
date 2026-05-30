@@ -1,0 +1,126 @@
+.section {
+  background: var(--color-surface-blue);
+}
+
+.header {
+  display: grid;
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 800px) {
+  .header {
+    grid-template-columns: 1fr auto;
+    align-items: end;
+  }
+}
+
+.kicker {
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin: 0 0 0.5rem;
+  font-size: 0.8rem;
+}
+
+.title {
+  margin: 0 0 0.75rem;
+  font-size: clamp(1.625rem, 3vw, 2.125rem);
+  letter-spacing: -0.03em;
+}
+
+.lead {
+  margin: 0;
+  color: var(--color-muted);
+  max-width: 60ch;
+  line-height: 1.65;
+}
+
+.grid {
+  display: grid;
+  gap: 1.25rem;
+}
+
+@media (min-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.card {
+  background: var(--color-surface);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  color: inherit;
+}
+
+.card:hover {
+  box-shadow: 0 12px 40px rgba(11, 14, 20, 0.12);
+}
+
+.media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+}
+
+.img {
+  object-fit: cover;
+}
+
+.body {
+  padding: 1.25rem 1.35rem 1.5rem;
+  display: grid;
+  gap: 0.45rem;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  align-items: center;
+}
+
+.tag {
+  flex: 0 0 auto;
+  align-self: center;
+  white-space: nowrap;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  border: 1px solid var(--color-border);
+  padding: 0.2rem 0.45rem;
+  border-radius: 999px;
+}
+
+.cardTitle {
+  margin: 0;
+  font-size: 1.2rem;
+  letter-spacing: -0.02em;
+}
+
+.budget {
+  margin: 0;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--color-muted);
+}
+
+.outcome {
+  margin: 0;
+  color: var(--color-text);
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+.viewmorebtn {
+  display: block;
+  margin: 2.5rem auto 0;
+  width: max-content;
+}

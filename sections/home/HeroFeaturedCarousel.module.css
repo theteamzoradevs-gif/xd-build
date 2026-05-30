@@ -1,0 +1,147 @@
+.root {
+  width: 100%;
+  max-width: 340px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  align-self: center;
+  transform: translateX(-2rem) translateY(-1.2rem);
+}
+
+@media (min-width: 900px) {
+  .root {
+    margin-inline: 0 auto;
+    max-width: min(100%, 360px);
+  }
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 12px;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+}
+
+.slide {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.mediaLink {
+  display: block;
+}
+
+.media {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  max-height: 16.75rem;
+}
+
+.img {
+  object-fit: cover;
+}
+
+.body {
+  /* Spacing standard rakhi hai taki buttons daba hua na lage */
+  padding: 0.68rem 0.8rem 0.75rem;
+  min-height: 6.9rem;
+}
+
+.cardTitle {
+  margin: 0;
+  font-size: 0.92rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.cardTitle a {
+  color: inherit;
+}
+
+.cardTitle a:hover {
+  color: var(--color-accent);
+}
+
+.outcome {
+  margin: 0.3rem 0 0;
+  font-size: 0.76rem;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0 1rem 0.7rem;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  border: 0;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.35);
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.dot[data-active="true"] {
+  background: var(--color-accent);
+  transform: scale(1.15);
+}
+
+.ctaRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 0.65rem;
+  width: 100%;
+  align-items: stretch;
+  margin-top: 0.5rem;
+}
+
+.btnViewProject {
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+  font-weight: 700;
+  box-shadow: 0 2px 14px rgba(245, 178, 5, 0.35);
+  padding-block: 0.7rem !important;
+  padding-inline: 1rem !important;
+  font-size: 0.9rem !important;
+  line-height: 1.25 !important;
+  border-radius: 6px;
+}
+
+.btnViewProject:hover:not(:disabled) {
+  box-shadow: 0 4px 18px rgba(245, 178, 5, 0.45);
+}
+
+.btnAllProjects {
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.8) !important;
+  color: rgba(255, 255, 255, 0.96) !important;
+  font-weight: 600;
+  padding-block: 0.7rem !important;
+  padding-inline: 1rem !important;
+  font-size: 0.9rem !important;
+  line-height: 1.25 !important;
+  border-radius: 6px;
+}
+
+.btnAllProjects:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.14) !important;
+  border-color: #fff !important;
+  color: #fff !important;
+}

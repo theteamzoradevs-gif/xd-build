@@ -1,0 +1,59 @@
+.section {
+  background: #f9fafb;
+  margin-top: clamp(1.25rem, 3vw, 2.25rem);
+  border-top: 1px solid #e5e7eb;
+}
+
+.header {
+  margin: 0 auto 1.5rem;
+  max-width: 860px;
+}
+
+.title {
+  margin: 0 0 0.75rem;
+  font-size: clamp(1.625rem, 3vw, 2.125rem);
+  letter-spacing: -0.03em;
+}
+
+.lead {
+  margin: 0;
+  color: var(--color-muted);
+  max-width: 75ch;
+  line-height: 1.65;
+}
+
+.grid {
+  max-width: 860px;
+  margin: 0 auto;
+  display: grid;
+}
+
+.item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.85rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.item:last-child {
+  border-bottom: 0;
+}
+
+.icon {
+  margin-top: 0.15rem;
+  color: var(--color-accent);
+  font-size: 0.95rem;
+}
+
+.itemTitle {
+  margin: 0 0 0.35rem;
+  color: var(--color-text);
+  font-size: 1.08rem;
+}
+
+.itemBody {
+  margin: 0;
+  color: var(--color-muted);
+  line-height: 1.6;
+}

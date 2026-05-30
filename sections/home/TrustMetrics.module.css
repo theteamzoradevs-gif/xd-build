@@ -1,0 +1,39 @@
+.section {
+  background: #0a0a0a;
+  border-block: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+@media (min-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.cell {
+  text-align: center;
+  padding: 0.5rem;
+}
+
+.value {
+  margin: 0;
+  font-size: clamp(1.85rem, 3.5vw, 2.65rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  color: #f3f4f6;
+  line-height: 1;
+}
+
+.label {
+  margin: 0.5rem 0 0;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #9ca3af;
+}

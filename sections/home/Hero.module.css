@@ -1,0 +1,143 @@
+﻿.wrap {
+  background: linear-gradient(135deg, var(--color-dark) 0%, #121826 65%);
+  color: #fff;
+  margin-inline: 0;
+  border-radius: 0;
+  position: relative;
+  overflow: hidden;
+  min-height: calc(100dvh - 3.75rem);
+  display: flex;
+  align-items: center;
+  padding-block: clamp(1.5rem, 4vw, 2.75rem);
+}
+
+.grid {
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+  justify-items: stretch;
+  position: relative;
+  z-index: 2;
+}
+
+@media (min-width: 900px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 0.5fr);
+    gap: 2.5rem;
+    align-items: center;
+  }
+}
+
+.bgVideo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(1.15) contrast(1.05) brightness(0.82) hue-rotate(240deg);
+  opacity: 0.98;
+}
+
+.videoTint {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(10, 30, 65, 0.62) 0%,
+    rgba(15, 50, 100, 0.54) 60%,
+    rgba(8, 25, 55, 0.6) 100%
+  );
+  z-index: 1;
+  backdrop-filter: blur(2px);
+}
+
+.kicker {
+  color: var(--color-accent);
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  margin: 0 0 0.65rem;
+  font-size: 0.75rem;
+}
+
+.title {
+  margin: 0 0 0.85rem;
+  font-size: clamp(1.45rem, 3.2vw, 2.1rem);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+.lead {
+  margin: 0 0 1.15rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.95rem;
+  line-height: 1.62;
+  max-width: none;
+}
+
+@media (min-width: 900px) {
+  .lead {
+    max-width: 48ch;
+  }
+}
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 0.8rem;
+}
+
+.trustChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.72rem 1.05rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.04);
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.trustChipLive {
+  display: contents;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem 0.75rem;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.actionEmail {
+  background: transparent !important;
+  color: #fff !important;
+  border-color: rgba(255, 255, 255, 0.88) !important;
+}
+
+.actionEmail:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-color: #fff !important;
+}
+
+.emailIcon {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  margin-inline-start: 0.1rem;
+}
+
+.emailIcon svg {
+  display: block;
+  width: 1.05em;
+  height: 1.05em;
+  fill: currentColor;
+}
+
+.copy {
+  padding-inline: 0;
+  max-width: none;
+}
