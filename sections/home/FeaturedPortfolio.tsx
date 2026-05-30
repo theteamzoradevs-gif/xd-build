@@ -61,7 +61,7 @@ export function FeaturedPortfolio() {
           </Link>
         ))}
       </div>
-      <Button className={styles.viewmorebtn} href="/portfolio" variant="secondary">
+      <Button className={styles.viewmorebtn} href="/portfolio" variant="primary">
           View More
         </Button>
     </Section>

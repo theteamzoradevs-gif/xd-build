@@ -49,13 +49,14 @@
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  font-size: 0.82rem;
+  font-size: clamp(1.05rem, 2.2vw, 1.9rem);
   color: var(--color-accent);
 }
 
 .title {
   margin: 0;
-  font-size: clamp(1.625rem, 3vw, 2.125rem);
+  font-size: clamp(1.15rem, 2.2vw, 1.6rem);
+  font-weight: 800;
   letter-spacing: -0.035em;
   line-height: 1.1;
   color: var(--color-text);
