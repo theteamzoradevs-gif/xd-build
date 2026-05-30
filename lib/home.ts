@@ -25,9 +25,3 @@ export const WHY_US_PILLARS = [
     body: "We tailor our services to meet your unique needs, ensuring your success.",
   },
 ] as const;
-
-export const FEATURED_PROJECT_SLUGS = [
-  "uofc-veterinary-learning-expansion",
-  "glenbow-museum-revitalization",
-  "rgh-chilled-water-system-upgrade",
-] as const;

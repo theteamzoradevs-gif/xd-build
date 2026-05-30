@@ -1,12 +1,14 @@
 import type { MetadataRoute } from "next";
-import { siteConfig } from "@/lib/site";
+import { getAllBlogSlugs } from "@/lib/blog";
 import { getAllProjectSlugs } from "@/lib/projects";
+import { siteConfig } from "@/lib/site";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const base = siteConfig.url.replace(/\/$/, "");
   const routes = [
     "",
     "/portfolio",
+    "/blog",
     "/services",
     "/why-us",
     "/about",
@@ -22,14 +24,33 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: "monthly",
   }));
 
-  const projectEntries: MetadataRoute.Sitemap = getAllProjectSlugs().map(
-    (slug) => ({
-      url: `${base}/portfolio/${slug}`,
-      lastModified: new Date(),
-      priority: 0.65,
-      changeFrequency: "monthly",
-    })
-  );
+  let projectSlugs: string[] = [];
+  let blogSlugs: string[] = [];
 
-  return [...staticEntries, ...projectEntries];
+  try {
+    [projectSlugs, blogSlugs] = await Promise.all([
+      getAllProjectSlugs(),
+      getAllBlogSlugs(),
+    ]);
+  } catch (error) {
+    if (process.env.NODE_ENV === "development") {
+      console.error("[sitemap]", error);
+    }
+  }
+
+  const projectEntries: MetadataRoute.Sitemap = projectSlugs.map((slug) => ({
+    url: `${base}/portfolio/${slug}`,
+    lastModified: new Date(),
+    priority: 0.65,
+    changeFrequency: "monthly",
+  }));
+
+  const blogEntries: MetadataRoute.Sitemap = blogSlugs.map((slug) => ({
+    url: `${base}/blog/${slug}`,
+    lastModified: new Date(),
+    priority: 0.6,
+    changeFrequency: "monthly",
+  }));
+
+  return [...staticEntries, ...projectEntries, ...blogEntries];
 }
