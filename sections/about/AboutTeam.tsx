@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { Section } from "@/components/ui/Section";
 import { TEAM_MEMBERS, TEAM_QUOTE } from "@/lib/team";
@@ -12,7 +11,7 @@ export function AboutTeam() {
       <header className={styles.header}>
         <div className={styles.titleRow}>
           <h2 id="our-team-title" className={styles.title}>
-            Our Founder
+            Meet Our Founder
           </h2>
           <div className={styles.accent} aria-hidden />
         </div>
@@ -34,23 +33,6 @@ export function AboutTeam() {
               key={member.name}
               className={`${styles.row} ${member.isFounder ? styles.rowFounder : ""} ${rowMirror ? styles.rowMirror : ""}`}
             >
-              <div
-                className={`${styles.hexShell} ${member.isFounder ? styles.hexShellFounder : ""}`}
-                aria-hidden
-              >
-                <div
-                  className={`${styles.hexBorder} ${member.isFounder ? styles.hexBorderFounder : ""}`}
-                />
-                <div className={`${styles.hexPhoto} ${member.isFounder ? styles.hexPhotoFounder : ""}`}>
-                  <Image
-                    src={member.imageSrc}
-                    alt={`${member.name}, ${member.title}`}
-                    fill
-                    className={`${styles.hexImg} ${member.isFounder ? styles.hexImgFounder : ""}`}
-                    sizes="(max-width: 640px) 32vw, 220px"
-                  />
-                </div>
-              </div>
               <div className={styles.copy}>
                 <p className={`${styles.name} ${member.isFounder ? styles.nameFounder : ""}`}>
                   {member.name.toUpperCase()}
@@ -81,6 +63,17 @@ export function AboutTeam() {
                   </Link>
                 ) : null}
               </div>
+              {member.isFounder ? (
+                <div className={styles.founderStory}>
+                  <h3 className={styles.founderStoryTitle}>Why he started</h3>
+                  <p className={styles.founderStoryText}>
+                    He founded XD Build to bridge the gap between office coordination and field execution —
+                    turning complex models into clear, buildable plans. With a deep respect for craft,
+                    practical timelines, and the realities of trade installation, he focuses on reducing
+                    rework and uncertainty so projects finish on time, on budget, and with fewer surprises.
+                  </p>
+                </div>
+              ) : null}
             </li>
           );
         })}

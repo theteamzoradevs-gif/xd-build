@@ -12,11 +12,12 @@ export const siteConfig = {
   ogImage: "/images/logo/2.png",
 } as const;
 
-export type NavKey =
+export type NavKey      =
   | "home"
   | "portfolio"
   | "blog"
   | "services"
+  | "gallery"
   | "about"
   | "contact";
 
@@ -29,6 +30,7 @@ export const NAV_ITEMS: ReadonlyArray<{
   { key: "portfolio", href: "/portfolio", label: "Portfolio" },
   { key: "blog", href: "/blog", label: "Blog" },
   { key: "services", href: "/services", label: "Services" },
+  { key: "gallery", href: "/gallery", label: "Gallery" },
   { key: "about", href: "/about", label: "About" },
   { key: "contact", href: "/contact", label: "Contact" },
 ];

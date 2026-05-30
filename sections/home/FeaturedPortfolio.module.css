@@ -120,26 +120,7 @@
   font-size: 0.95rem;
 }
 .viewmorebtn {
-  /* Centering Fix: Isse bina wrapper ke har jagah center ho jayega */
   display: block;
   margin: 2.5rem auto 0;
   width: max-content;
-
-  /* Styling & Professional Yellow */
-  padding: 0.8rem 2rem;
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: #111111;              /* Dark text */
-  background-color: #f5b205;   /* Brand Yellow */
-  border: 2px solid #f5b205;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.2s ease;   /* Smooth color change effect */
-}
-
-/* Hover aur Click (Active) State */
-.viewmorebtn:hover, .viewmorebtn:active {
-  background-color: #111111;   /* Hover par Dark Black */
-  color: #f5b205;              /* Text turns Yellow */
-  border-color: #111111;
 }

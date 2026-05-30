@@ -1,7 +1,7 @@
 .footer {
   background: var(--color-surface);
   border-top: 1px solid var(--color-border);
-  padding: 3rem 0 2rem;
+  padding: clamp(3.5rem, 6vw, 5.5rem) 0 clamp(2.5rem, 5vw, 4rem);
 }
 
 .inner {
@@ -48,10 +48,19 @@
   margin-top: 1rem;
   font-size: 0.9rem;
 }
-
 .social a {
-  text-decoration: underline;
-  text-underline-offset: 3px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+
+.socialIcon {
+  width: 28px;
+  height: 28px;
+  color: #0A66C2; /* LinkedIn blue */
+  fill: currentColor;
+  display: block;
 }
 
 .colTitle {
@@ -81,8 +90,8 @@
 }
 
 .copy {
-  margin: 2.5rem 0 0;
-  padding-top: 1.5rem;
+  margin: 3rem 0 0;
+  padding-top: 2rem;
   border-top: 1px solid var(--color-border);
   font-size: 0.875rem;
   color: var(--color-muted);

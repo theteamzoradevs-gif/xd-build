@@ -74,6 +74,16 @@ export async function FeaturedPortfolio() {
       <Button className={styles.viewmorebtn} href="/portfolio" variant="secondary">
         View More
       </Button>
+              <h3 className={styles.cardTitle}>{p.title}</h3>
+              {p.budget ? <p className={styles.budget}>Budget: {p.budget}</p> : null}
+              <p className={styles.outcome}>{p.outcome}</p>
+            </div>
+          </Link>
+        ))}
+      </div>
+      <Button className={styles.viewmorebtn} href="/portfolio" variant="primary">
+          View More
+        </Button>
     </Section>
   );
 }

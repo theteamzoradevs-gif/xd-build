@@ -22,8 +22,8 @@
 
 @media (min-width: 900px) {
   .grid {
-    grid-template-columns: minmax(0, 1fr) minmax(220px, 0.42fr);
-    gap: 2rem;
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 0.5fr);
+    gap: 2.5rem;
     align-items: center;
   }
 }
@@ -34,7 +34,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: saturate(0.95) contrast(1.02) brightness(0.85);
+  filter: saturate(1.15) contrast(1.05) brightness(0.82) hue-rotate(240deg);
   opacity: 0.98;
 }
 
@@ -43,9 +43,9 @@
   inset: 0;
   background: linear-gradient(
     135deg,
-    rgba(14, 23, 42, 0.44) 0%,
-    rgba(21, 43, 79, 0.36) 60%,
-    rgba(14, 23, 42, 0.42) 100%
+    rgba(10, 30, 65, 0.62) 0%,
+    rgba(15, 50, 100, 0.54) 60%,
+    rgba(8, 25, 55, 0.6) 100%
   );
   z-index: 1;
   backdrop-filter: blur(2px);
@@ -85,18 +85,18 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.6rem;
-  margin-bottom: 1.35rem;
+  margin-bottom: 0.8rem;
 }
 
 .trustChip {
   display: inline-flex;
   align-items: center;
-  gap: 0.45rem;
-  padding: 0.45rem 0.85rem;
+  gap: 0.55rem;
+  padding: 0.72rem 1.05rem;
   border-radius: 999px;
   border: 1px solid rgba(255, 255, 255, 0.2);
   background: rgba(255, 255, 255, 0.04);
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   color: rgba(255, 255, 255, 0.9);
 }
 
@@ -109,7 +109,7 @@
   flex-wrap: wrap;
   gap: 0.65rem 0.75rem;
   align-items: center;
-  margin-top: 65px;
+  margin-top: 1rem;
 }
 
 .actionEmail {

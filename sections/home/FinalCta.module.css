@@ -5,7 +5,7 @@
 }
 
 .inner {
-  width: min(100%, 760px);
+  width: min(100%, var(--max-content));
   margin: 0 auto;
   margin-top: 40px;
   color: #111827;
@@ -28,7 +28,7 @@
   font-weight: 800;
   letter-spacing: -0.045em;
   line-height: 1.08;
-  max-width: 14ch;
+  max-width: 32ch;
   color: #111827;
 }
 

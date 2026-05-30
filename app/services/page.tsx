@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Section } from "@/components/ui/Section";
+import styles from "./services.module.css";
 import { CtaBand } from "@/sections/home/CtaBand";
 import { RoutePortfolioShowcase } from "@/sections/portfolio/RoutePortfolioShowcase";
 import { ServiceSection } from "@/sections/services/ServiceSection";
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
   return (
     <>
-      <Section aria-labelledby="services-title">
+      <Section aria-labelledby="services-title" className={styles.heroHeader}>
         <p className="pageKicker">Services</p>
         <h1 id="services-title" className="pageTitle">
           Full-lifecycle digital delivery
