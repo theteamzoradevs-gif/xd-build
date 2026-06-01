@@ -64,17 +64,17 @@ export function mapApiProject(p: ApiPortfolioProject): Project {
 }
 
 export async function getProjects(): Promise<Project[]> {
-  const { projects } = await fetchJson<{ projects: ApiPortfolioProject[] }>(
+  const data = await fetchJson<{ projects?: ApiPortfolioProject[] }>(
     "/api/projects?status=published",
   );
-  return projects.map(mapApiProject);
+  return (data.projects ?? []).map(mapApiProject);
 }
 
 export async function getFeaturedProjects(): Promise<Project[]> {
-  const { projects } = await fetchJson<{ projects: ApiPortfolioProject[] }>(
+  const data = await fetchJson<{ projects?: ApiPortfolioProject[] }>(
     "/api/projects?status=published&featured=true",
   );
-  return projects.map(mapApiProject);
+  return (data.projects ?? []).map(mapApiProject);
 }
 
 export async function getProjectBySlug(slug: string): Promise<Project | undefined> {

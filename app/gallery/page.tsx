@@ -1,17 +1,17 @@
-import Image from "next/image";
-import Link from "next/link";
+import type { Metadata } from "next";
+import { GalleryPhotoGrid } from "@/components/gallery/GalleryPhotoGrid";
 import { Section } from "@/components/ui/Section";
-import { getProjects } from "@/lib/projects";
+import { getGalleryPhotosSafe } from "@/lib/api/gallery";
 import styles from "./page.module.css";
 
-export default async function GalleryPage() {
-  let projects: Awaited<ReturnType<typeof getProjects>> = [];
+export const metadata: Metadata = {
+  title: "Gallery",
+  description:
+    "Project photography from XD Build — field coordination, scanning, and delivery across Canada.",
+};
 
-  try {
-    projects = await getProjects();
-  } catch (error) {
-    console.error("[GalleryPage]", error);
-  }
+export default async function GalleryPage() {
+  const photos = await getGalleryPhotosSafe();
 
   return (
     <Section aria-labelledby="gallery-title">
@@ -20,27 +20,16 @@ export default async function GalleryPage() {
           Project Gallery
         </h1>
         <p className={styles.lead}>
-          A visual preview of our featured and recent projects.
+          A visual preview of our work — photos and titles from the field and the
+          model.
         </p>
       </div>
 
-      <ul className={styles.grid}>
-        {projects.map((p) => (
-          <li key={p.slug} className={styles.card}>
-            <Link href={`/portfolio/${p.slug}`} className={styles.link}>
-              <div className={styles.media}>
-                <Image
-                  src={p.heroSrc}
-                  alt={p.heroAlt}
-                  fill
-                  sizes="(max-width: 900px) 100vw, 33vw"
-                  className={styles.img}
-                />
-              </div>
-            </Link>
-          </li>
-        ))}
-      </ul>
+      {photos.length > 0 ? (
+        <GalleryPhotoGrid photos={photos} />
+      ) : (
+        <p className={styles.lead}>Gallery photos will appear here soon.</p>
+      )}
     </Section>
   );
 }

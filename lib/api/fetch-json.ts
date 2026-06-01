@@ -11,20 +11,23 @@ export async function fetchJson<T>(
 ): Promise<T> {
   if (!hasApiBase()) {
     throw new Error(
-      "NEXT_PUBLIC_API_BASE_URL is not set. Point it at the xd-build-admin dev server.",
+      "CMS_API_BASE_URL (or NEXT_PUBLIC_API_BASE_URL) is not set. Point it at the deployed xd-build-admin origin.",
     );
   }
 
-  const res = await fetch(apiUrl(path), {
+  const url = apiUrl(path);
+  const res = await fetch(url, {
     ...defaultCacheInit,
     ...init,
     headers: { Accept: "application/json", ...init?.headers },
   });
   const data = (await res.json()) as T & { error?: string };
   if (!res.ok) {
-    throw new Error(
-      typeof data.error === "string" ? data.error : `API ${res.status}`,
-    );
+    const detail =
+      typeof data.error === "string" ? data.error : `API ${res.status}`;
+    const hint =
+      process.env.NODE_ENV === "development" ? ` (${url})` : "";
+    throw new Error(`${detail}${hint}`);
   }
   return data;
 }
