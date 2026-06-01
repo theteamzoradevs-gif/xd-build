@@ -65,12 +65,13 @@ export function AboutTeam() {
               </div>
               {member.isFounder ? (
                 <div className={styles.founderStory}>
-                  <h3 className={styles.founderStoryTitle}>Why he started</h3>
+                  <h3 className={styles.founderStoryTitle}>Why I Started</h3>
                   <p className={styles.founderStoryText}>
-                    He founded XD Build to bridge the gap between office coordination and field execution —
-                    turning complex models into clear, buildable plans. With a deep respect for craft,
-                    practical timelines, and the realities of trade installation, he focuses on reducing
-                    rework and uncertainty so projects finish on time, on budget, and with fewer surprises.
+                    HI started XD Build with a clear purpose — to bridge the gap between office coordination and on-site execution. My goal was simple: to turn complex designs into practical, buildable solutions that actually work in the real world.
+
+I have deep respect for craftsmanship, realistic timelines, and the ground realities of trade installation. That’s why I focus on reducing rework, eliminating uncertainty, and bringing clarity to every stage of a project.
+
+At the end of the day, it’s about delivering projects on time, within budget, and with fewer surprises.
                   </p>
                 </div>
               ) : null}
