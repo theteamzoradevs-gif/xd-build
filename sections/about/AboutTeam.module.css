@@ -147,7 +147,7 @@
   font-size: clamp(1.02rem, 2vw, 1.1rem);
   line-height: 1.75;
   color: rgba(22, 22, 22, 0.85);
-  max-width: 75ch;
+  max-width: 110ch;
   font-style: italic;
 }
 
