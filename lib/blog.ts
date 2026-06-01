@@ -58,10 +58,10 @@ function orderPublishedForList(posts: ApiBlogPost[]): ApiBlogPost[] {
 }
 
 export async function getPublishedBlogPosts(): Promise<BlogPost[]> {
-  const { blogs } = await fetchJson<{ blogs: ApiBlogPost[] }>(
+  const data = await fetchJson<{ blogs?: ApiBlogPost[] }>(
     "/api/blogs?status=published",
   );
-  const published = blogs.filter((b) => b.status === "published");
+  const published = (data.blogs ?? []).filter((b) => b.status === "published");
   return orderPublishedForList(published).map(mapApiBlogPost);
 }
 
@@ -83,10 +83,10 @@ export async function getBlogPostBySlug(slug: string): Promise<BlogPost | undefi
 }
 
 export async function getAllBlogSlugs(): Promise<string[]> {
-  const { blogs } = await fetchJson<{ blogs: ApiBlogPost[] }>(
+  const data = await fetchJson<{ blogs?: ApiBlogPost[] }>(
     "/api/blogs?status=published",
   );
-  return blogs
+  return (data.blogs ?? [])
     .filter((b) => b.status === "published")
     .map((b) => b.id);
 }
