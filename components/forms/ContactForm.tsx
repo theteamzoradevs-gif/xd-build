@@ -5,6 +5,10 @@ import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { useSearchParams } from "next/navigation";
+import {
+  enquiryErrorField,
+  submitContactEnquiry,
+} from "@/lib/api/enquiries";
 import { Button } from "@/components/ui/Button";
 import styles from "./ContactForm.module.css";
 
@@ -35,6 +39,7 @@ export function ContactForm() {
     handleSubmit,
     reset,
     setValue,
+    setError,
     formState: { errors, isSubmitSuccessful, isSubmitting },
   } = useForm<ContactFormValues>({
     resolver: zodResolver(schema),
@@ -49,10 +54,26 @@ export function ContactForm() {
     );
   }, [projectHint, setValue]);
 
-  const onSubmit = async (_data: ContactFormValues) => {
-    await new Promise((r) => setTimeout(r, 450));
-    if (process.env.NODE_ENV === "development") {
-      console.info("[contact] demonstration submit", _data);
+  const onSubmit = async (data: ContactFormValues) => {
+    try {
+      await submitContactEnquiry({
+        name: data.name,
+        phone: data.phone,
+        email: data.email,
+        projectType: data.projectType,
+        message: data.message,
+      });
+    } catch (error) {
+      const message =
+        error instanceof Error
+          ? error.message
+          : "Something went wrong. Please try again.";
+      const field = enquiryErrorField(message);
+      if (field) {
+        setError(field, { message });
+      } else {
+        setError("message", { message });
+      }
     }
   };
 
