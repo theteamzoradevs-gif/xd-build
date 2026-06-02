@@ -67,7 +67,7 @@ export function AboutTeam() {
                 <div className={styles.founderStory}>
                   <h3 className={styles.founderStoryTitle}>Why I Started</h3>
                   <p className={styles.founderStoryText}>
-                    HI started XD Build with a clear purpose — to bridge the gap between office coordination and on-site execution. My goal was simple: to turn complex designs into practical, buildable solutions that actually work in the real world.
+                    I started XD Build with a clear purpose — to bridge the gap between office coordination and on-site execution. My goal was simple: to turn complex designs into practical, buildable solutions that actually work in the real world.
 
 I have deep respect for craftsmanship, realistic timelines, and the ground realities of trade installation. That’s why I focus on reducing rework, eliminating uncertainty, and bringing clarity to every stage of a project.
 

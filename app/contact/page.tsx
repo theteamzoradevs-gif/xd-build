@@ -23,10 +23,10 @@ export default function ContactPage() {
     <>
       <Section tight aria-labelledby="contact-title">
         <h1 id="contact-title" className="pageTitle">
-          Let&apos;s build something deliberate together
+          Let's build something deliberate together
         </h1>
         <p className="pageLead">
-          Tell us where your model and field story disagree, we&apos;ll propose the
+          Tell us where your model and field story disagree, we'll propose the
           fastest path back to certainty.
         </p>
       </Section>
@@ -65,23 +65,24 @@ export default function ContactPage() {
                   href={siteConfig.linkedInCompany}
                   rel="noreferrer"
                   target="_blank"
+                  aria-label="LinkedIn Profile"
+                  style={{ display: 'inline-flex', alignItems: 'center', textDecoration: 'none' }}
                 >
-                  XD Build on LinkedIn
+                  <svg 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    viewBox="0 0 24 24" 
+                    width="26" 
+                    height="26"
+                  >
+                    {/* white background layer */}
+                    <rect x="0" y="0" width="24" height="24" fill="#ffffff" rx="4" />
+                    {/* LinkedIn 'in' letters in blue */}
+                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" fill="#0a66c2" clipRule="evenodd" fillRule="evenodd" />
+                  </svg>
                 </Link>
               </div>
             </div>
             <div className={styles.quickActions}>
-              <Link className={styles.actionBtn} href={`tel:${siteConfig.phoneE164}`}>
-                <span aria-hidden className={styles.actionIconSvg}>
-                  <svg viewBox="0 0 24 24" focusable="false">
-                    <path
-                      d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.85 21 3 13.15 3 3c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.24.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2Z"
-                      fill="currentColor"
-                    />
-                  </svg>
-                </span>
-                Call now
-              </Link>
               <Link className={styles.actionBtn} href={`mailto:${siteConfig.email}`}>
                 <span aria-hidden className={styles.actionIconSvg}>
                   <svg viewBox="0 0 24 24" focusable="false">
