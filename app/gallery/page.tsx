@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { GalleryPhotoGrid } from "@/components/gallery/GalleryPhotoGrid";
 import { Section } from "@/components/ui/Section";
-import { getGalleryPhotosSafe } from "@/lib/api/gallery";
+import { getGalleryPagePhotos } from "@/lib/api/gallery";
+import { getProjects } from "@/lib/projects";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -11,7 +12,13 @@ export const metadata: Metadata = {
 };
 
 export default async function GalleryPage() {
-  const photos = await getGalleryPhotosSafe();
+  let projects: Awaited<ReturnType<typeof getProjects>> = [];
+  try {
+    projects = await getProjects();
+  } catch (error) {
+    console.error("[GalleryPage] projects", error);
+  }
+  const photos = await getGalleryPagePhotos(projects);
 
   return (
     <Section aria-labelledby="gallery-title">

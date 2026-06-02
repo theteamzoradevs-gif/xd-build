@@ -10,7 +10,8 @@ import { Testimonials } from "@/sections/home/Testimonials";
 import { TrustMetrics } from "@/sections/home/TrustMetrics";
 import { WhyOutsource } from "@/sections/home/WhyOutsource";
 import { WhyUs } from "@/sections/home/WhyUs";
-import FormPopup from "@/components/forms/FormPopup"; // 👈 Your popup imported cleanly here
+import { RecentPosts } from "@/sections/home/RecentPosts";
+import FormPopup from "@/components/forms/FormPopup";
 
 export const metadata: Metadata = {
   title: "XD Build",
@@ -31,6 +32,7 @@ export default async function HomePage() {
       <QualityLineBanner />
       <WhyUs />
       <FeaturedPortfolio />
+      <RecentPosts />
       <Testimonials
         section={home.testimonialsSection}
         testimonials={home.testimonials}

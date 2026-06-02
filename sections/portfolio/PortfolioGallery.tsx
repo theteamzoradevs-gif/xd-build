@@ -1,10 +1,8 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { GalleryPhotoCards } from "@/components/gallery/GalleryPhotoGrid";
 import type { Project, ProjectCategory } from "@/lib/projects";
 import { PROJECT_PLACEHOLDERS } from "@/lib/projects";
-import type { GalleryPhoto } from "@/types/gallery";
 import { ProjectCard } from "@/components/cards/ProjectCard";
 import styles from "./PortfolioGallery.module.css";
 
@@ -12,10 +10,9 @@ const FILTERS: ProjectCategory[] = ["All", "MEP", "BIM", "VDC"];
 
 type Props = {
   projects: Project[];
-  photos?: GalleryPhoto[];
 };
 
-export function PortfolioGallery({ projects, photos = [] }: Props) {
+export function PortfolioGallery({ projects }: Props) {
   const [filter, setFilter] = useState<ProjectCategory>("All");
 
   const visible = useMemo(() => {
@@ -47,9 +44,6 @@ export function PortfolioGallery({ projects, photos = [] }: Props) {
         {visible.map((p) => (
           <ProjectCard key={p.slug} project={p} />
         ))}
-        {filter === "All"
-          ? <GalleryPhotoCards photos={photos} />
-          : null}
       </div>
       {visible.length === 0 ? (
         <p className={styles.empty}>No projects in this filter yet.</p>
