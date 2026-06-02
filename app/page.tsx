@@ -10,6 +10,7 @@ import { Testimonials } from "@/sections/home/Testimonials";
 import { TrustMetrics } from "@/sections/home/TrustMetrics";
 import { WhyOutsource } from "@/sections/home/WhyOutsource";
 import { WhyUs } from "@/sections/home/WhyUs";
+import FormPopup from "@/components/forms/FormPopup"; // 👈 Your popup imported cleanly here
 
 export const metadata: Metadata = {
   title: "XD Build",
@@ -35,6 +36,9 @@ export default async function HomePage() {
         testimonials={home.testimonials}
       />
       <FinalCta />
+
+      {/* 👈 Added at the very bottom so it renders on top of everything after 3 seconds */}
+      <FormPopup />
     </>
   );
 }
