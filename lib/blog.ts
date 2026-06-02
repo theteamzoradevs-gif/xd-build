@@ -65,9 +65,19 @@ export async function getPublishedBlogPosts(): Promise<BlogPost[]> {
   return orderPublishedForList(published).map(mapApiBlogPost);
 }
 
+/**
+ * Post for the home “Recent Posts” block: featured published post if set,
+ * otherwise the newest published post.
+ */
 export async function getFeaturedBlogPost(): Promise<BlogPost | undefined> {
   const posts = await getPublishedBlogPosts();
   return posts[0];
+}
+
+/** Up to `limit` published posts for home/blog previews (featured first when set). */
+export async function getRecentBlogPosts(limit = 3): Promise<BlogPost[]> {
+  const posts = await getPublishedBlogPosts();
+  return posts.slice(0, limit);
 }
 
 export async function getBlogPostBySlug(slug: string): Promise<BlogPost | undefined> {

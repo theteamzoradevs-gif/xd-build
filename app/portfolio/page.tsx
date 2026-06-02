@@ -4,7 +4,6 @@ import { CtaBand } from "@/sections/home/CtaBand";
 import { PortfolioGallery } from "@/sections/portfolio/PortfolioGallery";
 import { WORK_WITH_US_CTA } from "@/lib/workWithUsCta";
 import { toPublicLoadError } from "@/lib/api/public-error";
-import { getGalleryPhotosSafe } from "@/lib/api/gallery";
 import { getProjects } from "@/lib/projects";
 
 export const metadata: Metadata = {
@@ -17,15 +16,12 @@ export default async function PortfolioPage() {
   let projects: Awaited<ReturnType<typeof getProjects>> = [];
   let loadError: string | null = null;
 
-  const [projectsResult, galleryPhotos] = await Promise.all([
-    getProjects().catch((error) => {
-      loadError = toPublicLoadError(error);
-      console.error("[PortfolioPage]", error);
-      return [] as Awaited<ReturnType<typeof getProjects>>;
-    }),
-    getGalleryPhotosSafe(),
-  ]);
-  projects = projectsResult;
+  try {
+    projects = await getProjects();
+  } catch (error) {
+    loadError = toPublicLoadError(error);
+    console.error("[PortfolioPage]", error);
+  }
 
   return (
     <>
@@ -46,7 +42,7 @@ export default async function PortfolioPage() {
         ) : null}
       </Section>
       <Section tight aria-label="Portfolio projects">
-        <PortfolioGallery projects={projects} photos={galleryPhotos} />
+        <PortfolioGallery projects={projects} />
       </Section>
       <CtaBand dark {...WORK_WITH_US_CTA} />
     </>

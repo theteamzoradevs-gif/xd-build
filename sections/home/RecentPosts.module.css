@@ -4,6 +4,41 @@
 
 .header {
   margin-bottom: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.viewAll {
+  flex-shrink: 0;
+}
+
+.media {
+  margin: -0.25rem -0.25rem 0.5rem;
+  border-radius: calc(var(--radius-card) - 4px);
+  overflow: hidden;
+}
+
+.heroImage {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 280px;
+  object-fit: cover;
+}
+
+.moreGrid {
+  margin-top: 1.5rem;
+  display: grid;
+  gap: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .moreGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 .kicker {
