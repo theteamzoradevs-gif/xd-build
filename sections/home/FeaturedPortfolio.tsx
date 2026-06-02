@@ -2,16 +2,22 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
-import { getFeaturedProjects } from "@/lib/projects";
+import { getFeaturedProjects, type Project } from "@/lib/projects";
 import styles from "./FeaturedPortfolio.module.css";
 
-export async function FeaturedPortfolio() {
-  let featured: Awaited<ReturnType<typeof getFeaturedProjects>> = [];
-  try {
-    featured = await getFeaturedProjects();
-  } catch (error) {
-    if (process.env.NODE_ENV === "development") {
-      console.error("[FeaturedPortfolio]", error);
+type Props = {
+  projects?: Project[];
+};
+
+export async function FeaturedPortfolio({ projects: prefetched }: Props) {
+  let featured: Project[] = prefetched ?? [];
+  if (!prefetched) {
+    try {
+      featured = await getFeaturedProjects();
+    } catch (error) {
+      if (process.env.NODE_ENV === "development") {
+        console.error("[FeaturedPortfolio]", error);
+      }
     }
   }
 

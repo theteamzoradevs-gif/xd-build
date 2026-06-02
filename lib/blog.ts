@@ -1,3 +1,4 @@
+import { cache } from "react";
 import { fetchJson } from "@/lib/api/fetch-json";
 
 export type ApiBlogPost = {
@@ -57,13 +58,15 @@ function orderPublishedForList(posts: ApiBlogPost[]): ApiBlogPost[] {
   return [featured, ...posts.filter((p) => p.id !== featured.id)];
 }
 
-export async function getPublishedBlogPosts(): Promise<BlogPost[]> {
-  const data = await fetchJson<{ blogs?: ApiBlogPost[] }>(
-    "/api/blogs?status=published",
-  );
-  const published = (data.blogs ?? []).filter((b) => b.status === "published");
-  return orderPublishedForList(published).map(mapApiBlogPost);
-}
+export const getPublishedBlogPosts = cache(
+  async function getPublishedBlogPosts(): Promise<BlogPost[]> {
+    const data = await fetchJson<{ blogs?: ApiBlogPost[] }>(
+      "/api/blogs?status=published",
+    );
+    const published = (data.blogs ?? []).filter((b) => b.status === "published");
+    return orderPublishedForList(published).map(mapApiBlogPost);
+  },
+);
 
 /**
  * Post for the home “Recent Posts” block: featured published post if set,
@@ -80,7 +83,9 @@ export async function getRecentBlogPosts(limit = 3): Promise<BlogPost[]> {
   return posts.slice(0, limit);
 }
 
-export async function getBlogPostBySlug(slug: string): Promise<BlogPost | undefined> {
+export const getBlogPostBySlug = cache(async function getBlogPostBySlug(
+  slug: string,
+): Promise<BlogPost | undefined> {
   try {
     const { blog } = await fetchJson<{ blog: ApiBlogPost }>(
       `/api/blogs/${encodeURIComponent(slug)}`,
@@ -90,7 +95,7 @@ export async function getBlogPostBySlug(slug: string): Promise<BlogPost | undefi
   } catch {
     return undefined;
   }
-}
+});
 
 export async function getAllBlogSlugs(): Promise<string[]> {
   const data = await fetchJson<{ blogs?: ApiBlogPost[] }>(

@@ -3,19 +3,25 @@ import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
 import { BlogCard } from "@/components/blog/BlogCard";
-import { getRecentBlogPosts } from "@/lib/blog";
+import { getRecentBlogPosts, type BlogPost } from "@/lib/blog";
 import { toPublicLoadError } from "@/lib/api/public-error";
 import styles from "./RecentPosts.module.css";
 
-export async function RecentPosts() {
-  let posts: Awaited<ReturnType<typeof getRecentBlogPosts>> = [];
+type Props = {
+  posts?: BlogPost[];
+};
+
+export async function RecentPosts({ posts: prefetched }: Props) {
+  let posts: BlogPost[] = prefetched ?? [];
   let loadError: string | null = null;
 
-  try {
-    posts = await getRecentBlogPosts(3);
-  } catch (error) {
-    loadError = toPublicLoadError(error);
-    console.error("[RecentPosts]", error);
+  if (!prefetched) {
+    try {
+      posts = await getRecentBlogPosts(3);
+    } catch (error) {
+      loadError = toPublicLoadError(error);
+      console.error("[RecentPosts]", error);
+    }
   }
 
   const [highlight, ...morePosts] = posts;

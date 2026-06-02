@@ -1,21 +1,28 @@
-﻿import { AnimatedCounter } from "@/components/ui/animated-counter";
+﻿import { HeroBackgroundVideo } from "@/components/home/HeroBackgroundVideo";
+import { AnimatedCounter } from "@/components/ui/animated-counter";
 import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
-import { getFeaturedProjects } from "@/lib/projects";
+import {
+  cloudinaryVideoPosterUrl,
+  isCloudinaryUrl,
+  optimizeCloudinaryVideoUrl,
+} from "@/lib/cloudinary";
+import { getFeaturedProjects, type Project } from "@/lib/projects";
 import { siteConfig } from "@/lib/site";
 import { HeroFeaturedCarousel } from "@/sections/home/HeroFeaturedCarousel";
 import type { HomeHero } from "@/types/home";
 import styles from "./Hero.module.css";
 
-const FALLBACK_VIDEO = "/videos/xdHeroVideo.mp4";
 const FALLBACK_POSTER = "/images/hero-poster.jpg";
 const FALLBACK_TRUST_BADGE = "120+";
 
 type Props = {
   hero: HomeHero;
+  /** When set (e.g. from the home page), skips a duplicate CMS fetch. */
+  featuredProjects?: Project[];
 };
 
-export async function HomeHero({ hero }: Props) {
+export async function HomeHero({ hero, featuredProjects }: Props) {
   let carouselProjects: {
     slug: string;
     title: string;
@@ -24,42 +31,47 @@ export async function HomeHero({ hero }: Props) {
     outcome: string;
   }[] = [];
 
-  try {
-    const featured = await getFeaturedProjects();
-    carouselProjects = featured.map((p) => ({
+  if (featuredProjects) {
+    carouselProjects = featuredProjects.map((p) => ({
       slug: p.slug,
       title: p.title,
       heroSrc: p.heroSrc,
       heroAlt: p.heroAlt,
       outcome: p.outcome,
     }));
-  } catch (error) {
-    if (process.env.NODE_ENV === "development") {
-      console.error("[HomeHero]", error);
+  } else {
+    try {
+      const featured = await getFeaturedProjects();
+      carouselProjects = featured.map((p) => ({
+        slug: p.slug,
+        title: p.title,
+        heroSrc: p.heroSrc,
+        heroAlt: p.heroAlt,
+        outcome: p.outcome,
+      }));
+    } catch (error) {
+      if (process.env.NODE_ENV === "development") {
+        console.error("[HomeHero]", error);
+      }
     }
   }
 
-  const videoSrc = hero.videoSrc?.trim() || FALLBACK_VIDEO;
+  const rawVideo = hero.videoSrc?.trim() ?? "";
+  const videoSrc = rawVideo
+    ? isCloudinaryUrl(rawVideo)
+      ? optimizeCloudinaryVideoUrl(rawVideo)
+      : rawVideo
+    : "";
   const videoPoster = hero.videoPoster?.trim();
   const poster =
     videoPoster ||
-    (videoSrc === FALLBACK_VIDEO ? FALLBACK_POSTER : undefined);
+    (videoSrc ? cloudinaryVideoPosterUrl(videoSrc) : "") ||
+    FALLBACK_POSTER;
   const trustBadgeValue = hero.trustBadgeValue?.trim() || FALLBACK_TRUST_BADGE;
 
   return (
     <Section bleed className={styles.wrap} aria-labelledby="home-hero-title">
-      <video
-        className={styles.bgVideo}
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="metadata"
-        {...(poster ? { poster } : {})}
-        aria-hidden
-      >
-        <source src={videoSrc} type="video/mp4" />
-      </video>
+      <HeroBackgroundVideo videoSrc={videoSrc} poster={poster} />
       <div className={styles.videoTint} aria-hidden />
       <div className={styles.grid}>
         <div className={styles.copy}>

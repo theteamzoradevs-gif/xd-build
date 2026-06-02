@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { BlogPost } from "@/lib/blog";
 import styles from "./BlogCard.module.css";
 
@@ -10,7 +11,13 @@ export function BlogCard({ post }: Props) {
   return (
     <article className={styles.card}>
       <div className={styles.media}>
-        <img src={post.image} alt={post.title} className={styles.image} />
+        <Image
+          src={post.image}
+          alt={post.imageAlt}
+          fill
+          sizes="(max-width: 768px) 100vw, 400px"
+          className={styles.image}
+        />
       </div>
       <div className={styles.body}>
         <span className={styles.tag}>{post.category}</span>

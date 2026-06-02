@@ -12,6 +12,8 @@ export const metadata: Metadata = {
     "Selected BIM, MEP, and VDC projects with concrete outcomes, from mission critical campuses to HQ builds.",
 };
 
+export const revalidate = 60;
+
 export default async function PortfolioPage() {
   let projects: Awaited<ReturnType<typeof getProjects>> = [];
   let loadError: string | null = null;

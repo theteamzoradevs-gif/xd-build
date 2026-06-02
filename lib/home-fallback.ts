@@ -3,7 +3,8 @@ import type { HomeContent } from "@/types/home";
 /** Last-resort defaults when GET /api/home fails (matches former static homepage). */
 export const DEFAULT_HOME_FALLBACK: HomeContent = {
   hero: {
-    videoSrc: "/videos/xdHeroVideo.mp4",
+    /** Empty — avoids shipping the 46MB local MP4 when CMS is unreachable. */
+    videoSrc: "",
     videoPoster: "/images/hero-poster.jpg",
     trustBadgeValue: "120+",
   },

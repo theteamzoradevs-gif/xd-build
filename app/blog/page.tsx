@@ -8,6 +8,8 @@ export const metadata: Metadata = {
   description: "Recent posts and updates from the XD Build content archive.",
 };
 
+export const revalidate = 60;
+
 export default async function BlogPage() {
   let posts: Awaited<ReturnType<typeof getPublishedBlogPosts>> = [];
   let loadError: string | null = null;
