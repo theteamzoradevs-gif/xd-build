@@ -1,3 +1,4 @@
+import { cache } from "react";
 import { fetchJson } from "@/lib/api/fetch-json";
 
 export type ProjectCategory = "All" | "MEP" | "BIM" | "VDC";
@@ -63,21 +64,25 @@ export function mapApiProject(p: ApiPortfolioProject): Project {
   };
 }
 
-export async function getProjects(): Promise<Project[]> {
+export const getProjects = cache(async function getProjects(): Promise<Project[]> {
   const data = await fetchJson<{ projects?: ApiPortfolioProject[] }>(
     "/api/projects?status=published",
   );
   return (data.projects ?? []).map(mapApiProject);
-}
+});
 
-export async function getFeaturedProjects(): Promise<Project[]> {
-  const data = await fetchJson<{ projects?: ApiPortfolioProject[] }>(
-    "/api/projects?status=published&featured=true",
-  );
-  return (data.projects ?? []).map(mapApiProject);
-}
+export const getFeaturedProjects = cache(
+  async function getFeaturedProjects(): Promise<Project[]> {
+    const data = await fetchJson<{ projects?: ApiPortfolioProject[] }>(
+      "/api/projects?status=published&featured=true",
+    );
+    return (data.projects ?? []).map(mapApiProject);
+  },
+);
 
-export async function getProjectBySlug(slug: string): Promise<Project | undefined> {
+export const getProjectBySlug = cache(async function getProjectBySlug(
+  slug: string,
+): Promise<Project | undefined> {
   try {
     const { project } = await fetchJson<{ project: ApiPortfolioProject }>(
       `/api/projects/${encodeURIComponent(slug)}`,
@@ -86,7 +91,7 @@ export async function getProjectBySlug(slug: string): Promise<Project | undefine
   } catch {
     return undefined;
   }
-}
+});
 
 export async function getAllProjectSlugs(): Promise<string[]> {
   const projects = await getProjects();

@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import { getHomeContentWithFallback } from "@/lib/api/home";
+import { getRecentBlogPosts } from "@/lib/blog";
+import type { BlogPost } from "@/lib/blog";
+import { getFeaturedProjects, type Project } from "@/lib/projects";
 import { CompanyIntro } from "@/sections/home/CompanyIntro";
 import { FeaturedPortfolio } from "@/sections/home/FeaturedPortfolio";
 import { FinalCta } from "@/sections/home/FinalCta";
@@ -19,27 +22,31 @@ export const metadata: Metadata = {
     "Calgary-based Digital Delivery Partner specialising in BIM and VDC solutions for the construction industry.",
 };
 
+export const revalidate = 60;
+
 export default async function HomePage() {
-  const home = await getHomeContentWithFallback();
+  const [home, featuredProjects, recentPosts] = await Promise.all([
+    getHomeContentWithFallback(),
+    getFeaturedProjects().catch((): Project[] => []),
+    getRecentBlogPosts(3).catch((): BlogPost[] => []),
+  ]);
 
   return (
     <>
-      <HomeHero hero={home.hero} />
+      <HomeHero hero={home.hero} featuredProjects={featuredProjects} />
       <TrustMetrics stats={home.stats} />
       <WhyOutsource />
       <CompanyIntro />
       <HomeServicesGrid />
       <QualityLineBanner />
       <WhyUs />
-      <FeaturedPortfolio />
-      <RecentPosts />
+      <FeaturedPortfolio projects={featuredProjects} />
+      <RecentPosts posts={recentPosts} />
       <Testimonials
         section={home.testimonialsSection}
         testimonials={home.testimonials}
       />
       <FinalCta />
-
-      {/* 👈 Added at the very bottom so it renders on top of everything after 3 seconds */}
       <FormPopup />
     </>
   );
