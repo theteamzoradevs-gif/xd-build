@@ -7,6 +7,8 @@ import styles from "./CompanyIntro.module.css";
 
 
 
+
+
 export function CompanyIntro() {
   return (
     <Section

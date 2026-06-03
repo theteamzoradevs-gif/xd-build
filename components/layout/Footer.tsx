@@ -51,7 +51,7 @@ export function Footer() {
             </ul>
           </div>
           <div>
-            <p className={styles.colTitle}>Expertise</p>
+            <p className={styles.colTitle}>Services</p>
             <ul className={styles.links}>
               <li>
                 <Link href="/services#bim-solutions">BIM solutions</Link>

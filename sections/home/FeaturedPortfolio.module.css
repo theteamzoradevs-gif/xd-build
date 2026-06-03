@@ -119,8 +119,25 @@
   line-height: 1.5;
   font-size: 0.95rem;
 }
-.viewmorebtn {
-  display: block;
-  margin: 2.5rem auto 0;
-  width: max-content;
+
+/* --- CHNG: Buttons Layout & Centering --- */
+
+/* View More button ko absolute horizontal center me lane ke liye flex wrap */
+.viewMoreContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 3rem;
+}
+
+/* Header CTA specific layout handling */
+.headerCta {
+  white-space: nowrap;
+}
+
+/* View More button sizing styling */
+.viewMoreBtn {
+  min-width: 160px;
+  justify-content: center;
 }
