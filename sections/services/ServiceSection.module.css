@@ -51,6 +51,7 @@
   text-transform: uppercase;
   font-size: clamp(1.05rem, 2.2vw, 1.9rem);
   color: var(--color-accent);
+  letter-spacing: -0.02em;
 }
 
 .title {

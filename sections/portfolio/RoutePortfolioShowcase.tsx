@@ -75,7 +75,7 @@ export async function RoutePortfolioShowcase({ routeKey }: Props) {
       {showTopCta ? (
         <div className={styles.topCtaWrap}>
           <div className={styles.topCtaCard}>
-            <h2 className={styles.cardHeading}>ACHIEVE ON-SITE CLARITY FROM DAY ONE</h2>
+            <h2 className={styles.cardHeading}>Achieve on-site clarity from day one</h2>
             <p className={styles.cardSubtext}>
               XD Build, your Calgary-based Digital Delivery Partner, specializes in 
               precise BIM and VDC solutions to bridge the gap between office 
@@ -83,11 +83,9 @@ export async function RoutePortfolioShowcase({ routeKey }: Props) {
             </p>
             <div className={styles.cardActions}>
               <Link href="/contact" className={styles.btnPrimary}>
-                Get Consultation
+                Call Now
               </Link>
-              <a href="#portfolio-grid" className={styles.btnSecondary}>
-                Browse projects
-              </a>
+              
             </div>
           </div>
         </div>
