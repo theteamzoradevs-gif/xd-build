@@ -41,12 +41,12 @@ export default async function HomePage() {
       <QualityLineBanner />
       <WhyUs />
       <FeaturedPortfolio projects={featuredProjects} />
-      <RecentPosts posts={recentPosts} />
       <Testimonials
         section={home.testimonialsSection}
         testimonials={home.testimonials}
       />
       <FinalCta />
+      <RecentPosts posts={recentPosts} />
       <FormPopup />
     </>
   );

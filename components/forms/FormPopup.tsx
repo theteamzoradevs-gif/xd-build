@@ -1,17 +1,99 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, ChangeEvent, FormEvent } from "react";
+
+interface FormData {
+  fullName: string;
+  email: string;
+  phone: string;
+}
+
+interface FormErrors {
+  fullName?: string;
+  email?: string;
+  phone?: string;
+}
 
 export default function FormPopup() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  
+  // Form input states
+  const [formData, setFormData] = useState<FormData>({
+    fullName: "",
+    email: "",
+    phone: "",
+  });
+
+  // Errors state
+  const [errors, setErrors] = useState<FormErrors>({});
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsOpen(true);
-    }, 3000);
+    const hasSeenPopupThisSession = sessionStorage.getItem("hasSeenPopupThisSession");
 
-    return () => clearTimeout(timer);
+    if (!hasSeenPopupThisSession) {
+      const timer = setTimeout(() => {
+        setIsOpen(true);
+        sessionStorage.setItem("hasSeenPopupThisSession", "true");
+      }, 3000);
+
+      return () => clearTimeout(timer);
+    }
   }, []);
+
+  // Handle Input Changes with Inline Restrictions
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+
+    if (name === "fullName") {
+      // Sirf alphabets aur spaces allow karega (Numbers block)
+      if (/[^a-zA-Z\s]/.test(value)) return;
+    }
+
+    if (name === "phone") {
+      // Sirf numbers allow karega aur max 10 digits tak limit karega
+      if (/[^0-9]/.test(value) || value.length > 10) return;
+    }
+
+    setFormData((prev) => ({ ...prev, [name]: value }));
+    
+    // Clear error message when user starts typing again
+    if (errors[name as keyof FormErrors]) {
+      setErrors((prev) => ({ ...prev, [name]: undefined }));
+    }
+  };
+
+  // Final validation on Submit
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const newErrors: FormErrors = {};
+
+    // 1. Name Validation
+    if (formData.fullName.trim().length < 2) {
+      newErrors.fullName = "Please enter a valid name (at least 2 characters).";
+    }
+
+    // 2. Email Validation (Standard Regex)
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      newErrors.email = "Please enter a valid email address.";
+    }
+
+    // 3. Phone Validation (Must be exactly 10 digits)
+    if (formData.phone.length !== 10) {
+      newErrors.phone = "Phone number must be exactly 10 digits.";
+    }
+
+    // Agar errors hain toh form submit nahi hoga
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
+
+    // Agar sab sahi hai toh yahan data send hoga
+    console.log("Form Submitted Successfully:", formData);
+    alert("Enquiry Sent Successfully!");
+    setIsOpen(false); // Popup close karne ke liye
+  };
 
   if (!isOpen) return null;
 
@@ -46,7 +128,7 @@ export default function FormPopup() {
         onClick={() => setIsOpen(false)}
       />
 
-      {/* Main Card Container (Perfectly Centered Single Column) */}
+      {/* Main Card Container */}
       <div 
         className="relative w-full max-w-md bg-white rounded-xl shadow-2xl z-10"
         style={{
@@ -62,7 +144,7 @@ export default function FormPopup() {
         }}
       >
         
-        {/* Top Feature Badge (Build with Clarity Lap) */}
+        {/* Top Feature Badge */}
         <div 
           style={{
             position: 'absolute',
@@ -70,7 +152,7 @@ export default function FormPopup() {
             left: '50%',
             transform: 'translateX(-50%)',
             backgroundColor: '#EAA135',
-            color: '#000000',
+            color: '#ffffff',
             fontSize: '11px',
             fontWeight: 'bold',
             padding: '0.35rem 1.25rem',
@@ -82,7 +164,7 @@ export default function FormPopup() {
           Build with Clarity
         </div>
 
-        {/* Close Button (Cross) */}
+        {/* Close Button */}
         <button
           onClick={() => setIsOpen(false)}
           className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-2xl font-light"
@@ -110,7 +192,6 @@ export default function FormPopup() {
             Tell us about your project to unlock expert insights.
           </p>
           
-          {/* Construction Tagline */}
           <p 
             className="text-sm font-medium text-gray-800" 
             style={{ 
@@ -128,17 +209,21 @@ export default function FormPopup() {
         </div>
 
         {/* Form Fields */}
-        <form onSubmit={(e) => e.preventDefault()} style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
+        <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
           <div>
             <label style={{ display: 'block', fontSize: '11px', fontWeight: '600', color: '#4b5563', marginBottom: '0.25rem' }}>
-              Full Name
+              Name
             </label>
             <input
               type="text"
+              name="fullName"
+              value={formData.fullName}
+              onChange={handleChange}
               placeholder="Full Name"
-              style={{ width: '100%', padding: '0.65rem 1rem', border: '1px solid #d1d5db', borderRadius: '0.375rem', fontSize: '0.875rem', color: '#1f2937', backgroundColor: '#ffffff', boxSizing: 'border-box' }}
+              style={{ width: '100%', padding: '0.65rem 1rem', border: errors.fullName ? '1px solid #ef4444' : '1px solid #d1d5db', borderRadius: '0.375rem', fontSize: '0.875rem', color: '#1f2937', backgroundColor: '#ffffff', boxSizing: 'border-box' }}
               required
             />
+            {errors.fullName && <p style={{ color: '#ef4444', fontSize: '11px', margin: '4px 0 0 0' }}>{errors.fullName}</p>}
           </div>
 
           <div>
@@ -147,10 +232,14 @@ export default function FormPopup() {
             </label>
             <input
               type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
               placeholder="Email Address"
-              style={{ width: '100%', padding: '0.65rem 1rem', border: '1px solid #d1d5db', borderRadius: '0.375rem', fontSize: '0.875rem', color: '#1f2937', backgroundColor: '#ffffff', boxSizing: 'border-box' }}
+              style={{ width: '100%', padding: '0.65rem 1rem', border: errors.email ? '1px solid #ef4444' : '1px solid #d1d5db', borderRadius: '0.375rem', fontSize: '0.875rem', color: '#1f2937', backgroundColor: '#ffffff', boxSizing: 'border-box' }}
               required
             />
+            {errors.email && <p style={{ color: '#ef4444', fontSize: '11px', margin: '4px 0 0 0' }}>{errors.email}</p>}
           </div>
 
           <div>
@@ -159,16 +248,19 @@ export default function FormPopup() {
             </label>
             <input
               type="tel"
-              placeholder="Phone Number"
-              style={{ width: '100%', padding: '0.65rem 1rem', border: '1px solid #d1d5db', borderRadius: '0.375rem', fontSize: '0.875rem', color: '#1f2937', backgroundColor: '#ffffff', boxSizing: 'border-box' }}
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+              placeholder="10-digit Phone Number"
+              style={{ width: '100%', padding: '0.65rem 1rem', border: errors.phone ? '1px solid #ef4444' : '1px solid #d1d5db', borderRadius: '0.375rem', fontSize: '0.875rem', color: '#1f2937', backgroundColor: '#ffffff', boxSizing: 'border-box' }}
               required
             />
+            {errors.phone && <p style={{ color: '#ef4444', fontSize: '11px', margin: '4px 0 0 0' }}>{errors.phone}</p>}
           </div>
 
-          {/* Button 1: Send Enquiry */}
           <button
             type="submit"
-            style={{ width: '100%', backgroundColor: '#d68711', color: 'white', fontWeight: 500, fontSize: '0.875rem', padding: '0.75rem 1rem', borderRadius: '0.375rem', border: 'none', cursor: 'pointer', marginTop: '0.5rem' }}
+            style={{ width: '100%', backgroundColor: '#EAA135', color: '#000000', fontWeight: 500, fontSize: '0.875rem', padding: '0.75rem 1rem', borderRadius: '0.375rem', border: 'none', cursor: 'pointer', marginTop: '0.5rem' }}
           >
             Send Enquiry &rarr;
           </button>
@@ -187,7 +279,7 @@ export default function FormPopup() {
             href="mailto:example@construction.com"
             style={{ 
               width: '100%', 
-              backgroundColor: '#050505', // डार्क ग्रीन थीम जो इमेज के कॉल बटन से मिलती है
+              backgroundColor: '#050505', 
               color: 'white', 
               fontWeight: 500, 
               fontSize: '0.875rem', 

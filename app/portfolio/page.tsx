@@ -27,7 +27,7 @@ export default async function PortfolioPage() {
 
   return (
     <>
-      <Section aria-labelledby="portfolio-title">
+      <Section denseTop denseBottom aria-labelledby="portfolio-title">
         <p className="pageKicker">Portfolio</p>
         <h1 id="portfolio-title" className="pageTitle">
           Confirmed projects
