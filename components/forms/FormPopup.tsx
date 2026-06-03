@@ -168,7 +168,7 @@ export default function FormPopup() {
           {/* Button 1: Send Enquiry */}
           <button
             type="submit"
-            style={{ width: '100%', backgroundColor: '#582B3A', color: 'white', fontWeight: 500, fontSize: '0.875rem', padding: '0.75rem 1rem', borderRadius: '0.375rem', border: 'none', cursor: 'pointer', marginTop: '0.5rem' }}
+            style={{ width: '100%', backgroundColor: '#d68711', color: 'white', fontWeight: 500, fontSize: '0.875rem', padding: '0.75rem 1rem', borderRadius: '0.375rem', border: 'none', cursor: 'pointer', marginTop: '0.5rem' }}
           >
             Send Enquiry &rarr;
           </button>
@@ -187,7 +187,7 @@ export default function FormPopup() {
             href="mailto:example@construction.com"
             style={{ 
               width: '100%', 
-              backgroundColor: '#1E2E24', // डार्क ग्रीन थीम जो इमेज के कॉल बटन से मिलती है
+              backgroundColor: '#050505', // डार्क ग्रीन थीम जो इमेज के कॉल बटन से मिलती है
               color: 'white', 
               fontWeight: 500, 
               fontSize: '0.875rem', 

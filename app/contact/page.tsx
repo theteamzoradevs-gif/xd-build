@@ -59,7 +59,7 @@ export default function ContactPage() {
                 </p>
               </div>
               <div>
-                <p className={styles.label}>LinkedIn</p>
+                <p className={styles.label}></p>
                 <Link
                   className={styles.linkStrong}
                   href={siteConfig.linkedInCompany}

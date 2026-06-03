@@ -1,57 +1,127 @@
 .topCtaWrap {
   display: flex;
   justify-content: center;
-  padding: 1rem 1rem 0.85rem;
-  background: #fff;
-}
-
-.topCta {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 3.2rem;
-  padding: 0.9rem 1.6rem;
-  background: var(--color-accent);
-  color: var(--color-dark);
-  border-radius: 8px;
-  font-weight: 700;
-  font-size: 0.96rem;
-  line-height: 1.2;
-}
-
-.topCta:hover {
-  background: var(--color-accent-hover);
-}
-
-.wrap {
+  padding: 3rem 1rem;
   background: #f7f8fb;
 }
 
-.topCtaInner {
+.topCtaCard {
+  background: #ffffff;
+  border-radius: 32px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
+  padding: 4rem 2rem;
+  /* हेडिंग को एक लाइन में रखने के लिए विड्थ को 1200px तक बढ़ाया गया */
+  max-width: 1200px; 
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.6rem;
-}
-
-.topCtaLabel {
-  display: block;
-  line-height: 1.1;
-}
-
-.topCtaTagline {
-  display: block;
-  margin: 0;
-  font-size: 0.82rem;
-  color: rgba(22,22,22,0.85);
-  font-weight: 600;
   text-align: center;
-  opacity: 0.95;
-  margin-top: 0.15rem;
+  box-sizing: border-box;
 }
 
-/* keep hover behaviour unchanged */
+.cardHeading {
+  margin: 0 0 1.2rem 0;
+  /* फ्लूइड फॉन्ट साइज: डेस्कटॉप पर बड़ा, मोबाइल पर छोटा और पूरी तरह रिस्पॉन्सिव */
+  font-size: clamp(1.4rem, 3.2vw, 2.6rem); 
+  font-weight: 800;
+  color: #0b1325;
+  letter-spacing: -0.03em; /* अक्षरों को थोड़ा पास किया ताकि एक लाइन में आए */
+  line-height: 1.2;
+  width: 100%;
+  white-space: normal; /* मोबाइल स्क्रीन पर ओवरफ्लो होने से बचाएगा */
+}
+
+/* 1200px से बड़ी स्क्रीन पर हेडिंग को जबरन टूटने से रोकने के लिए */
+@media (min-width: 1200px) {
+  .cardHeading {
+    white-space: nowrap; 
+  }
+}
+
+.cardSubtext {
+  margin: 0 0 2.5rem 0;
+  font-size: clamp(0.95rem, 1.1vw, 1.1rem);
+  color: #4a5568;
+  max-width: 75ch;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+.cardActions {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.btnPrimary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #fab802;
+  color: #000000;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 0.95rem 2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.btnPrimary:hover {
+  background: #e0a500;
+}
+
+.btnPrimary:active {
+  transform: scale(0.98);
+}
+
+.btnSecondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: #0b1325;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 0.95rem 2rem;
+  border: 2px solid #0b1325;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.2s ease, transform 0.1s ease;
+}
+
+.btnSecondary:hover {
+  background: #0b1325;
+  color: #ffffff;
+}
+
+.btnSecondary:active {
+  transform: scale(0.98);
+}
+
+/* छोटे मोबाइल फोन पर बटन्स फुल विड्थ (एक के नीचे एक) हो जाएं */
+@media (max-width: 480px) {
+  .cardActions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .btnPrimary, .btnSecondary {
+    width: 100%;
+  }
+}
+
+/* --- निचला पोर्टफोलियो सेक्शन CSS --- */
+
+.wrap {
+  background: #f7f8fb;
+  padding-top: 1rem;
+}
 
 .layout {
   display: grid;
@@ -60,7 +130,6 @@
 
 @media (min-width: 1024px) {
   .layout {
-    /* single-column layout (removed rail) */
     grid-template-columns: minmax(0, 1fr);
     align-items: start;
   }
@@ -121,5 +190,3 @@
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
-
-/* sticky rail removed */

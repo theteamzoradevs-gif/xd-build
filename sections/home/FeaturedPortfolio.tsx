@@ -32,10 +32,13 @@ export async function FeaturedPortfolio() {
             fabrication-ready delivery.
           </p>
         </div>
-        <Button href="/portfolio" variant="secondary">
+        
+        {/* Navbar ke primary CTA jaisa sync variant */}
+        <Button href="/portfolio" variant="primary" className={styles.headerCta}>
           View all projects
         </Button>
       </div>
+
       {featured.length > 0 ? (
         <div className={styles.grid}>
           {featured.map((p) => (
@@ -71,9 +74,13 @@ export async function FeaturedPortfolio() {
           ))}
         </div>
       ) : null}
-      <Button className={styles.viewmorebtn} href="/portfolio" variant="secondary">
-        View More
-      </Button>
+
+      {/* Bulletproof Horizontal Centering Container */}
+      <div className={styles.viewMoreContainer}>
+        <Button href="/portfolio" variant="primary" className={styles.viewMoreBtn}>
+          View More
+        </Button>
+      </div>
     </Section>
   );
 }

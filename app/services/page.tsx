@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
   return (
     <>
-      <Section aria-labelledby="services-title" className={styles.heroHeader}>
+      <Section denseTop denseBottom aria-labelledby="services-title" className={styles.heroHeader}>
         <p className="pageKicker">Services</p>
         <h1 id="services-title" className="pageTitle">
           Full-lifecycle digital delivery

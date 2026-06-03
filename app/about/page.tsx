@@ -74,32 +74,10 @@ export default async function AboutPage() {
 
       <AboutTeam />
 
-      <Section aria-labelledby="gallery-title">
-        <div className={styles.galleryHeader}>
-          <p className="pageKicker">Work photos</p>
-          <h2 id="gallery-title" className={styles.sectionTitle}>
-            Project gallery
-          </h2>
-          <p className={styles.galleryLead}>
-            A snapshot of coordination, scanning, and delivery in the field — swap in
-            project photography as it becomes available.
-          </p>
-        </div>
-        <div className={styles.galleryGrid}>
-          {WORK_GALLERY_PLACEHOLDERS.map((item) => (
-            <div key={item.src} className={styles.galleryCell}>
-              <Image
-                src={item.src}
-                alt={item.alt}
-                width={640}
-                height={480}
-                className={styles.galleryImg}
-                sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 33vw"
-              />
-            </div>
-          ))}
-        </div>
-      </Section>
+      
+
+
+      
 
       <Section aria-labelledby="about-cta">
         <div className={styles.splitCta}>
