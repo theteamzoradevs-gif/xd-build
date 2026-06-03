@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { GalleryPhotoGrid } from "@/components/gallery/GalleryPhotoGrid";
 import { Section } from "@/components/ui/Section";
-import { getGalleryPhotosSafe } from "@/lib/api/gallery";
+import { getGalleryPagePhotos } from "@/lib/api/gallery";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export const revalidate = 60;
 
 export default async function GalleryPage() {
-  const photos = await getGalleryPhotosSafe();
+  const photos = await getGalleryPagePhotos();
 
   return (
     <Section aria-labelledby="gallery-title">
