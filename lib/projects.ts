@@ -71,6 +71,16 @@ export const getProjects = cache(async function getProjects(): Promise<Project[]
   return (data.projects ?? []).map(mapApiProject);
 });
 
+/** On failure log and return an empty list (does not break the page). */
+export async function getProjectsSafe(): Promise<Project[]> {
+  try {
+    return await getProjects();
+  } catch (error) {
+    console.error("[getProjects]", error);
+    return [];
+  }
+}
+
 export const getFeaturedProjects = cache(
   async function getFeaturedProjects(): Promise<Project[]> {
     const data = await fetchJson<{ projects?: ApiPortfolioProject[] }>(
