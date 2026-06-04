@@ -25,6 +25,18 @@
   align-items: center;
 }
 
+.aboutCarousel {
+  margin-top: 0 !important;
+  transform: none !important;
+}
+
+@media (min-width: 900px) {
+  .aboutCarousel {
+    margin-top: 0 !important;
+    transform: none !important;
+  }
+}
+
 @media (min-width: 900px) {
   .twoCol {
     /* Left column: flexible text, Right column: fixed-width carousel */
