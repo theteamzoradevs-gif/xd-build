@@ -12,12 +12,32 @@ import {
 import { Button } from "@/components/ui/Button";
 import styles from "./ContactForm.module.css";
 
+// Phone validation regex: Numbers, spaces, dashes, parentheses, and plus sign
+const phoneRegex = /^([+]?[\s0-9().-]*)$/;
+
 const schema = z.object({
-  name: z.string().trim().min(2, "Please enter your name."),
-  phone: z.string().trim().min(7, "Add a reachable phone number."),
-  email: z.string().trim().email("Enter a valid email."),
-  projectType: z.string().min(1, "Select a project type."),
-  message: z.string().trim().min(20, "Tell us a bit more (20+ characters)."),
+  name: z
+    .string()
+    .trim()
+    .min(2, "Please enter your name (at least 2 characters).")
+    .max(50, "Name is too long."),
+  phone: z
+    .string()
+    .trim()
+    .min(7, "Add a reachable phone number.")
+    .max(15, "Phone number is too long.")
+    .regex(phoneRegex, "Enter a valid phone number."),
+  email: z
+    .string()
+    .trim()
+    .min(1, "Email is required.")
+    .email("Enter a valid email address (e.g., name@company.com)."),
+  projectType: z.string().min(1, "Please select a project type."),
+  message: z
+    .string()
+    .trim()
+    .min(20, "Tell us a bit more (minimum 20 characters).")
+    .max(1000, "Message cannot exceed 1000 characters."),
 });
 
 export type ContactFormValues = z.infer<typeof schema>;
@@ -101,11 +121,13 @@ export function ContactForm() {
             {...register("name")}
             placeholder="Jordan Lee"
             autoComplete="name"
+            aria-invalid={errors.name ? "true" : "false"}
           />
-          {errors.name?.message ? (
+          {errors.name?.message && (
             <span className={styles.error}>{errors.name.message}</span>
-          ) : null}
+          )}
         </label>
+
         <label className={styles.field}>
           <span>Phone</span>
           <input
@@ -113,10 +135,11 @@ export function ContactForm() {
             type="tel"
             placeholder="+1 (555) 000-1111"
             autoComplete="tel"
+            aria-invalid={errors.phone ? "true" : "false"}
           />
-          {errors.phone?.message ? (
+          {errors.phone?.message && (
             <span className={styles.error}>{errors.phone.message}</span>
-          ) : null}
+          )}
         </label>
       </div>
 
@@ -127,15 +150,19 @@ export function ContactForm() {
           type="email"
           placeholder="you@company.com"
           autoComplete="email"
+          aria-invalid={errors.email ? "true" : "false"}
         />
-        {errors.email?.message ? (
+        {errors.email?.message && (
           <span className={styles.error}>{errors.email.message}</span>
-        ) : null}
+        )}
       </label>
 
       <label className={styles.field}>
         <span>Project type</span>
-        <select {...register("projectType")} defaultValue="">
+        <select 
+          {...register("projectType")} 
+          aria-invalid={errors.projectType ? "true" : "false"}
+        >
           <option value="" disabled>
             Select one…
           </option>
@@ -149,9 +176,9 @@ export function ContactForm() {
           </option>
           <option value="Other">Other</option>
         </select>
-        {errors.projectType?.message ? (
+        {errors.projectType?.message && (
           <span className={styles.error}>{errors.projectType.message}</span>
-        ) : null}
+        )}
       </label>
 
       <label className={styles.field}>
@@ -160,10 +187,11 @@ export function ContactForm() {
           {...register("message")}
           rows={6}
           placeholder="Scope, location, milestones, what success looks like…"
+          aria-invalid={errors.message ? "true" : "false"}
         />
-        {errors.message?.message ? (
+        {errors.message?.message && (
           <span className={styles.error}>{errors.message.message}</span>
-        ) : null}
+        )}
       </label>
 
       <Button
@@ -172,7 +200,7 @@ export function ContactForm() {
         className={styles.submit}
         disabled={isSubmitting}
       >
-        Submit enquiry
+        {isSubmitting ? "Submitting..." : "Submit enquiry"}
       </Button>
     </form>
   );

@@ -64,7 +64,10 @@ export default async function AboutPage() {
             </div>
 
             <div>
-              <HeroFeaturedCarousel projects={carouselProjects} />
+              <HeroFeaturedCarousel
+                projects={carouselProjects}
+                className={styles.aboutCarousel}
+              />
             </div>
           </div>
         </div>

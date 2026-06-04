@@ -18,11 +18,12 @@ export type HeroCarouselProject = {
 
 type Props = {
   projects: readonly HeroCarouselProject[];
+  className?: string;
 };
 
 const INTERVAL_MS = 3000;
 
-export function HeroFeaturedCarousel({ projects }: Props) {
+export function HeroFeaturedCarousel({ projects, className }: Props) {
   const [index, setIndex] = useState(0);
   const reduceMotion = usePrefersReducedMotion();
 
@@ -38,7 +39,7 @@ export function HeroFeaturedCarousel({ projects }: Props) {
   if (!active) return null;
 
   return (
-    <div className={styles.root}>
+    <div className={`${styles.root} ${className ?? ""}`.trim()}>
       <div className={styles.card} aria-live="polite" aria-atomic="true">
         <AnimatePresence mode="wait" initial={false}>
           <motion.div

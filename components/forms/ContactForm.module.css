@@ -42,6 +42,29 @@
   color: var(--color-text);
   background: #fff;
   font-family: inherit;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+/* Smooth Focus State */
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--color-primary, #3b82f6);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+/* Auto Red border on Error */
+.field input[aria-invalid="true"],
+.field select[aria-invalid="true"],
+.field textarea[aria-invalid="true"] {
+  border-color: #b91c1c;
+}
+
+.field input[aria-invalid="true"]:focus,
+.field select[aria-invalid="true"]:focus,
+.field textarea[aria-invalid="true"]:focus {
+  box-shadow: 0 0 0 3px rgba(185, 28, 28, 0.15);
 }
 
 .field textarea {
@@ -55,6 +78,7 @@
   font-size: 0.82rem;
   text-transform: none;
   letter-spacing: normal;
+  margin-top: 0.1rem;
 }
 
 .submit {
