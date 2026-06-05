@@ -56,3 +56,13 @@
   text-decoration: underline;
   text-underline-offset: 3px;
 }
+
+@media (max-width: 639px) {
+  .card {
+    padding: 1.25rem;
+  }
+
+  .title {
+    font-size: 1.05rem;
+  }
+}

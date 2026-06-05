@@ -13,6 +13,7 @@
   --radius-btn: 6px;
   --radius-card: 8px;
   --max-content: 1260px;
+  --page-gutter: clamp(1rem, 4vw, 1.25rem);
   --space-section: clamp(1.5rem, 3vw, 2.5rem);
   --focus-ring: 0 0 0 3px rgba(245, 178, 5, 0.45);
 }
@@ -25,6 +26,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -42,6 +44,13 @@ body {
   line-height: 1.6;
   font-size: 1rem;
   -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+  min-width: 0;
+}
+
+main {
+  min-width: 0;
+  overflow-x: clip;
 }
 
 img {
@@ -105,7 +114,7 @@ button {
 }
 
 .legal {
-  width: min(100% - 2rem, var(--max-content));
+  width: min(100% - calc(var(--page-gutter) * 2), var(--max-content));
   margin: 4rem auto 5rem;
   display: grid;
   gap: 2rem;
@@ -127,7 +136,7 @@ button {
   line-height: 1.65;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 639px) {
   .pageTitle {
     font-size: clamp(1.425rem, 8.3vw, 1.825rem);
     line-height: 1.12;
@@ -136,5 +145,11 @@ button {
   .pageLead {
     font-size: 1rem;
     line-height: 1.58;
+  }
+
+  .legal {
+    width: min(100% - calc(var(--page-gutter) * 2), var(--max-content));
+    margin: 2.5rem auto 3rem;
+    gap: 1.5rem;
   }
 }

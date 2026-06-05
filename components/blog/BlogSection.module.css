@@ -1,5 +1,5 @@
 .section {
-  width: min(100% - 2rem, var(--max-content));
+  width: min(100% - calc(var(--page-gutter) * 2), var(--max-content));
   margin: 0 auto;
   padding: clamp(1.25rem, 2.5vw, 2rem) 0 clamp(1.5rem, 3vw, 2.25rem);
 }
@@ -48,5 +48,11 @@
 @media (min-width: 1080px) {
   .grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 639px) {
+  .title {
+    font-size: clamp(1.45rem, 7vw, 1.85rem);
   }
 }

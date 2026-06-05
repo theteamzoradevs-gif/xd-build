@@ -180,3 +180,32 @@
   height: 1.05em;
   fill: currentColor;
 }
+
+@media (max-width: 899px) {
+  .wrap {
+    min-height: auto;
+    padding-block: clamp(1.25rem, 5vw, 2rem);
+  }
+
+  .grid {
+    gap: 1.5rem;
+  }
+
+  .title br {
+    display: none;
+  }
+
+  .actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .actions > * {
+    width: 100%;
+  }
+
+  .trustChip {
+    font-size: 0.92rem;
+    padding: 0.65rem 0.95rem;
+  }
+}

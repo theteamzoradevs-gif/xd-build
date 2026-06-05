@@ -141,3 +141,16 @@
   min-width: 160px;
   justify-content: center;
 }
+
+@media (max-width: 799px) {
+  .headerCta {
+    width: 100%;
+    white-space: normal;
+    justify-content: center;
+  }
+
+  .viewMoreBtn {
+    width: 100%;
+    min-width: 0;
+  }
+}

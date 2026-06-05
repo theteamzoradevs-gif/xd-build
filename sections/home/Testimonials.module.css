@@ -258,6 +258,26 @@
   .aura {
     opacity: 0.75;
   }
+
+  .logoFrame {
+    min-height: 42px;
+    padding: 0.45rem 0.85rem;
+  }
+
+  .logoImg {
+    height: 24px;
+    max-width: 108px;
+  }
+
+  .card {
+    border-radius: 20px;
+    padding: 1.5rem 1.1rem;
+  }
+
+  .decoQuote {
+    top: -2rem;
+    font-size: clamp(4rem, 16vw, 6rem);
+  }
 }
 
 .sectionBridge {

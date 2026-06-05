@@ -1,7 +1,7 @@
 .privacy {
   display: grid;
   gap: 2rem;
-  width: min(100% - 2rem, var(--max-content));
+  width: min(100% - calc(var(--page-gutter) * 2), var(--max-content));
   margin: 0 auto;
 }
 

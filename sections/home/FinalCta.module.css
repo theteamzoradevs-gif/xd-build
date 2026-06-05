@@ -5,7 +5,7 @@
 }
 
 .inner {
-  width: min(100%, var(--max-content));
+  width: min(100% - calc(var(--page-gutter) * 2), var(--max-content));
   margin: 0 auto;
   margin-top: 1rem;
   color: #111827;
@@ -56,4 +56,26 @@
   background: rgba(11, 14, 20, 0.06) !important;
   border-color: var(--color-dark) !important;
   color: var(--color-dark) !important;
+}
+
+@media (max-width: 639px) {
+  .inner {
+    border-radius: 16px;
+    padding-inline: 1.15rem;
+  }
+
+  .title {
+    font-size: clamp(1.5rem, 7vw, 2rem);
+    max-width: none;
+  }
+
+  .actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .actions > * {
+    width: 100%;
+    justify-content: center;
+  }
 }
