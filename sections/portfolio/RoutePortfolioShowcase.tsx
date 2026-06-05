@@ -1,6 +1,6 @@
-import Link from "next/link";
 import { getProjects } from "@/lib/projects";
 import { ProjectCard } from "@/components/cards/ProjectCard";
+import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
 import styles from "./RoutePortfolioShowcase.module.css";
 
@@ -82,10 +82,12 @@ export async function RoutePortfolioShowcase({ routeKey }: Props) {
               designs and field execution.
             </p>
             <div className={styles.cardActions}>
-              <Link href="/contact" className={styles.btnPrimary}>
-                Call Now
-              </Link>
-              
+              <Button href="/contact" variant="primary">
+                Get Consultation
+              </Button>
+              <Button href="/portfolio" variant="secondary">
+                Browse projects
+              </Button>
             </div>
           </div>
         </div>

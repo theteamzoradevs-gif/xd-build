@@ -31,7 +31,7 @@ export function ServiceSection({
   const isLeft = imagePosition === "left";
 
   return (
-    <Section denseTop id={id} aria-labelledby={`${id}-heading`}>
+    <Section denseTop denseBottom id={id} aria-labelledby={`${id}-heading`}>
       <div className={isLeft ? styles.row : `${styles.row} ${styles.rowReverse}`}>
         <div className={styles.media}>
           <div className={styles.imageWrap}>

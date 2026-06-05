@@ -40,7 +40,7 @@ export default async function ProjectDetailPage({ params }: Props) {
 
   return (
     <>
-      <Section bleed className={styles.hero} aria-labelledby="project-hero-title">
+      <Section className={styles.hero} aria-labelledby="project-hero-title">
         <div className={styles.heroInner}>
           <div className={styles.heroTags}>
             {project.categories.map((c) => (

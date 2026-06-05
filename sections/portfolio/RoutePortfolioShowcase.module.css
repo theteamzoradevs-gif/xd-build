@@ -1,7 +1,7 @@
 .topCtaWrap {
   display: flex;
   justify-content: center;
-  padding: 3rem 1rem;
+  padding: clamp(1.25rem, 3vw, 1.75rem) 1rem;
   background: #f7f8fb;
 }
 
@@ -59,60 +59,15 @@
   width: 100%;
 }
 
-.btnPrimary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: #fab802;
-  color: #000000;
-  font-weight: 700;
-  font-size: 0.95rem;
-  padding: 0.95rem 2rem;
-  border-radius: 8px;
-  text-decoration: none;
-  transition: background 0.2s ease, transform 0.1s ease;
-}
-
-.btnPrimary:hover {
-  background: #e0a500;
-}
-
-.btnPrimary:active {
-  transform: scale(0.98);
-}
-
-.btnSecondary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: transparent;
-  color: #0b1325;
-  font-weight: 700;
-  font-size: 0.95rem;
-  padding: 0.95rem 2rem;
-  border: 2px solid #0b1325;
-  border-radius: 8px;
-  text-decoration: none;
-  transition: all 0.2s ease, transform 0.1s ease;
-}
-
-.btnSecondary:hover {
-  background: #0b1325;
-  color: #ffffff;
-}
-
-.btnSecondary:active {
-  transform: scale(0.98);
-}
-
-/* छोटे मोबाइल फोन पर बटन्स फुल विड्थ (एक के नीचे एक) हो जाएं */
 @media (max-width: 480px) {
   .cardActions {
     flex-direction: column;
     align-items: stretch;
   }
-  .btnPrimary, .btnSecondary {
+
+  .cardActions > * {
     width: 100%;
+    justify-content: center;
   }
 }
 

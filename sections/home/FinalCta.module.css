@@ -1,13 +1,13 @@
 .section {
   padding-top: 0;
-  padding-bottom: clamp(2.5rem, 5vw, 4rem);
+  padding-bottom: clamp(1.5rem, 3vw, 2.25rem);
   background: linear-gradient(180deg, #ffffff 0%, #fafafa 100%);
 }
 
 .inner {
   width: min(100%, var(--max-content));
   margin: 0 auto;
-  margin-top: 40px;
+  margin-top: 1rem;
   color: #111827;
   border-radius: 22px;
   padding: clamp(1.85rem, 4vw, 2.75rem) clamp(1.25rem, 4vw, 2.5rem) clamp(2rem, 4vw, 2.75rem);
@@ -53,5 +53,7 @@
 }
 
 .outline:hover {
-  background: rgba(17, 24, 39, 0.04) !important;
+  background: rgba(11, 14, 20, 0.06) !important;
+  border-color: var(--color-dark) !important;
+  color: var(--color-dark) !important;
 }

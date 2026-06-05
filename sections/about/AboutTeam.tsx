@@ -7,7 +7,7 @@ export function AboutTeam() {
   const nonFounderIndices = TEAM_MEMBERS.filter((m) => !m.isFounder);
 
   return (
-    <Section className={styles.section} aria-labelledby="our-team-title">
+    <Section denseTop denseBottom className={styles.section} aria-labelledby="our-team-title">
       <header className={styles.header}>
         <div className={styles.titleRow}>
           <h2 id="our-team-title" className={styles.title}>

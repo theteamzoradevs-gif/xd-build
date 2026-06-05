@@ -4,6 +4,7 @@ import type { LegacyRef } from "react";
 import { Button } from "@/components/ui/Button";
 import { useInViewOnce } from "@/hooks/useInViewOnce";
 import { PORTFOLIO_QUALITY_LINE } from "@/lib/portfolioCopy";
+import { siteConfig } from "@/lib/site";
 import styles from "./QualityLineBanner.module.css";
 
 export function QualityLineBanner() {
@@ -27,7 +28,11 @@ export function QualityLineBanner() {
           <p className={styles.lead}>{PORTFOLIO_QUALITY_LINE}</p>
         </div>
         <div className={styles.actions}>
-          <Button href="/contact" variant="primary" className={styles.cta}>
+          <Button
+            href={`tel:${siteConfig.phoneE164}`}
+            variant="primary"
+            className={styles.cta}
+          >
             Book a call
           </Button>
           <Button href="/contact" variant="secondary" className={styles.ctaSecondary}>

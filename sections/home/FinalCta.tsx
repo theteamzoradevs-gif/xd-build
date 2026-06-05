@@ -4,7 +4,7 @@ import styles from "./FinalCta.module.css";
 
 export function FinalCta() {
   return (
-    <Section denseTop className={styles.section} aria-labelledby="final-cta-title">
+    <Section denseTop denseBottom className={styles.section} aria-labelledby="final-cta-title">
       <div className={styles.inner}>
         <h2 id="final-cta-title" className={styles.title}>
           Start your project with a clear build plan

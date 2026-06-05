@@ -26,7 +26,7 @@ export async function RecentPosts({ posts: prefetched }: Props) {
   const [featured, ...rest] = posts;
 
   return (
-    <Section className={styles.section} aria-labelledby="recent-posts-title">
+    <Section denseTop denseBottom className={styles.section} aria-labelledby="recent-posts-title">
       <div className={styles.header}>
         <div>
           <p className={styles.kicker}>Blog</p>

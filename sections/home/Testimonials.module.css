@@ -94,7 +94,7 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 0.65rem 0.75rem;
-  margin: clamp(2.25rem, 5vw, 3rem) auto clamp(2rem, 4vw, 2.75rem);
+  margin: clamp(1.25rem, 3vw, 1.75rem) auto clamp(1.25rem, 2.5vw, 1.75rem);
   max-width: 52rem;
 }
 

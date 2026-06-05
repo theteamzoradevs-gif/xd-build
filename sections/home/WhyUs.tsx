@@ -6,6 +6,8 @@ export function WhyUs() {
   return (
     <Section
       id="why-us"
+      denseTop
+      denseBottom
       className={styles.section}
       aria-labelledby="why-us-title"
     >

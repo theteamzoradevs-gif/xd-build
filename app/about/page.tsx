@@ -82,7 +82,7 @@ export default async function AboutPage() {
 
       
 
-      <Section aria-labelledby="about-cta">
+      <Section denseTop denseBottom aria-labelledby="about-cta">
         <div className={styles.splitCta}>
           <div>
             <p className="pageKicker">Next step</p>
