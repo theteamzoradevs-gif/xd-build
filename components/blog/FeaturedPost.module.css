@@ -93,3 +93,18 @@
     width: 100%;
   }
 }
+
+@media (max-width: 639px) {
+  .content {
+    padding: 1.25rem;
+  }
+
+  .cta {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .imageContainer {
+    height: 200px;
+  }
+}

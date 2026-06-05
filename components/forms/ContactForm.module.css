@@ -121,3 +121,10 @@
   line-height: 1.6;
   max-width: 52ch;
 }
+
+@media (max-width: 639px) {
+  .form,
+  .success {
+    padding: 1rem;
+  }
+}

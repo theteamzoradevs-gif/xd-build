@@ -48,3 +48,10 @@
 .readMore:hover .arrow {
   transform: translateX(3px);
 }
+
+@media (max-width: 639px) {
+  .paragraph {
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+}

@@ -37,3 +37,22 @@
   text-transform: uppercase;
   color: #9ca3af;
 }
+
+@media (max-width: 479px) {
+  .grid {
+    gap: 0.85rem;
+  }
+
+  .cell {
+    padding: 0.35rem;
+  }
+
+  .value {
+    font-size: clamp(1.45rem, 7.5vw, 1.85rem);
+  }
+
+  .label {
+    font-size: 0.68rem;
+    letter-spacing: 0.04em;
+  }
+}

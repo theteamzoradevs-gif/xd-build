@@ -1,13 +1,13 @@
 .root {
   width: 100%;
-  max-width: 400px;
-  margin-top: 180px;
+  max-width: min(100%, 400px);
+  margin-top: 1.25rem;
   margin-inline: auto;
   display: flex;
   flex-direction: column;
   gap: 0.65rem;
   align-self: center;
-  transform: translateX(-5.5rem);
+  transform: none;
 }
 
 @media (min-width: 900px) {
@@ -158,4 +158,14 @@
   background: rgba(255, 255, 255, 0.14) !important;
   border-color: #fff !important;
   color: #fff !important;
+}
+
+@media (max-width: 899px) {
+  .ctaRow {
+    grid-template-columns: 1fr;
+  }
+
+  .media {
+    max-height: none;
+  }
 }

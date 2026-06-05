@@ -55,3 +55,22 @@
   padding: 0.55rem 0.85rem;
   font-weight: 700;
 }
+
+@media (max-width: 639px) {
+  .title {
+    max-width: none;
+    font-size: clamp(1.45rem, 7vw, 1.8rem);
+  }
+
+  .heroImage {
+    max-height: 280px;
+  }
+
+  .actions {
+    width: 100%;
+  }
+
+  .back {
+    width: 100%;
+  }
+}

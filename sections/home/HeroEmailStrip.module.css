@@ -52,3 +52,17 @@
   display: inline-flex;
   opacity: 0.95;
 }
+
+@media (max-width: 639px) {
+  .inner {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .emailBtn {
+    width: 100%;
+    justify-content: center;
+    font-size: 0.88rem;
+    padding-inline: 1rem;
+  }
+}

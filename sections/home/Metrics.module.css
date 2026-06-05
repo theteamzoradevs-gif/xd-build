@@ -37,3 +37,23 @@
   color: var(--color-muted);
   font-weight: 700;
 }
+
+@media (max-width: 479px) {
+  .bar {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .item {
+    text-align: center;
+  }
+
+  .value {
+    font-size: clamp(1.5rem, 8vw, 1.75rem);
+  }
+
+  .label {
+    font-size: 0.78rem;
+  }
+}

@@ -1,6 +1,6 @@
 ﻿.section {
   background: linear-gradient(180deg, #ffffff 0%, #fbfbfb 100%);
-  padding: clamp(1.75rem, 4vw, 2.5rem) 24px clamp(1.5rem, 3.5vw, 2rem);
+  padding: clamp(1.75rem, 4vw, 2.5rem) var(--page-gutter) clamp(1.5rem, 3.5vw, 2rem);
   border-top: 1px solid rgba(16, 24, 32, 0.03);
   border-bottom: 1px solid rgba(16, 24, 32, 0.03);
 }
@@ -53,14 +53,21 @@
   margin: 36px 0 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: 1fr;
   gap: 20px;
   width: 100%;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 640px) {
   .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     align-items: stretch;
+  }
+}
+
+@media (min-width: 960px) {
+  .grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
@@ -168,14 +175,21 @@
 }
 
 /* ── Mobile ── */
-@media (max-width: 640px) {
-  .grid {
-    grid-template-columns: 1fr;
+@media (max-width: 639px) {
+  .section {
+    padding-inline: var(--page-gutter);
   }
+
   .card {
-    padding: 24px 20px; 
+    padding: 20px 16px;
+    gap: 12px;
   }
+
   .copy {
-    padding: 0 4px;    /* Mobile screens par extra space squeeze na ho, isliye padding optimize ki hai */
+    padding: 0;
+  }
+
+  .title {
+    font-size: clamp(1.65rem, 8vw, 2rem);
   }
 }

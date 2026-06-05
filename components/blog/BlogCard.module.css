@@ -86,3 +86,18 @@
 .cta:hover {
   background: var(--color-accent-hover);
 }
+
+@media (max-width: 639px) {
+  .body {
+    padding: 1rem;
+  }
+
+  .title {
+    font-size: 1.05rem;
+  }
+
+  .cta {
+    width: 100%;
+    justify-content: center;
+  }
+}

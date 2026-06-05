@@ -57,3 +57,18 @@
   color: var(--color-muted);
   line-height: 1.6;
 }
+
+@media (max-width: 639px) {
+  .header {
+    margin-bottom: 1rem;
+  }
+
+  .item {
+    gap: 0.65rem;
+    padding: 0.85rem 0;
+  }
+
+  .itemTitle {
+    font-size: 1rem;
+  }
+}
