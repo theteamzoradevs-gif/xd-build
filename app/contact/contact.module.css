@@ -1,12 +1,17 @@
 .grid {
   display: grid;
-  gap: 2rem;
+  gap: 1.25rem;
+  margin-top: 1rem;
 }
 
 @media (min-width: 960px) {
   .grid {
     grid-template-columns: 0.95fr 1.25fr;
     align-items: start;
+  }
+
+  .grid > * {
+    min-width: 0;
   }
 }
 

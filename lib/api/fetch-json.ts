@@ -21,7 +21,25 @@ export async function fetchJson<T>(
     ...init,
     headers: { Accept: "application/json", ...init?.headers },
   });
-  const data = (await res.json()) as T & { error?: string };
+
+  const text = await res.text();
+  let data: T & { error?: string };
+
+  try {
+    data = text ? (JSON.parse(text) as T & { error?: string }) : ({} as T & { error?: string });
+  } catch {
+    const snippet = text.trimStart().slice(0, 40).toLowerCase();
+    const isHtml =
+      snippet.startsWith("<!doctype") || snippet.startsWith("<html");
+    const devHint =
+      process.env.NODE_ENV === "development" ? ` (${url})` : "";
+    throw new Error(
+      isHtml
+        ? `CMS API returned HTML instead of JSON (${res.status}). Set CMS_API_BASE_URL to xd-build-admin (e.g. https://xd-build-admin.vercel.app), not this marketing site.${devHint}`
+        : `Invalid JSON from CMS API (${res.status}).${devHint}`,
+    );
+  }
+
   if (!res.ok) {
     const detail =
       typeof data.error === "string" ? data.error : `API ${res.status}`;
@@ -29,5 +47,6 @@ export async function fetchJson<T>(
       process.env.NODE_ENV === "development" ? ` (${url})` : "";
     throw new Error(`${detail}${hint}`);
   }
+
   return data;
 }

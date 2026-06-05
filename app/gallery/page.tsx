@@ -16,7 +16,7 @@ export default async function GalleryPage() {
   const photos = await getGalleryPagePhotos();
 
   return (
-    <Section aria-labelledby="gallery-title">
+    <Section denseTop denseBottom aria-labelledby="gallery-title">
       <div className={styles.header}>
         <h1 id="gallery-title" className={styles.title}>
           Project Gallery

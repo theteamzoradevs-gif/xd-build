@@ -13,6 +13,7 @@ export function CompanyIntro() {
   return (
     <Section
       denseTop
+      denseBottom
       className={styles.section}
       aria-labelledby="company-intro-title"
     >

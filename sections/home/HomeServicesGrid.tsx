@@ -8,7 +8,7 @@ import styles from "./HomeServicesGrid.module.css";
 
 export function HomeServicesGrid() {
   return (
-    <Section bleed className={styles.section} aria-labelledby="home-services-title">
+    <Section bleed denseTop denseBottom className={styles.section} aria-labelledby="home-services-title">
       <div className={styles.header}>
         <h2 id="home-services-title" className={styles.title}>
           Our services

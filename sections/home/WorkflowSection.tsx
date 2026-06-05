@@ -11,6 +11,7 @@ export function WorkflowSection() {
   return (
     <Section
       denseTop
+      denseBottom
       className={styles.section}
       aria-labelledby="workflow-title"
     >

@@ -23,6 +23,8 @@ export async function FeaturedPortfolio({ projects: prefetched }: Props) {
 
   return (
     <Section
+      denseTop
+      denseBottom
       className={styles.section}
       aria-labelledby="featured-portfolio-title"
     >

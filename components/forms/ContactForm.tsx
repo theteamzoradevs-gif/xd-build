@@ -12,21 +12,20 @@ import {
 import { Button } from "@/components/ui/Button";
 import styles from "./ContactForm.module.css";
 
-// Phone validation regex: Numbers, spaces, dashes, parentheses, and plus sign
-const phoneRegex = /^([+]?[\s0-9().-]*)$/;
+const nameRegex = /^[a-zA-Z\s]+$/;
+const phoneRegex = /^\d{10}$/;
 
 const schema = z.object({
   name: z
     .string()
     .trim()
     .min(2, "Please enter your name (at least 2 characters).")
-    .max(50, "Name is too long."),
+    .max(50, "Name is too long.")
+    .regex(nameRegex, "Name can only contain letters."),
   phone: z
     .string()
     .trim()
-    .min(7, "Add a reachable phone number.")
-    .max(15, "Phone number is too long.")
-    .regex(phoneRegex, "Enter a valid phone number."),
+    .regex(phoneRegex, "Phone number must be exactly 10 digits."),
   email: z
     .string()
     .trim()
@@ -74,6 +73,11 @@ export function ContactForm() {
     );
   }, [projectHint, setValue]);
 
+  const filterNameInput = (value: string) => value.replace(/[^a-zA-Z\s]/g, "");
+
+  const filterPhoneInput = (value: string) =>
+    value.replace(/[^0-9]/g, "").slice(0, 10);
+
   const onSubmit = async (data: ContactFormValues) => {
     try {
       await submitContactEnquiry({
@@ -118,28 +122,46 @@ export function ContactForm() {
         <label className={styles.field}>
           <span>Name</span>
           <input
-            {...register("name")}
+            {...register("name", {
+              onChange: (event) => {
+                const filtered = filterNameInput(event.target.value);
+                if (filtered !== event.target.value) {
+                  event.target.value = filtered;
+                }
+                setValue("name", filtered, { shouldValidate: true });
+              },
+            })}
             placeholder="Jordan Lee"
             autoComplete="name"
             aria-invalid={errors.name ? "true" : "false"}
           />
-          {errors.name?.message && (
-            <span className={styles.error}>{errors.name.message}</span>
-          )}
+          <span className={styles.errorSlot} role="alert">
+            {errors.name?.message ?? ""}
+          </span>
         </label>
 
         <label className={styles.field}>
           <span>Phone</span>
           <input
-            {...register("phone")}
+            {...register("phone", {
+              onChange: (event) => {
+                const filtered = filterPhoneInput(event.target.value);
+                if (filtered !== event.target.value) {
+                  event.target.value = filtered;
+                }
+                setValue("phone", filtered, { shouldValidate: true });
+              },
+            })}
             type="tel"
-            placeholder="+1 (555) 000-1111"
+            inputMode="numeric"
+            maxLength={10}
+            placeholder="10-digit phone number"
             autoComplete="tel"
             aria-invalid={errors.phone ? "true" : "false"}
           />
-          {errors.phone?.message && (
-            <span className={styles.error}>{errors.phone.message}</span>
-          )}
+          <span className={styles.errorSlot} role="alert">
+            {errors.phone?.message ?? ""}
+          </span>
         </label>
       </div>
 
@@ -152,9 +174,9 @@ export function ContactForm() {
           autoComplete="email"
           aria-invalid={errors.email ? "true" : "false"}
         />
-        {errors.email?.message && (
-          <span className={styles.error}>{errors.email.message}</span>
-        )}
+        <span className={styles.errorSlot} role="alert">
+          {errors.email?.message ?? ""}
+        </span>
       </label>
 
       <label className={styles.field}>
@@ -176,22 +198,22 @@ export function ContactForm() {
           </option>
           <option value="Other">Other</option>
         </select>
-        {errors.projectType?.message && (
-          <span className={styles.error}>{errors.projectType.message}</span>
-        )}
+        <span className={styles.errorSlot} role="alert">
+          {errors.projectType?.message ?? ""}
+        </span>
       </label>
 
       <label className={styles.field}>
         <span>Message</span>
         <textarea
           {...register("message")}
-          rows={6}
+          rows={5}
           placeholder="Scope, location, milestones, what success looks like…"
           aria-invalid={errors.message ? "true" : "false"}
         />
-        {errors.message?.message && (
-          <span className={styles.error}>{errors.message.message}</span>
-        )}
+        <span className={`${styles.errorSlot} ${styles.errorSlotTall}`} role="alert">
+          {errors.message?.message ?? ""}
+        </span>
       </label>
 
       <Button

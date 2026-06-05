@@ -5,7 +5,7 @@ import styles from "./MissionVision.module.css";
 
 export function MissionVision() {
   return (
-    <Section className={styles.wrap} aria-labelledby="mission-vision-heading">
+    <Section denseTop denseBottom className={styles.wrap} aria-labelledby="mission-vision-heading">
       <h2 id="mission-vision-heading" className="sr-only">
         Mission and vision
       </h2>

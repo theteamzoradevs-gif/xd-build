@@ -4,7 +4,7 @@ import { CtaBand } from "@/sections/home/CtaBand";
 import { PortfolioGallery } from "@/sections/portfolio/PortfolioGallery";
 import { WORK_WITH_US_CTA } from "@/lib/workWithUsCta";
 import { toPublicLoadError } from "@/lib/api/public-error";
-import { getProjects } from "@/lib/projects";
+import { getProjectsSafe } from "@/lib/projects";
 
 export const metadata: Metadata = {
   title: "Portfolio",
@@ -15,11 +15,11 @@ export const metadata: Metadata = {
 export const revalidate = 60;
 
 export default async function PortfolioPage() {
-  let projects: Awaited<ReturnType<typeof getProjects>> = [];
+  let projects: Awaited<ReturnType<typeof getProjectsSafe>> = [];
   let loadError: string | null = null;
 
   try {
-    projects = await getProjects();
+    projects = await getProjectsSafe();
   } catch (error) {
     loadError = toPublicLoadError(error);
     console.error("[PortfolioPage]", error);
@@ -42,8 +42,6 @@ export default async function PortfolioPage() {
             {loadError}
           </p>
         ) : null}
-      </Section>
-      <Section tight aria-label="Portfolio projects">
         <PortfolioGallery projects={projects} />
       </Section>
       <CtaBand dark {...WORK_WITH_US_CTA} />

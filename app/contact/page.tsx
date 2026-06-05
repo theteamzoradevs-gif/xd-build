@@ -21,7 +21,7 @@ const mapEmbedSrc =
 export default function ContactPage() {
   return (
     <>
-      <Section tight aria-labelledby="contact-title">
+      <Section tight denseTop denseBottom aria-labelledby="contact-title">
         <h1 id="contact-title" className="pageTitle">
           Let's build something deliberate together
         </h1>
@@ -29,9 +29,6 @@ export default function ContactPage() {
           Tell us where your model and field story disagree, we'll propose the
           fastest path back to certainty.
         </p>
-      </Section>
-
-      <Section tight aria-label="Contact methods and enquiry form">
         <div className={styles.grid}>
           <aside className={styles.aside}>
             <p className={styles.trustBadge}>
