@@ -13,19 +13,20 @@ import { Button } from "@/components/ui/Button";
 import styles from "./ContactForm.module.css";
 
 const nameRegex = /^[a-zA-Z\s]+$/;
-const phoneRegex = /^\d{10}$/;
+const phoneRegex = /^\d{1,12}$/;
 
 const schema = z.object({
   name: z
     .string()
     .trim()
-    .min(2, "Please enter your name (at least 2 characters).")
+    .min(1, "Please enter your name.")
     .max(50, "Name is too long.")
     .regex(nameRegex, "Name can only contain letters."),
   phone: z
     .string()
     .trim()
-    .regex(phoneRegex, "Phone number must be exactly 10 digits."),
+    .min(1, "Please enter a phone number.")
+    .regex(phoneRegex, "Please enter a valid phone number."),
   email: z
     .string()
     .trim()
@@ -35,7 +36,6 @@ const schema = z.object({
   message: z
     .string()
     .trim()
-    .min(20, "Tell us a bit more (minimum 20 characters).")
     .max(1000, "Message cannot exceed 1000 characters."),
 });
 
@@ -76,7 +76,7 @@ export function ContactForm() {
   const filterNameInput = (value: string) => value.replace(/[^a-zA-Z\s]/g, "");
 
   const filterPhoneInput = (value: string) =>
-    value.replace(/[^0-9]/g, "").slice(0, 10);
+    value.replace(/[^0-9]/g, "").slice(0, 12);
 
   const onSubmit = async (data: ContactFormValues) => {
     try {
@@ -154,8 +154,8 @@ export function ContactForm() {
             })}
             type="tel"
             inputMode="numeric"
-            maxLength={10}
-            placeholder="10-digit phone number"
+            maxLength={12}
+            placeholder="Phone number"
             autoComplete="tel"
             aria-invalid={errors.phone ? "true" : "false"}
           />
