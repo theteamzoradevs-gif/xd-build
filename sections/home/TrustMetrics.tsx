@@ -11,7 +11,7 @@ export function TrustMetrics({ stats }: Props) {
   if (stats.length === 0) return null;
 
   return (
-    <Section denseTop denseBottom className={styles.section} aria-label="Impact metrics">
+    <Section band className={styles.section} aria-label="Impact metrics">
       <div className={styles.grid}>
         {stats.map((stat) => (
           <div

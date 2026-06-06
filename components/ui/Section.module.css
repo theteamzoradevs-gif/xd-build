@@ -27,6 +27,34 @@
   padding-top: clamp(0.35rem, 0.8vw, 0.55rem);
 }
 
+/* Full-width banners (dark blocks, metrics strips, etc.) */
+.section.band {
+  width: 100%;
+  padding-block: clamp(2.75rem, 5.5vw, 4.25rem);
+}
+
+.section + .section.band,
+.denseBottom + .section.band,
+.denseTop + .section.band {
+  padding-top: clamp(2.75rem, 5.5vw, 4.25rem);
+}
+
+.section.band + .section {
+  padding-top: clamp(0.35rem, 0.9vw, 0.65rem);
+}
+
+@media (max-width: 639px) {
+  .section.band {
+    padding-block: clamp(2.25rem, 7vw, 3rem);
+  }
+
+  .section + .section.band,
+  .denseBottom + .section.band,
+  .denseTop + .section.band {
+    padding-top: clamp(2.25rem, 7vw, 3rem);
+  }
+}
+
 .inner {
   width: min(100% - calc(var(--page-gutter) * 2), var(--max-content));
   margin-inline: auto;
