@@ -24,12 +24,16 @@ export const metadata: Metadata = {
 
 export const revalidate = 60;
 
+const HOME_FEATURED_PROJECT_LIMIT = 6;
+
 export default async function HomePage() {
-  const [home, featuredProjects, recentPosts] = await Promise.all([
+  const [home, featuredProjectsRaw, recentPosts] = await Promise.all([
     getHomeContentWithFallback(),
     getFeaturedProjects().catch((): Project[] => []),
-    getRecentBlogPosts(3).catch((): BlogPost[] => []),
+    getRecentBlogPosts(1).catch((): BlogPost[] => []),
   ]);
+
+  const featuredProjects = featuredProjectsRaw.slice(0, HOME_FEATURED_PROJECT_LIMIT);
 
   return (
     <>

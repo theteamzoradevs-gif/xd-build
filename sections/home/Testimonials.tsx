@@ -43,7 +43,7 @@ export function Testimonials({ section, testimonials }: Props) {
   if (!active || count === 0) return null;
 
   return (
-    <Section denseTop denseBottom className={styles.section} aria-labelledby={labelId}>
+    <Section band className={styles.section} aria-labelledby={labelId}>
       <div
         className={styles.wrap}
         onMouseEnter={() => setPause(true)}

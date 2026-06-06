@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { Section } from "@/components/ui/Section";
 import { FeaturedPost } from "@/components/blog/FeaturedPost";
-import { BlogCard } from "@/components/blog/BlogCard";
 import { getRecentBlogPosts, type BlogPost } from "@/lib/blog";
 import { toPublicLoadError } from "@/lib/api/public-error";
 import styles from "./RecentPosts.module.css";
@@ -16,14 +15,14 @@ export async function RecentPosts({ posts: prefetched }: Props) {
 
   if (!prefetched) {
     try {
-      posts = await getRecentBlogPosts(3);
+      posts = await getRecentBlogPosts(1);
     } catch (error) {
       loadError = toPublicLoadError(error);
       console.error("[RecentPosts]", error);
     }
   }
 
-  const [featured, ...rest] = posts;
+  const featured = posts[0];
 
   return (
     <Section denseTop denseBottom className={styles.section} aria-labelledby="recent-posts-title">
@@ -51,14 +50,6 @@ export async function RecentPosts({ posts: prefetched }: Props) {
       ) : null}
 
       {featured ? <FeaturedPost post={featured} /> : null}
-
-      {rest.length > 0 ? (
-        <div className={styles.grid}>
-          {rest.map((post) => (
-            <BlogCard key={post.slug} post={post} />
-          ))}
-        </div>
-      ) : null}
     </Section>
   );
 }

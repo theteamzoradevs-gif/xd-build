@@ -1,6 +1,7 @@
 ﻿.section {
   position: relative;
   overflow: hidden;
+  width: 100%;
   background:
     radial-gradient(circle at top left, rgba(245, 178, 5, 0.16), transparent 34%),
     radial-gradient(circle at bottom right, rgba(255, 255, 255, 0.04), transparent 30%),
@@ -28,7 +29,7 @@
 
 .header {
   max-width: 720px;
-  margin-bottom: 1.25rem;
+  margin-bottom: clamp(1.5rem, 3vw, 2.25rem);
 }
 
 .title {
@@ -51,8 +52,9 @@
 
 .grid {
   display: grid;
-  gap: 1.25rem;
+  gap: clamp(1.25rem, 2.5vw, 1.75rem);
   grid-template-columns: 1fr;
+  width: 100%;
 }
 
 @media (min-width: 768px) {

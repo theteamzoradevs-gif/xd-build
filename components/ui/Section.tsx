@@ -7,6 +7,7 @@ type Props = {
   children: ReactNode;
   className?: string;
   bleed?: boolean;
+  band?: boolean;
   tight?: boolean;
   denseBottom?: boolean;
   denseTop?: boolean;
@@ -18,6 +19,7 @@ export function Section({
   children,
   className,
   bleed,
+  band,
   tight,
   denseBottom,
   denseTop,
@@ -30,8 +32,9 @@ export function Section({
       className={cn(
         styles.section,
         tight && styles.tight,
-        denseBottom && styles.denseBottom,
-        denseTop && styles.denseTop,
+        band && styles.band,
+        denseBottom && !band && styles.denseBottom,
+        denseTop && !band && styles.denseTop,
         className,
       )}
     >

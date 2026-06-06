@@ -5,8 +5,14 @@
 
   position: relative;
   overflow: hidden;
+  width: 100%;
   background: var(--td-bg);
   color: #ffffff;
+}
+
+.wrap {
+  position: relative;
+  width: 100%;
 }
 
 .aura {

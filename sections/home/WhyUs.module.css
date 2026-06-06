@@ -1,6 +1,7 @@
 ﻿.section {
   position: relative;
   overflow: hidden;
+  width: 100%;
   background:
     radial-gradient(circle at top left, rgba(245, 178, 5, 0.16), transparent 34%),
     radial-gradient(circle at bottom right, rgba(255, 255, 255, 0.04), transparent 30%),
@@ -26,7 +27,8 @@
 
 .inner {
   display: grid;
-  gap: 1.75rem;
+  gap: clamp(1.75rem, 3.5vw, 2.5rem);
+  width: 100%;
 }
 
 .kicker {
@@ -48,8 +50,9 @@
 
 .grid {
   display: grid;
-  gap: 1.25rem;
+  gap: clamp(1.25rem, 2.5vw, 1.75rem);
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  width: 100%;
 }
 
 .card {
