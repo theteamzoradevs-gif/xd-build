@@ -16,7 +16,7 @@ export function FeaturedPost({ post }: Props) {
         <h2 className={styles.title}>{post.title}</h2>
         <p className={styles.excerpt}>{post.excerpt}</p>
         <p className={styles.meta}>
-          {post.date} · {post.category} · {post.comments} Comments
+          {post.date} · {post.category}
         </p>
         <Link href={`/blog/${post.slug}`} className={styles.cta}>
           Explore

@@ -46,9 +46,7 @@ export default async function BlogPostPage({ params }: Props) {
           <h1 id="blog-post-title" className={styles.title}>
             {post.title}
           </h1>
-          <p className={styles.meta}>
-            {post.date} · {post.comments} Comments
-          </p>
+          <p className={styles.meta}>{post.date}</p>
         </div>
 
         <div className={styles.heroMedia}>
