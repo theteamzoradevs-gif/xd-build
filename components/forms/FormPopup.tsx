@@ -210,8 +210,8 @@ export default function FormPopup() {
             top: "-14px",
             left: "50%",
             transform: "translateX(-50%)",
-            backgroundColor: "#EAA135",
-            color: "#ffffff",
+            backgroundColor: "var(--color-accent)",
+            color: "var(--color-dark)",
             fontSize: "11px",
             fontWeight: "bold",
             padding: "0.35rem 1.25rem",
@@ -270,8 +270,8 @@ export default function FormPopup() {
               onClick={() => setIsOpen(false)}
               style={{
                 width: "100%",
-                backgroundColor: "#EAA135",
-                color: "#000000",
+                backgroundColor: "var(--color-accent)",
+                color: "var(--color-dark)",
                 fontWeight: 500,
                 fontSize: "0.875rem",
                 padding: "0.75rem 1rem",
@@ -414,8 +414,8 @@ export default function FormPopup() {
                 disabled={isSubmitting}
                 style={{
                   width: "100%",
-                  backgroundColor: "#EAA135",
-                  color: "#000000",
+                  backgroundColor: "var(--color-accent)",
+                  color: "var(--color-dark)",
                   fontWeight: 500,
                   fontSize: "0.875rem",
                   padding: "0.75rem 1rem",

@@ -24,7 +24,7 @@ export const WORK_GALLERY_PLACEHOLDERS = [
     alt: "MEP engineering review",
   },
   {
-    src: "https://images.unsplash.com/photo-1541888946425-d81bb940b71e?q=80&w=1200&auto=format&fit=crop",
+    src: "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?q=80&w=1200&auto=format&fit=crop",
     alt: "Prefabrication and modular construction",
   },
   {

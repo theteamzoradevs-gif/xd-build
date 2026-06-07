@@ -27,20 +27,13 @@ export async function RecentPosts({ posts: prefetched }: Props) {
   return (
     <Section denseTop denseBottom className={styles.section} aria-labelledby="recent-posts-title">
       <div className={styles.header}>
-        <div>
-          <p className={styles.kicker}>Blog</p>
-          <h2 id="recent-posts-title" className={styles.title}>
-            Recent posts
-          </h2>
-          <p className={styles.lead}>
-            Practical reads on BIM delivery, MEP coordination, and project clarity.
-          </p>
-        </div>
-        {posts.length > 0 ? (
-          <Link href="/blog" className={styles.viewAll}>
-            View all posts
-          </Link>
-        ) : null}
+        <p className={styles.kicker}>Blog</p>
+        <h2 id="recent-posts-title" className={styles.title}>
+          Recent posts
+        </h2>
+        <p className={styles.lead}>
+          Practical reads on BIM delivery, MEP coordination, and project clarity.
+        </p>
       </div>
 
       {loadError ? (
@@ -50,6 +43,14 @@ export async function RecentPosts({ posts: prefetched }: Props) {
       ) : null}
 
       {featured ? <FeaturedPost post={featured} /> : null}
+
+      {posts.length > 0 ? (
+        <div className={styles.footer}>
+          <Link href="/blog" className={styles.viewAll}>
+            View all posts
+          </Link>
+        </div>
+      ) : null}
     </Section>
   );
 }

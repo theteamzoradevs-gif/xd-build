@@ -89,7 +89,7 @@ export default function WhyUsPage() {
             </p>
             <div className={styles.timelineShot}>
               <Image
-                src="https://images.unsplash.com/photo-1541888946425-d81bb940b71e?q=80&w=1600&auto=format&fit=crop"
+                src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?q=80&w=1600&auto=format&fit=crop"
                 alt="Modern digital solutions company"
                 fill
                 sizes="(max-width: 900px) 100vw, 40vw"
@@ -178,7 +178,7 @@ export default function WhyUsPage() {
             <div className={styles.collageStack}>
               <div className={styles.collageMini}>
                 <Image
-                  src="https://images.unsplash.com/photo-1573497491208-6b1ccf231e32?q=80&w=600&auto=format&fit=crop"
+                  src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=600&auto=format&fit=crop"
                   alt="Modern digital solutions company"
                   fill
                   sizes="200px"
@@ -187,7 +187,7 @@ export default function WhyUsPage() {
               </div>
               <div className={styles.collageMiniWide}>
                 <Image
-                  src="https://images.unsplash.com/photo-1542626991-cbc4e32524eb?q=80&w=700&auto=format&fit=crop"
+                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=700&auto=format&fit=crop"
                   alt="Modern digital solutions company"
                   fill
                   sizes="(max-width: 900px) 50vw, 25vw"
