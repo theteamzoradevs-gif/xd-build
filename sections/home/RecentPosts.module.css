@@ -6,15 +6,15 @@
 
 .header {
   margin-bottom: 1.25rem;
+}
+
+.footer {
   display: flex;
-  flex-wrap: wrap;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 1rem;
+  justify-content: center;
+  margin-top: clamp(1.25rem, 3vw, 1.75rem);
 }
 
 .viewAll {
-  flex-shrink: 0;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -50,8 +50,8 @@
   max-width: 70ch;
 }
 @media (max-width: 639px) {
-  .header {
-    align-items: stretch;
+  .footer {
+    width: 100%;
   }
 
   .viewAll {

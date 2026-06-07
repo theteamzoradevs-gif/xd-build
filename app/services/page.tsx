@@ -46,7 +46,7 @@ export default function ServicesPage() {
         solution=""
         outcome=""
         summary="Spool and duct fabrication, shop automation and integration, modular construction, and pump skids. We break models down to individual spools and modules, detailed to shop-ready standard — shifting as much work offsite as possible to reduce labour costs and on-site risk."
-        imageSrc="https://images.unsplash.com/photo-1541888946425-d81bb940b71e?q=80&w=1800&auto=format&fit=crop"
+        imageSrc="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?q=80&w=1800&auto=format&fit=crop"
         imageAlt="Prefabrication and modular construction"
         imagePosition="right"
       />
@@ -68,7 +68,7 @@ export default function ServicesPage() {
         solution=""
         outcome=""
         summary="Precise as-built capture using our own in-house laser scanners. We produce accurate point cloud data and coordinate new services against existing conditions, reducing errors and eliminating surprises during installation."
-        imageSrc="https://images.unsplash.com/photo-1581093228791-9f608bb3fdbb?q=80&w=1800&auto=format&fit=crop"
+        imageSrc="https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=1800&auto=format&fit=crop"
         imageAlt="Laser scanning and point cloud coordination"
       />
 
