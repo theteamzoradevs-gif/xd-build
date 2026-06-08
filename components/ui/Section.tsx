@@ -33,8 +33,8 @@ export function Section({
         styles.section,
         tight && styles.tight,
         band && styles.band,
-        denseBottom && !band && styles.denseBottom,
-        denseTop && !band && styles.denseTop,
+        denseBottom && styles.denseBottom,
+        denseTop && styles.denseTop,
         className,
       )}
     >
