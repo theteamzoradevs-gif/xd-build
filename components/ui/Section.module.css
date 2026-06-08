@@ -1,57 +1,42 @@
 .section {
-  padding-block: var(--space-section);
+  --section-pad: var(--space-section);
+  padding-top: calc(var(--section-pad) / 2);
+  padding-bottom: calc(var(--section-pad) / 2);
 }
 
-/* Less double-padding when sections stack */
-.section + .section {
-  padding-top: clamp(0.35rem, 0.9vw, 0.65rem);
+.section:first-child {
+  padding-top: var(--section-pad);
+}
+
+.section:last-child {
+  padding-bottom: var(--section-pad);
 }
 
 .section.tight {
-  padding-block: clamp(1.25rem, 2.5vw, 2rem);
+  --section-pad: clamp(1.25rem, 2.5vw, 2rem);
 }
 
-.section.tight + .section.tight {
-  padding-top: clamp(0.35rem, 0.8vw, 0.55rem);
-}
-
-.denseBottom {
-  padding-bottom: clamp(0.65rem, 1.5vw, 1rem);
-}
-
-.denseTop {
-  padding-top: clamp(0.65rem, 1.5vw, 1rem);
-}
-
-.denseBottom + .section {
-  padding-top: clamp(0.35rem, 0.8vw, 0.55rem);
+.section.denseTop.denseBottom {
+  --section-pad: clamp(1.15rem, 2.2vw, 1.65rem);
 }
 
 /* Full-width banners (dark blocks, metrics strips, etc.) */
 .section.band {
+  --section-pad: clamp(2.75rem, 5.5vw, 4.25rem);
   width: 100%;
-  padding-block: clamp(2.75rem, 5.5vw, 4.25rem);
-}
-
-.section + .section.band,
-.denseBottom + .section.band,
-.denseTop + .section.band {
-  padding-top: clamp(2.75rem, 5.5vw, 4.25rem);
-}
-
-.section.band + .section {
-  padding-top: clamp(0.35rem, 0.9vw, 0.65rem);
 }
 
 @media (max-width: 639px) {
-  .section.band {
-    padding-block: clamp(2.25rem, 7vw, 3rem);
+  .section {
+    --section-pad: clamp(1.15rem, 4vw, 1.75rem);
   }
 
-  .section + .section.band,
-  .denseBottom + .section.band,
-  .denseTop + .section.band {
-    padding-top: clamp(2.25rem, 7vw, 3rem);
+  .section.tight {
+    --section-pad: clamp(1rem, 3.5vw, 1.5rem);
+  }
+
+  .section.band {
+    --section-pad: clamp(2.25rem, 7vw, 3rem);
   }
 }
 
@@ -63,14 +48,4 @@
 .innerBleed {
   width: min(100% - calc(var(--page-gutter) * 2), var(--max-content));
   max-width: none;
-}
-
-@media (max-width: 639px) {
-  .section {
-    padding-block: clamp(1.15rem, 4vw, 1.75rem);
-  }
-
-  .section.tight {
-    padding-block: clamp(1rem, 3.5vw, 1.5rem);
-  }
 }

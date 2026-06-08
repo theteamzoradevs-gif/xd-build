@@ -102,10 +102,12 @@
   gap: 0.65rem 0.75rem;
   margin: clamp(1.25rem, 3vw, 1.75rem) auto clamp(1.25rem, 2.5vw, 1.75rem);
   max-width: 52rem;
+  width: 100%;
 }
 
 .logoPill {
   position: relative;
+  display: block;
   border: 0;
   padding: 0;
   background: transparent;
@@ -134,7 +136,7 @@
 
 .logoFrame {
   position: relative;
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   min-height: 48px;
@@ -156,10 +158,12 @@
 
 .logoImg {
   display: block;
-  height: 30px;
   width: auto;
+  height: 30px;
   max-width: 132px;
+  max-height: 30px;
   object-fit: contain;
+  object-position: center;
   filter: none;
   opacity: 1;
   transition: transform 0.35s ease;
@@ -265,19 +269,87 @@
     opacity: 0.75;
   }
 
+  .eyebrow {
+    font-size: 0.65rem;
+    letter-spacing: 0.14em;
+    margin-bottom: 0.65rem;
+  }
+
+  .title {
+    font-size: clamp(1.45rem, 6.5vw, 1.85rem);
+    margin-bottom: 0.65rem;
+  }
+
+  .sublead {
+    font-size: 0.95rem;
+    line-height: 1.55;
+    padding-inline: 0.15rem;
+  }
+
+  .logoRail {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.65rem;
+    max-width: none;
+    margin-block: 1.15rem;
+  }
+
+  .logoPill {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .logoPill:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    width: min(100%, calc(50% - 0.325rem));
+    margin-inline: auto;
+  }
+
   .logoFrame {
-    min-height: 42px;
-    padding: 0.45rem 0.85rem;
+    width: 100%;
+    min-height: 52px;
+    padding: 0.55rem 0.75rem;
+    box-sizing: border-box;
   }
 
   .logoImg {
-    height: 24px;
-    max-width: 108px;
+    width: auto;
+    height: 26px;
+    max-width: min(100%, 120px);
+    max-height: 26px;
+  }
+
+  .logoFallback {
+    font-size: 0.65rem;
+    max-width: none;
+    line-height: 1.25;
+  }
+
+  .cardShell {
+    max-width: none;
   }
 
   .card {
     border-radius: 20px;
     padding: 1.5rem 1.1rem;
+  }
+
+  .quoteText {
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+
+  .attribution {
+    margin-top: 1.25rem;
+    padding-top: 1.15rem;
+  }
+
+  .author {
+    font-size: 0.98rem;
+  }
+
+  .company {
+    font-size: 0.88rem;
   }
 
   .decoQuote {
