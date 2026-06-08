@@ -23,12 +23,14 @@ export function WhyOutsource() {
   return (
     <section className={styles.section}>
       <div className={styles.inner}>
-        <p className={styles.kicker}>Outsourcing benefits</p>
-        <h2 className={styles.title}>Why to out-source?</h2>
-        <p className={styles.lead}>
-          Short answer: you save time, reduce overhead, and get<br />
-          specialist support exactly when the project needs it.
-        </p>
+        <div className={styles.intro}>
+          <p className={styles.kicker}>Outsourcing benefits</p>
+          <h2 className={styles.title}>Why to out - source?</h2>
+          <p className={styles.lead}>
+            Short answer: you save time, reduce overhead, and get specialist
+            support exactly when the project needs it.
+          </p>
+        </div>
 
         <ul className={styles.grid}>
           {ITEMS.map(({ title, body, icon: Icon }) => (
