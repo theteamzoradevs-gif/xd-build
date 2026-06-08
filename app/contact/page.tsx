@@ -21,7 +21,7 @@ const mapEmbedSrc =
 export default function ContactPage() {
   return (
     <>
-      <Section tight denseTop denseBottom aria-labelledby="contact-title">
+      <Section className={styles.contactHero} aria-labelledby="contact-title">
         <h1 id="contact-title" className="pageTitle">
           Let's build something deliberate together
         </h1>
@@ -111,6 +111,8 @@ export default function ContactPage() {
       </Section>
 
       <RoutePortfolioShowcase routeKey="contact" />
+
+      <div className={styles.preFooterGap} aria-hidden />
 
       <CtaBand dark {...WORK_WITH_US_CTA} />
     </>

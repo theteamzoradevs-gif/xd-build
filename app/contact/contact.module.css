@@ -1,3 +1,9 @@
+.contactHero {
+  --section-pad: clamp(2rem, 4vw, 2.75rem);
+  padding-top: var(--section-pad);
+  padding-bottom: var(--section-pad);
+}
+
 .grid {
   display: grid;
   gap: 1.25rem;
@@ -148,4 +154,9 @@
 .loading {
   margin: 0;
   color: var(--color-muted);
+}
+
+.preFooterGap {
+  height: clamp(2.5rem, 5vw, 4rem);
+  background: #f7f8fb;
 }

@@ -25,9 +25,9 @@ export function CtaBand({
     Boolean(secondaryLabel) && Boolean(secondaryHref);
 
   return (
-    <Section tight={!dark} band={dark} className={dark ? styles.dark : styles.light}>
+    <Section band={dark} className={dark ? styles.dark : styles.light}>
       <div className={styles.inner}>
-        <div>
+        <div className={styles.copy}>
           <h2 className={styles.title}>{title}</h2>
           <p className={styles.subtitle}>{subtitle}</p>
         </div>

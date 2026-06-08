@@ -18,12 +18,8 @@ export function FeaturedPost({ post }: Props) {
         <p className={styles.meta}>
           {post.date} · {post.category}
         </p>
-        <Link href={`/blog/${post.slug}`} className={styles.cta}>
-          Explore
-        </Link>
       </div>
 
-      {/* Right Image Side */}
       {post.image && (
         <div className={styles.imageContainer}>
           <Image
@@ -36,6 +32,10 @@ export function FeaturedPost({ post }: Props) {
           />
         </div>
       )}
+
+      <Link href={`/blog/${post.slug}`} className={styles.cta}>
+        Explore
+      </Link>
     </article>
   );
 }

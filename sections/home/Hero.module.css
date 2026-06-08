@@ -185,10 +185,20 @@
   .wrap {
     min-height: auto;
     padding-block: clamp(1.25rem, 5vw, 2rem);
+    align-items: flex-start;
   }
 
   .grid {
-    gap: 1.5rem;
+    gap: 1.25rem;
+  }
+
+  .copy {
+    order: 1;
+  }
+
+  .grid > *:last-child {
+    order: 2;
+    width: 100%;
   }
 
   .title br {

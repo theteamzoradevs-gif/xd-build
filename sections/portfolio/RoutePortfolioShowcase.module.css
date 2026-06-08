@@ -1,7 +1,8 @@
 .topCtaWrap {
   display: flex;
   justify-content: center;
-  padding: clamp(1.25rem, 3vw, 1.75rem) 1rem;
+  padding: clamp(2.5rem, 5vw, 4rem) var(--page-gutter)
+    clamp(1.5rem, 3vw, 2.5rem);
   background: #f7f8fb;
 }
 
@@ -10,10 +11,10 @@
   border-radius: 32px;
   border: 1px solid #e2e8f0;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
-  padding: 4rem 2rem;
-  /* हेडिंग को एक लाइन में रखने के लिए विड्थ को 1200px तक बढ़ाया गया */
-  max-width: 1200px; 
-  width: 100%;
+  padding: clamp(2.5rem, 4vw, 3.5rem) clamp(1.5rem, 4vw, 2.5rem);
+  width: min(100%, var(--max-content));
+  max-width: var(--max-content);
+  margin-inline: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -75,7 +76,7 @@
 
 .wrap {
   background: #f7f8fb;
-  padding-top: 1rem;
+  padding-top: clamp(1.5rem, 3vw, 2.5rem);
 }
 
 .layout {
@@ -138,6 +139,7 @@
   display: grid;
   gap: 1rem;
   grid-template-columns: 1fr;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
 }
 
 @media (min-width: 900px) {

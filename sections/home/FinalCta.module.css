@@ -1,16 +1,13 @@
 .section {
-  padding-top: 0;
-  padding-bottom: clamp(1.5rem, 3vw, 2.25rem);
   background: linear-gradient(180deg, #ffffff 0%, #fafafa 100%);
 }
 
 .inner {
-  width: min(100% - calc(var(--page-gutter) * 2), var(--max-content));
-  margin: 0 auto;
-  margin-top: 1rem;
+  width: 100%;
+  margin: 0;
   color: #111827;
   border-radius: 22px;
-  padding: clamp(1.85rem, 4vw, 2.75rem) clamp(1.25rem, 4vw, 2.5rem) clamp(2rem, 4vw, 2.75rem);
+  padding: clamp(2rem, 4vw, 2.75rem);
   text-align: center;
   display: grid;
   gap: 1rem;
@@ -44,7 +41,7 @@
   flex-wrap: wrap;
   gap: 0.9rem;
   justify-content: center;
-  margin-top: 0.3rem;
+  margin-top: 0.25rem;
 }
 
 .outline {
@@ -61,7 +58,7 @@
 @media (max-width: 639px) {
   .inner {
     border-radius: 16px;
-    padding-inline: 1.15rem;
+    padding: clamp(1.75rem, 5vw, 2.25rem) clamp(1.25rem, 4vw, 1.5rem);
   }
 
   .title {
