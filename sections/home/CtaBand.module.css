@@ -5,17 +5,23 @@
   width: 100%;
   background: var(--color-dark);
   color: #fff;
+  margin-top: clamp(2rem, 4vw, 3rem);
 }
 
 .inner {
   display: grid;
   gap: 1.25rem;
   align-items: center;
-  padding: clamp(1.35rem, 3vw, 2rem);
+  padding: clamp(1.5rem, 3vw, 2rem);
   border-radius: var(--radius-card);
   border: 1px solid var(--color-border);
   background: #fff;
   box-shadow: var(--shadow-card);
+}
+
+.copy {
+  display: grid;
+  gap: 0.45rem;
 }
 
 .dark .inner {
@@ -28,7 +34,7 @@
 }
 
 .title {
-  margin: 0 0 0.45rem;
+  margin: 0;
   font-size: clamp(1.225rem, 2.6vw, 1.725rem);
   letter-spacing: -0.02em;
 }

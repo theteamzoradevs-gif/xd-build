@@ -119,7 +119,10 @@ export function Testimonials({ section, testimonials }: Props) {
                   transition={{ duration: 0.38, ease: [0.22, 1, 0.36, 1] }}
                 >
                   <blockquote className={styles.blockquote}>
-                    <p className={styles.quoteText}>
+                    <p
+                      className={styles.quoteText}
+                      title={active.quote?.trim() || undefined}
+                    >
                       {active.quote?.trim()
                         ? quoteWithHighlights(active.quote)
                         : "—"}

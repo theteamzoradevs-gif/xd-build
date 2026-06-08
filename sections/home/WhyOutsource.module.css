@@ -1,6 +1,6 @@
 ﻿.section {
   background: linear-gradient(180deg, #ffffff 0%, #fbfbfb 100%);
-  padding: clamp(1.75rem, 4vw, 2.5rem) var(--page-gutter) clamp(1.5rem, 3.5vw, 2rem);
+  padding: clamp(2.5rem, 5vw, 3.75rem) var(--page-gutter) clamp(2rem, 4vw, 3rem);
   border-top: 1px solid rgba(16, 24, 32, 0.03);
   border-bottom: 1px solid rgba(16, 24, 32, 0.03);
 }
@@ -12,6 +12,7 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
+  gap: clamp(0.75rem, 2vw, 1rem);
 }
 
 @media (min-width: 768px) {
@@ -22,7 +23,7 @@
 }
 
 .kicker {
-  margin: 0 0 10px;
+  margin: 0;
   color: #f5b205;
   text-transform: uppercase;
   letter-spacing: 0.16em;
@@ -35,22 +36,23 @@
   font-size: clamp(2rem, 4.5vw, 2.75rem);
   font-weight: 800;
   letter-spacing: -0.045em;
-  line-height: 1.0;
+  line-height: 1.08;
   color: #0f1419;
 }
 
 .lead {
-  margin: 14px 0 0;
+  margin: 0;
   color: #9aa3af;
   font-size: 0.9rem;
   line-height: 1.75;
   font-weight: 400;
+  max-width: 42ch;
 }
 
 /* ── Cards ── */
 .grid {
   list-style: none;
-  margin: 36px 0 0;
+  margin: clamp(1.75rem, 4vw, 2.75rem) 0 0;
   padding: 0;
   display: grid;
   grid-template-columns: 1fr;
@@ -177,7 +179,15 @@
 /* ── Mobile ── */
 @media (max-width: 639px) {
   .section {
-    padding-inline: var(--page-gutter);
+    padding: clamp(2.25rem, 7vw, 3rem) var(--page-gutter) clamp(1.75rem, 5vw, 2.5rem);
+  }
+
+  .inner {
+    gap: 0.85rem;
+  }
+
+  .grid {
+    margin-top: clamp(1.5rem, 5vw, 2.25rem);
   }
 
   .card {
@@ -191,5 +201,9 @@
 
   .title {
     font-size: clamp(1.65rem, 8vw, 2rem);
+  }
+
+  .lead {
+    max-width: none;
   }
 }

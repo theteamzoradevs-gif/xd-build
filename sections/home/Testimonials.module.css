@@ -205,6 +205,9 @@
 
 .card {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 18.5rem;
   border-radius: 28px;
   padding: clamp(2rem, 4.5vw, 3rem) clamp(1.35rem, 4vw, 2.75rem);
   background: linear-gradient(
@@ -221,21 +224,35 @@
 }
 
 .cardMotion {
-  display: grid;
-  gap: 0;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  height: 100%;
 }
 
 .blockquote {
   margin: 0;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
 }
 
 .quoteText {
   margin: 0;
+  width: 100%;
   font-size: clamp(1.18rem, 2.6vw, 1.42rem);
   line-height: 1.72;
   letter-spacing: -0.015em;
   color: rgba(255, 255, 255, 0.94);
   font-weight: 500;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .quoteAccent {
@@ -244,6 +261,7 @@
 }
 
 .attribution {
+  flex-shrink: 0;
   margin: 1.85rem 0 0;
   padding-top: 1.5rem;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
@@ -255,6 +273,9 @@
   font-weight: 800;
   letter-spacing: -0.02em;
   color: #ffffff;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .company {
@@ -262,6 +283,9 @@
   font-size: 0.95rem;
   color: var(--td-muted);
   line-height: 1.45;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 @media (max-width: 640px) {
@@ -330,6 +354,7 @@
   }
 
   .card {
+    min-height: 16.5rem;
     border-radius: 20px;
     padding: 1.5rem 1.1rem;
   }
@@ -337,6 +362,7 @@
   .quoteText {
     font-size: 1rem;
     line-height: 1.65;
+    -webkit-line-clamp: 4;
   }
 
   .attribution {
