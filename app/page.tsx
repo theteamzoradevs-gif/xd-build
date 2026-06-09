@@ -14,7 +14,6 @@ import { TrustMetrics } from "@/sections/home/TrustMetrics";
 import { WhyOutsource } from "@/sections/home/WhyOutsource";
 import { WhyUs } from "@/sections/home/WhyUs";
 import { RecentPosts } from "@/sections/home/RecentPosts";
-import FormPopup from "@/components/forms/FormPopup";
 
 export const metadata: Metadata = {
   title: "XD Build",
@@ -34,11 +33,12 @@ export default async function HomePage() {
   ]);
 
   const featuredProjects = featuredProjectsRaw.slice(0, HOME_FEATURED_PROJECT_LIMIT);
+  const showStats = home.statsEnabled !== false && home.stats.length > 0;
 
   return (
     <>
-      <HomeHero hero={home.hero} featuredProjects={featuredProjects} />
-      <TrustMetrics stats={home.stats} />
+      <HomeHero hero={home.hero} />
+      {showStats ? <TrustMetrics stats={home.stats} /> : null}
       <WhyOutsource />
       <CompanyIntro />
       <HomeServicesGrid />
@@ -51,7 +51,6 @@ export default async function HomePage() {
       />
       <FinalCta />
       <RecentPosts posts={recentPosts} />
-      <FormPopup />
     </>
   );
 }

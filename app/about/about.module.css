@@ -22,34 +22,37 @@
 .twoCol {
   display: grid;
   gap: 1.5rem;
-  align-items: center;
+  align-items: stretch;
 }
 
-.aboutCarousel {
-  margin-top: 0 !important;
-  transform: none !important;
+.leftCol {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
 }
 
-@media (min-width: 900px) {
-  .aboutCarousel {
-    margin-top: 0 !important;
-    transform: none !important;
-  }
+.carouselCol {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 0;
+  min-height: 100%;
+  align-self: stretch;
 }
 
 @media (min-width: 900px) {
   .twoCol {
-    /* Left column: flexible text, Right column: fixed-width carousel */
-    grid-template-columns: 1fr minmax(300px, 360px);
-    gap: 2rem;
-    align-items: start;
+    grid-template-columns: minmax(0, 1.35fr) minmax(280px, 400px);
+    gap: clamp(2rem, 4vw, 3.5rem);
+    align-items: stretch;
   }
 
-  /* Center the carousel card vertically in the right column */
-  .twoCol > div:last-child {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  .carouselCol {
+    justify-content: stretch;
+  }
+
+  .overview {
+    margin-top: 0;
   }
 }
 

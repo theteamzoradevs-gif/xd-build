@@ -1,17 +1,12 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
 import { AboutTeam } from "@/sections/about/AboutTeam";
 import { MissionVision } from "@/sections/about/MissionVision";
 import { FinalCta } from "@/sections/home/FinalCta";
-import { RoutePortfolioShowcase } from "@/sections/portfolio/RoutePortfolioShowcase";
-import {
-  COMPANY_OVERVIEW,
-  WORK_GALLERY_PLACEHOLDERS,
-} from "@/lib/about";
+import { COMPANY_OVERVIEW } from "@/lib/about";
 import { COMPANY_INTRO_REST } from "@/lib/home";
-import { getFeaturedProjects } from "@/lib/projects";
+import { HERO_FEATURED_SERVICES } from "@/lib/services";
 import { HeroFeaturedCarousel } from "@/sections/home/HeroFeaturedCarousel";
 import styles from "./about.module.css";
 
@@ -21,30 +16,7 @@ export const metadata: Metadata = {
     "XD Build is a Calgary-based digital delivery partner for BIM, VDC, and MEP coordination across the construction lifecycle.",
 };
 
-export default async function AboutPage() {
-  let carouselProjects: {
-    slug: string;
-    title: string;
-    heroSrc: string;
-    heroAlt: string;
-    outcome: string;
-  }[] = [];
-
-  try {
-    const featured = await getFeaturedProjects();
-    carouselProjects = featured.map((p) => ({
-      slug: p.slug,
-      title: p.title,
-      heroSrc: p.heroSrc,
-      heroAlt: p.heroAlt,
-      outcome: p.outcome,
-    }));
-  } catch (error) {
-    if (process.env.NODE_ENV === "development") {
-      console.error("[AboutPage]", error);
-    }
-  }
-
+export default function AboutPage() {
   return (
     <>
       <Section className={styles.hero} aria-labelledby="about-hero-title">
@@ -63,10 +35,11 @@ export default async function AboutPage() {
               <p className={`${styles.blockText} ${styles.leadQuiet}`}>{COMPANY_INTRO_REST}</p>
             </div>
 
-            <div>
+            <div className={styles.carouselCol}>
               <HeroFeaturedCarousel
-                projects={carouselProjects}
-                className={styles.aboutCarousel}
+                items={HERO_FEATURED_SERVICES}
+                mode="services"
+                alignColumn
               />
             </div>
           </div>
@@ -95,17 +68,12 @@ export default async function AboutPage() {
             </p>
           </div>
           <div className={styles.ctaActions}>
-            <Button href="/portfolio" variant="primary">
-              View portfolio
-            </Button>
-            <Button href="/contact" variant="secondary">
+            <Button href="/contact" variant="primary">
               Contact us
             </Button>
           </div>
         </div>
       </Section>
-
-      <RoutePortfolioShowcase routeKey="about" />
 
       <FinalCta />
     </>

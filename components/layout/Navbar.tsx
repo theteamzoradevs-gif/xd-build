@@ -32,7 +32,7 @@ export function Navbar() {
       <div className={styles.bar}>
         <Link href="/" className={styles.logo} aria-label={`${siteConfig.name} home`}>
           <Image
-            src="/images/xd-logo.png"
+            src={siteConfig.logo}
             alt={`${siteConfig.name} logo`}
             width={164}
             height={48}

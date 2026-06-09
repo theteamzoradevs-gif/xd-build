@@ -120,26 +120,8 @@
   font-size: 0.95rem;
 }
 
-/* --- CHNG: Buttons Layout & Centering --- */
-
-/* View More button ko absolute horizontal center me lane ke liye flex wrap */
-.viewMoreContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  margin-top: 1.25rem;
-}
-
-/* Header CTA specific layout handling */
 .headerCta {
   white-space: nowrap;
-}
-
-/* View More button sizing styling */
-.viewMoreBtn {
-  min-width: 160px;
-  justify-content: center;
 }
 
 @media (max-width: 799px) {
@@ -147,10 +129,5 @@
     width: 100%;
     white-space: normal;
     justify-content: center;
-  }
-
-  .viewMoreBtn {
-    width: 100%;
-    min-width: 0;
   }
 }

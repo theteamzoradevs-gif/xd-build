@@ -17,7 +17,7 @@ export function Footer() {
           <div>
             <Link href="/" className={styles.brand}>
               <Image
-                src="/images/xd-logo.png"
+                src={siteConfig.logo}
                 alt={`${siteConfig.name} logo`}
                 width={164}
                 height={48}

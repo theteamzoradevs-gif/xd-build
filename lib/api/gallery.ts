@@ -1,5 +1,6 @@
 import { cache } from "react";
 import { fetchJson } from "@/lib/api/fetch-json";
+import { isGalleryEnabled } from "@/lib/features/gallery";
 import { getProjectsSafe } from "@/lib/projects";
 import type { GalleryPhoto } from "@/types/gallery";
 
@@ -14,6 +15,8 @@ function withImageSrc(photos: GalleryPhoto[]): GalleryPhoto[] {
 }
 
 export const getGalleryPhotos = cache(async function getGalleryPhotos(): Promise<GalleryPhoto[]> {
+  if (!isGalleryEnabled()) return [];
+
   const data = await fetchJson<GalleryResponse>(
     "/api/gallery?status=published",
   );
@@ -25,6 +28,8 @@ export const getGalleryPhotos = cache(async function getGalleryPhotos(): Promise
 
 /** On failure log and return an empty grid (does not break the page). */
 export async function getGalleryPhotosSafe(): Promise<GalleryPhoto[]> {
+  if (!isGalleryEnabled()) return [];
+
   try {
     return await getGalleryPhotos();
   } catch (error) {
@@ -38,6 +43,8 @@ export async function getGalleryPhotosSafe(): Promise<GalleryPhoto[]> {
  * Portfolio entries use ids `portfolio-{slug}` and sort after CMS photos.
  */
 export async function getGalleryPagePhotos(): Promise<GalleryPhoto[]> {
+  if (!isGalleryEnabled()) return [];
+
   const [cmsPhotos, projects] = await Promise.all([
     getGalleryPhotosSafe(),
     getProjectsSafe(),

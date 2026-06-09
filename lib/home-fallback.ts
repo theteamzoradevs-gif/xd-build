@@ -2,6 +2,7 @@ import type { HomeContent } from "@/types/home";
 
 /** Last-resort defaults when GET /api/home fails (matches former static homepage). */
 export const DEFAULT_HOME_FALLBACK: HomeContent = {
+  statsEnabled: true,
   hero: {
     /** Empty — avoids shipping the 46MB local MP4 when CMS is unreachable. */
     videoSrc: "",
@@ -18,7 +19,7 @@ export const DEFAULT_HOME_FALLBACK: HomeContent = {
     eyebrow: "Trusted by industry leaders",
     title: "Social proof from teams who ship in the field",
     subtitle:
-      "Builders, trades, and owners who measure us on outcomes — not slide decks.",
+      "Clients who measure us on outcomes — not slide decks.",
   },
   testimonials: [
     {

@@ -2,7 +2,6 @@ export type ContactEnquiryPayload = {
   name: string;
   phone: string;
   email: string;
-  projectType: string;
   message: string;
 };
 
@@ -12,7 +11,6 @@ export type ContactEnquiryResponse = {
     name: string;
     phone: string;
     email: string;
-    projectType: string;
     message: string;
     createdAt: string;
   };
@@ -48,7 +46,6 @@ export async function submitContactEnquiry(
       name: input.name.trim(),
       phone: input.phone.trim(),
       email: input.email.trim(),
-      projectType: input.projectType.trim() || "Other",
       message: input.message.trim(),
     }),
   });

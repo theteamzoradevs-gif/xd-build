@@ -1,5 +1,6 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import React, { useState, useEffect, ChangeEvent, FormEvent } from "react";
 import {
   enquiryErrorField,
@@ -20,9 +21,32 @@ interface FormErrors {
   submit?: string;
 }
 
-function popupEnquiryMessage(data: FormData): string {
+const POPUP_DELAY_MS = 10_000;
+const SEEN_PATHS_KEY = "formPopupSeenPaths";
+
+function getSeenPaths(): string[] {
+  try {
+    const raw = sessionStorage.getItem(SEEN_PATHS_KEY);
+    if (!raw) return [];
+    const parsed = JSON.parse(raw) as unknown;
+    return Array.isArray(parsed)
+      ? parsed.filter((p): p is string => typeof p === "string")
+      : [];
+  } catch {
+    return [];
+  }
+}
+
+function markPathSeen(path: string) {
+  const seen = getSeenPaths();
+  if (!seen.includes(path)) {
+    sessionStorage.setItem(SEEN_PATHS_KEY, JSON.stringify([...seen, path]));
+  }
+}
+
+function popupEnquiryMessage(data: FormData, pagePath: string): string {
   return [
-    "Consultation request from homepage popup.",
+    `Consultation request from site popup (${pagePath}).`,
     `Name: ${data.fullName.trim()}`,
     `Email: ${data.email.trim()}`,
     `Phone: ${data.phone.trim()}`,
@@ -65,6 +89,7 @@ const fieldErrorStyle: React.CSSProperties = {
 };
 
 export default function FormPopup() {
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -76,19 +101,19 @@ export default function FormPopup() {
   const [errors, setErrors] = useState<FormErrors>({});
 
   useEffect(() => {
-    const hasSeenPopupThisSession = sessionStorage.getItem(
-      "hasSeenPopupThisSession",
-    );
+    setIsOpen(false);
+    setSubmitted(false);
+    setErrors({});
 
-    if (!hasSeenPopupThisSession) {
-      const timer = setTimeout(() => {
-        setIsOpen(true);
-        sessionStorage.setItem("hasSeenPopupThisSession", "true");
-      }, 3000);
+    if (getSeenPaths().includes(pathname)) return;
 
-      return () => clearTimeout(timer);
-    }
-  }, []);
+    const timer = window.setTimeout(() => {
+      setIsOpen(true);
+      markPathSeen(pathname);
+    }, POPUP_DELAY_MS);
+
+    return () => window.clearTimeout(timer);
+  }, [pathname]);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -139,8 +164,7 @@ export default function FormPopup() {
         name: formData.fullName.trim(),
         phone: formData.phone.trim(),
         email: formData.email.trim(),
-        projectType: "Other",
-        message: popupEnquiryMessage(formData),
+        message: popupEnquiryMessage(formData, pathname),
       });
       setSubmitted(true);
       setFormData({ fullName: "", email: "", phone: "" });

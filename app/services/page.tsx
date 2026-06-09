@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { Section } from "@/components/ui/Section";
 import styles from "./services.module.css";
 import { CtaBand } from "@/sections/home/CtaBand";
-import { RoutePortfolioShowcase } from "@/sections/portfolio/RoutePortfolioShowcase";
 import { ServiceSection } from "@/sections/services/ServiceSection";
+import { ClarityCtaBanner } from "@/sections/shared/ClarityCtaBanner";
 import { WORK_WITH_US_CTA } from "@/lib/workWithUsCta";
 
 export const metadata: Metadata = {
@@ -54,10 +54,8 @@ export default function ServicesPage() {
       <CtaBand
         title="Planning a coordination-intensive package?"
         subtitle="Send your milestone and discipline mix — we’ll recommend the fastest path to a fabrication-ready model."
-        primaryLabel="View portfolio"
-        primaryHref="/portfolio"
-        secondaryLabel="Contact us"
-        secondaryHref="/contact"
+        primaryLabel="Contact us"
+        primaryHref="/contact"
       />
 
       <ServiceSection
@@ -85,7 +83,7 @@ export default function ServicesPage() {
         imagePosition="right"
       />
 
-      <RoutePortfolioShowcase routeKey="services" />
+      <ClarityCtaBanner />
 
       <CtaBand dark {...WORK_WITH_US_CTA} />
     </>

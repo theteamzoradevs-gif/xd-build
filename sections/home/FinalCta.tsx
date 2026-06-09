@@ -16,9 +16,6 @@ export function FinalCta() {
           <Button href="/contact" variant="primary">
             Get Consultation
           </Button>
-          <Button href="/portfolio" variant="secondary" className={styles.outline}>
-            Browse projects
-          </Button>
         </div>
       </div>
     </Section>

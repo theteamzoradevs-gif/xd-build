@@ -22,6 +22,13 @@ function quoteWithHighlights(quote: string): ReactNode {
   return quote;
 }
 
+function authorInitials(name: string): string {
+  const parts = name.trim().split(/\s+/).filter(Boolean);
+  if (parts.length === 0) return "?";
+  if (parts.length === 1) return parts[0].slice(0, 2).toUpperCase();
+  return `${parts[0][0]}${parts[parts.length - 1][0]}`.toUpperCase();
+}
+
 export function Testimonials({ section, testimonials }: Props) {
   const [index, setIndex] = useState(0);
   const [pause, setPause] = useState(false);
@@ -49,99 +56,90 @@ export function Testimonials({ section, testimonials }: Props) {
         onMouseEnter={() => setPause(true)}
         onMouseLeave={() => setPause(false)}
       >
-        <div className={styles.aura} aria-hidden>
-          <span className={styles.blob} />
-          <span className={`${styles.blob} ${styles.blobSecondary}`} />
-        </div>
-
         <div className={styles.content}>
-          <p className={styles.eyebrow}>{section.eyebrow}</p>
-          <h2 id={labelId} className={styles.title}>
-            {section.title}
-          </h2>
-          <p className={styles.sublead}>{section.subtitle}</p>
-
-          <div
-            className={styles.logoRail}
-            role="tablist"
-            aria-label="Select client testimonial"
-          >
-            {testimonials.map((t, idx) => {
-              const selected = idx === index;
-              const logoAlt = t.logoAlt?.trim() || t.authorCompany;
-              return (
-                <motion.button
-                  key={t.id}
-                  type="button"
-                  role="tab"
-                  aria-selected={selected}
-                  className={styles.logoPill}
-                  data-active={selected ? "true" : "false"}
-                  onClick={() => onPick(idx)}
-                  whileHover={{ scale: 1.03 }}
-                  whileTap={{ scale: 0.98 }}
-                  transition={{ type: "spring", stiffness: 420, damping: 28 }}
-                >
-                  <span className={styles.logoGlow} aria-hidden />
-                  <span className={styles.logoFrame}>
-                    {t.logoSrc?.trim() ? (
-                      <Image
-                        src={t.logoSrc}
-                        alt={logoAlt}
-                        width={140}
-                        height={36}
-                        className={styles.logoImg}
-                        data-active={selected ? "true" : "false"}
-                      />
-                    ) : (
-                      <span className={styles.logoFallback}>
-                        {t.authorCompany}
-                      </span>
-                    )}
-                  </span>
-                </motion.button>
-              );
-            })}
+          <div className={styles.headerBlock}>
+            <p className={styles.eyebrow}>{section.eyebrow}</p>
+            <h2 id={labelId} className={styles.title}>
+              {section.title}
+            </h2>
+            <p className={styles.sublead}>{section.subtitle}</p>
           </div>
 
-          <div className={styles.cardShell}>
-            <span className={styles.decoQuote} aria-hidden>
-              &ldquo;
-            </span>
-            <div className={styles.card}>
-              <AnimatePresence mode="wait" initial={false}>
-                <motion.div
-                  key={active.id + index}
-                  className={styles.cardMotion}
-                  initial={{ opacity: 0, y: 14 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  transition={{ duration: 0.38, ease: [0.22, 1, 0.36, 1] }}
-                >
-                  <blockquote className={styles.blockquote}>
-                    <p
-                      className={styles.quoteText}
-                      title={active.quote?.trim() || undefined}
-                    >
-                      {active.quote?.trim()
-                        ? quoteWithHighlights(active.quote)
-                        : "—"}
-                    </p>
-                  </blockquote>
-                  <footer className={styles.attribution}>
-                    <p className={styles.author}>{active.authorName}</p>
-                    <p className={styles.company}>{active.authorCompany}</p>
-                  </footer>
-                </motion.div>
-              </AnimatePresence>
+          <div className={styles.stage}>
+            <div className={styles.cardShell}>
+              <div className={styles.card}>
+                <AnimatePresence mode="wait" initial={false}>
+                  <motion.div
+                    key={active.id + index}
+                    className={styles.cardMotion}
+                    initial={{ opacity: 0, y: 12 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -8 }}
+                    transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                  >
+                    <div className={styles.cardLogo}>
+                      {active.logoSrc?.trim() ? (
+                        <Image
+                          src={active.logoSrc}
+                          alt={
+                            active.logoAlt?.trim() || active.authorCompany
+                          }
+                          width={160}
+                          height={40}
+                          className={styles.cardLogoImg}
+                        />
+                      ) : (
+                        <span className={styles.cardLogoFallback}>
+                          {active.authorCompany}
+                        </span>
+                      )}
+                    </div>
+                    <blockquote className={styles.blockquote}>
+                      <p
+                        className={styles.quoteText}
+                        title={active.quote?.trim() || undefined}
+                      >
+                        {active.quote?.trim()
+                          ? quoteWithHighlights(active.quote)
+                          : "—"}
+                      </p>
+                    </blockquote>
+                    <footer className={styles.attribution}>
+                      <span className={styles.avatar} aria-hidden>
+                        {authorInitials(active.authorName)}
+                      </span>
+                      <div className={styles.authorMeta}>
+                        <p className={styles.author}>{active.authorName}</p>
+                        <p className={styles.company}>{active.authorCompany}</p>
+                      </div>
+                    </footer>
+                  </motion.div>
+                </AnimatePresence>
+              </div>
             </div>
+
+            {count > 1 ? (
+              <div
+                className={styles.progress}
+                role="tablist"
+                aria-label="Testimonial progress"
+              >
+                {testimonials.map((t, idx) => (
+                  <button
+                    key={t.id}
+                    type="button"
+                    role="tab"
+                    aria-selected={idx === index}
+                    aria-label={`Show testimonial ${idx + 1}`}
+                    className={styles.progressDot}
+                    data-active={idx === index ? "true" : "false"}
+                    onClick={() => onPick(idx)}
+                  />
+                ))}
+              </div>
+            ) : null}
           </div>
         </div>
-      </div>
-
-      <div className={styles.sectionBridge} aria-hidden>
-        <span className={styles.bridgeGlow} />
-        <span className={styles.bridgeLine} />
       </div>
     </Section>
   );
