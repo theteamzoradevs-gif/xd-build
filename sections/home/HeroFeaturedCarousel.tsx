@@ -8,78 +8,112 @@ import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
 import { Button } from "@/components/ui/Button";
 import styles from "./HeroFeaturedCarousel.module.css";
 
-export type HeroCarouselProject = {
-  slug: string;
+export type HeroCarouselItem = {
+  id: string;
   title: string;
-  heroSrc: string;
-  heroAlt: string;
-  outcome: string;
+  description: string;
+  imageSrc: string;
+  imageAlt: string;
+  href?: string;
 };
 
+/** @deprecated Use HeroCarouselItem */
+export type HeroCarouselProject = HeroCarouselItem & { slug: string; outcome: string; heroSrc: string; heroAlt: string };
+
 type Props = {
-  projects: readonly HeroCarouselProject[];
+  items: readonly HeroCarouselItem[];
   className?: string;
+  mode?: "portfolio" | "services";
+  /** Stretch carousel to match a sibling text column (e.g. About page). */
+  alignColumn?: boolean;
 };
 
 const INTERVAL_MS = 3000;
 
-export function HeroFeaturedCarousel({ projects, className }: Props) {
+export function HeroFeaturedCarousel({
+  items,
+  className,
+  mode = "portfolio",
+  alignColumn = false,
+}: Props) {
   const [index, setIndex] = useState(0);
   const reduceMotion = usePrefersReducedMotion();
+  const isServices = mode === "services";
 
   useEffect(() => {
-    if (projects.length <= 1 || reduceMotion) return;
+    if (items.length <= 1 || reduceMotion) return;
     const id = window.setInterval(() => {
-      setIndex((i) => (i + 1) % projects.length);
+      setIndex((i) => (i + 1) % items.length);
     }, INTERVAL_MS);
     return () => window.clearInterval(id);
-  }, [projects.length, reduceMotion]);
+  }, [items.length, reduceMotion]);
 
-  const active = projects[index] ?? projects[0];
+  const active = items[index] ?? items[0];
   if (!active) return null;
 
+  const itemHref = active.href ?? (isServices ? undefined : `/portfolio/${active.id}`);
+
   return (
-    <div className={`${styles.root} ${className ?? ""}`.trim()}>
+    <div
+      className={`${styles.root} ${alignColumn ? styles.rootAlignColumn : ""} ${className ?? ""}`.trim()}
+    >
       <div className={styles.card} aria-live="polite" aria-atomic="true">
         <AnimatePresence mode="wait" initial={false}>
           <motion.div
-            key={active.slug}
+            key={active.id}
             className={styles.slide}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: reduceMotion ? 0 : 0.35, ease: [0.22, 1, 0.36, 1] }}
           >
-            <Link href={`/portfolio/${active.slug}`} className={styles.mediaLink}>
+            {itemHref && !isServices ? (
+              <Link href={itemHref} className={styles.mediaLink}>
+                <div className={styles.media}>
+                  <Image
+                    src={active.imageSrc}
+                    alt={active.imageAlt}
+                    fill
+                    sizes="(max-width: 900px) 90vw, 300px"
+                    className={styles.img}
+                    priority={index === 0}
+                  />
+                </div>
+              </Link>
+            ) : (
               <div className={styles.media}>
                 <Image
-                  src={active.heroSrc}
-                  alt={active.heroAlt}
+                  src={active.imageSrc}
+                  alt={active.imageAlt}
                   fill
                   sizes="(max-width: 900px) 90vw, 300px"
                   className={styles.img}
                   priority={index === 0}
                 />
               </div>
-            </Link>
+            )}
             <div className={styles.body}>
               <h3 className={styles.cardTitle}>
-                <Link href={`/portfolio/${active.slug}`}>{active.title}</Link>
+                {itemHref && !isServices ? (
+                  <Link href={itemHref}>{active.title}</Link>
+                ) : (
+                  active.title
+                )}
               </h3>
-              <p className={styles.outcome}>{active.outcome}</p>
+              <p className={styles.outcome}>{active.description}</p>
             </div>
           </motion.div>
         </AnimatePresence>
 
-        {projects.length > 1 ? (
+        {items.length > 1 ? (
           <div className={styles.dots} aria-hidden>
-            {projects.map((p, i) => (
+            {items.map((item, i) => (
               <button
-                key={p.slug}
+                key={item.id}
                 type="button"
                 className={styles.dot}
                 data-active={i === index ? "true" : "false"}
-                aria-label={`Show project ${i + 1}`}
+                aria-label={`Show ${isServices ? "service" : "project"} ${i + 1}`}
                 onClick={() => setIndex(i)}
               />
             ))}
@@ -87,18 +121,26 @@ export function HeroFeaturedCarousel({ projects, className }: Props) {
         ) : null}
       </div>
 
-      <div className={styles.ctaRow}>
-        <Button
-          href={`/portfolio/${active.slug}`}
-          variant="primary"
-          className={styles.btnViewProject}
-        >
-          View Project
-        </Button>
-        <Button href="/portfolio" variant="secondary" className={styles.btnAllProjects}>
-          View All Projects
-        </Button>
-      </div>
+      {isServices ? (
+        <div className={`${styles.ctaRow} ${styles.ctaRowSingle}`}>
+          <Button href="/services" variant="secondary" className={styles.btnAllProjects}>
+            View All Services
+          </Button>
+        </div>
+      ) : (
+        <div className={styles.ctaRow}>
+          <Button
+            href={itemHref ?? "/portfolio"}
+            variant="primary"
+            className={styles.btnViewProject}
+          >
+            View Project
+          </Button>
+          <Button href="/portfolio" variant="secondary" className={styles.btnAllProjects}>
+            View All Projects
+          </Button>
+        </div>
+      )}
     </div>
   );
 }

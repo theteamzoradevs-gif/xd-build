@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import { GalleryPhotoGrid } from "@/components/gallery/GalleryPhotoGrid";
 import { Section } from "@/components/ui/Section";
 import { getGalleryPagePhotos } from "@/lib/api/gallery";
+import { isGalleryEnabled } from "@/lib/features/gallery";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -13,6 +15,10 @@ export const metadata: Metadata = {
 export const revalidate = 60;
 
 export default async function GalleryPage() {
+  if (!isGalleryEnabled()) {
+    notFound();
+  }
+
   const photos = await getGalleryPagePhotos();
 
   return (

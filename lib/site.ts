@@ -1,3 +1,5 @@
+import { isGalleryEnabled } from "@/lib/features/gallery";
+
 export const siteConfig = {
   name: "XD Build",
   tagline:
@@ -9,7 +11,9 @@ export const siteConfig = {
   whatsappE164: "14038882657",
   linkedInCompany: "https://www.linkedin.com/company/xdbuild",
   addressLines: ["35 Bartlett Crescent SE", "Calgary, AB T3S 0P6"],
-  ogImage: "/images/logo/2.png",
+  logo: "/images/logo/3.png",
+  favicon: "/images/logo/2.png",
+  ogImage: "/images/logo/3.png",
 } as const;
 
 export type NavKey      =
@@ -21,19 +25,27 @@ export type NavKey      =
   | "about"
   | "contact";
 
+const ALL_NAV_ITEMS = [
+  { key: "home", href: "/", label: "Home" },
+  { key: "about", href: "/about", label: "About" },
+  { key: "services", href: "/services", label: "Services" },
+  { key: "portfolio", href: "/portfolio", label: "Portfolio" },
+  { key: "blog", href: "/blog", label: "Blogs" },
+  { key: "gallery", href: "/gallery", label: "Gallery" },
+  { key: "contact", href: "/contact", label: "Contact Us" },
+] as const satisfies ReadonlyArray<{
+  key: NavKey;
+  href: string;
+  label: string;
+}>;
+
 export const NAV_ITEMS: ReadonlyArray<{
   key: NavKey;
   href: string;
   label: string;
-}> = [
-  { key: "home", href: "/", label: "Home" },
-  { key: "portfolio", href: "/portfolio", label: "Portfolio" },
-  { key: "blog", href: "/blog", label: "Blog" },
-  { key: "services", href: "/services", label: "Services" },
-  { key: "gallery", href: "/gallery", label: "Gallery" },
-  { key: "about", href: "/about", label: "About" },
-  { key: "contact", href: "/contact", label: "Contact" },
-];
+}> = ALL_NAV_ITEMS.filter(
+  (item) => item.key !== "gallery" || isGalleryEnabled(),
+);
 
 export const primaryCta = {
   label: "Get in touch",

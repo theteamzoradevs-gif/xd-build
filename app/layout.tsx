@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Montserrat } from "next/font/google";
 import "@/styles/globals.css";
+import FormPopup from "@/components/forms/FormPopup";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { organizationJsonLd } from "@/lib/jsonld";
@@ -20,9 +21,9 @@ export const metadata: Metadata = {
   },
   description: siteConfig.tagline,
   icons: {
-    icon: "/images/logo/2.png",
-    shortcut: "/images/logo/2.png",
-    apple: "/images/logo/2.png",
+    icon: siteConfig.favicon,
+    shortcut: siteConfig.favicon,
+    apple: siteConfig.favicon,
   },
   openGraph: {
     title: siteConfig.name,
@@ -72,6 +73,7 @@ export default function RootLayout({
         <Navbar />
         <main>{children}</main>
         <Footer />
+        <FormPopup />
       </body>
     </html>
   );

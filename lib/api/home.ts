@@ -8,6 +8,13 @@ type HomeResponse = { home?: HomeContent };
 function sortHomeContent(home: HomeContent): HomeContent {
   return {
     ...home,
+    testimonialsSection: {
+      ...home.testimonialsSection,
+      subtitle: home.testimonialsSection.subtitle.replace(
+        "Builders, trades, and owners",
+        "Clients",
+      ),
+    },
     stats: [...home.stats].sort((a, b) => a.sortOrder - b.sortOrder),
     testimonials: [...home.testimonials].sort(
       (a, b) => a.sortOrder - b.sortOrder,

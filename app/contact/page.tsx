@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Suspense } from "react";
 import { Section } from "@/components/ui/Section";
+import { Button } from "@/components/ui/Button";
 import { ContactForm } from "@/components/forms/ContactForm";
-import { RoutePortfolioShowcase } from "@/sections/portfolio/RoutePortfolioShowcase";
 import { CtaBand } from "@/sections/home/CtaBand";
 import { WORK_WITH_US_CTA } from "@/lib/workWithUsCta";
 import { siteConfig } from "@/lib/site";
@@ -91,6 +91,13 @@ export default function ContactPage() {
                 </span>
                 Send Email
               </Link>
+              <Button
+                href="#contact-form"
+                variant="primary"
+                className={styles.consultBtn}
+              >
+                Get Consultation
+              </Button>
             </div>
             <div className={styles.mapWrap}>
               <iframe
@@ -102,15 +109,13 @@ export default function ContactPage() {
               />
             </div>
           </aside>
-          <div>
+          <div id="contact-form">
             <Suspense fallback={<p className={styles.loading}>Loading form…</p>}>
               <ContactForm />
             </Suspense>
           </div>
         </div>
       </Section>
-
-      <RoutePortfolioShowcase routeKey="contact" />
 
       <div className={styles.preFooterGap} aria-hidden />
 

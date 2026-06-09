@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { getAllBlogSlugs } from "@/lib/blog";
+import { isGalleryEnabled } from "@/lib/features/gallery";
 import { getAllProjectSlugs } from "@/lib/projects";
 import { siteConfig } from "@/lib/site";
 
@@ -8,7 +9,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const routes = [
     "",
     "/portfolio",
-    "/gallery",
+    ...(isGalleryEnabled() ? ["/gallery"] : []),
     "/blog",
     "/services",
     "/why-us",

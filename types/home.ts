@@ -28,6 +28,8 @@ export type HomeTestimonialsSection = {
 
 export type HomeContent = {
   hero: HomeHero;
+  /** When false, hide the home stats strip. Omit or true = show (backward compatible). */
+  statsEnabled?: boolean;
   stats: HomeStat[];
   testimonialsSection: HomeTestimonialsSection;
   testimonials: HomeTestimonial[];

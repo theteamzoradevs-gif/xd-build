@@ -101,6 +101,13 @@
   transform: translateY(-1px);
 }
 
+.consultBtn {
+  width: 100%;
+  justify-content: center;
+  font-weight: 650;
+  padding: 0.72rem 0.9rem;
+}
+
 .waBtn {
   border-color: var(--color-dark);
   background: var(--color-dark);

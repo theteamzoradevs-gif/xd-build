@@ -44,17 +44,6 @@
   margin-top: 0.25rem;
 }
 
-.outline {
-  border-color: #2c2f36 !important;
-  color: #111827 !important;
-}
-
-.outline:hover {
-  background: rgba(11, 14, 20, 0.06) !important;
-  border-color: var(--color-dark) !important;
-  color: var(--color-dark) !important;
-}
-
 @media (max-width: 639px) {
   .inner {
     border-radius: 16px;

@@ -82,13 +82,6 @@ export async function FeaturedPortfolio({ projects: prefetched }: Props) {
           ))}
         </div>
       ) : null}
-
-      {/* Bulletproof Horizontal Centering Container */}
-      <div className={styles.viewMoreContainer}>
-        <Button href="/portfolio" variant="primary" className={styles.viewMoreBtn}>
-          View More
-        </Button>
-      </div>
     </Section>
   );
 }

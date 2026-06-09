@@ -7,7 +7,7 @@ import {
   isCloudinaryUrl,
   optimizeCloudinaryVideoUrl,
 } from "@/lib/cloudinary";
-import { getFeaturedProjects, type Project } from "@/lib/projects";
+import { HERO_FEATURED_SERVICES } from "@/lib/services";
 import { siteConfig } from "@/lib/site";
 import { HeroFeaturedCarousel } from "@/sections/home/HeroFeaturedCarousel";
 import type { HomeHero } from "@/types/home";
@@ -18,44 +18,9 @@ const FALLBACK_TRUST_BADGE = "120+";
 
 type Props = {
   hero: HomeHero;
-  /** When set (e.g. from the home page), skips a duplicate CMS fetch. */
-  featuredProjects?: Project[];
 };
 
-export async function HomeHero({ hero, featuredProjects }: Props) {
-  let carouselProjects: {
-    slug: string;
-    title: string;
-    heroSrc: string;
-    heroAlt: string;
-    outcome: string;
-  }[] = [];
-
-  if (featuredProjects) {
-    carouselProjects = featuredProjects.map((p) => ({
-      slug: p.slug,
-      title: p.title,
-      heroSrc: p.heroSrc,
-      heroAlt: p.heroAlt,
-      outcome: p.outcome,
-    }));
-  } else {
-    try {
-      const featured = await getFeaturedProjects();
-      carouselProjects = featured.map((p) => ({
-        slug: p.slug,
-        title: p.title,
-        heroSrc: p.heroSrc,
-        heroAlt: p.heroAlt,
-        outcome: p.outcome,
-      }));
-    } catch (error) {
-      if (process.env.NODE_ENV === "development") {
-        console.error("[HomeHero]", error);
-      }
-    }
-  }
-
+export async function HomeHero({ hero }: Props) {
   const rawVideo = hero.videoSrc?.trim() ?? "";
   const videoSrc = rawVideo
     ? isCloudinaryUrl(rawVideo)
@@ -81,8 +46,8 @@ export async function HomeHero({ hero, featuredProjects }: Props) {
             projects get complex.
           </h1>
           <p className={styles.lead}>
-            XD Build helps owners and contractors align on what will be built,
-            before steel, duct, and conduit ever hit the field. Simple language.
+            XD Build helps contractors align on what will be built,
+            before pipe, duct, and conduit ever hit the field. Simple language.
             Decisive coordination. Outcomes you can stand behind.
           </p>
           <div className={styles.badges}>
@@ -115,7 +80,7 @@ export async function HomeHero({ hero, featuredProjects }: Props) {
             </Button>
           </div>
         </div>
-        <HeroFeaturedCarousel projects={carouselProjects} />
+        <HeroFeaturedCarousel items={HERO_FEATURED_SERVICES} mode="services" />
       </div>
     </Section>
   );

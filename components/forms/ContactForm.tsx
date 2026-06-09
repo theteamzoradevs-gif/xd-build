@@ -32,10 +32,10 @@ const schema = z.object({
     .trim()
     .min(1, "Email is required.")
     .email("Enter a valid email address (e.g., name@company.com)."),
-  projectType: z.string().min(1, "Please select a project type."),
   message: z
     .string()
     .trim()
+    .min(20, "Tell us a bit more (20+ characters).")
     .max(1000, "Message cannot exceed 1000 characters."),
 });
 
@@ -45,7 +45,6 @@ const defaultValues: ContactFormValues = {
   name: "",
   phone: "",
   email: "",
-  projectType: "",
   message: "",
 };
 
@@ -84,7 +83,6 @@ export function ContactForm() {
         name: data.name,
         phone: data.phone,
         email: data.email,
-        projectType: data.projectType,
         message: data.message,
       });
     } catch (error) {
@@ -107,7 +105,7 @@ export function ContactForm() {
         <h2 className={styles.successTitle}>Thanks, we received your note.</h2>
         <p className={styles.successText}>
           We reply within <strong>24 hours</strong> on business days. If your
-          timeline is urgent, call or WhatsApp and mention your project type.
+          timeline is urgent, call or WhatsApp us directly.
         </p>
         <Button type="button" variant="secondary" onClick={() => reset(defaultValues)}>
           Send another message
@@ -176,30 +174,6 @@ export function ContactForm() {
         />
         <span className={styles.errorSlot} role="alert">
           {errors.email?.message ?? ""}
-        </span>
-      </label>
-
-      <label className={styles.field}>
-        <span>Project type</span>
-        <select 
-          {...register("projectType")} 
-          aria-invalid={errors.projectType ? "true" : "false"}
-        >
-          <option value="" disabled>
-            Select one…
-          </option>
-          <option value="New build / core and shell">New build</option>
-          <option value="Tenant improvement / TI">Tenant improvement</option>
-          <option value="MEP coordination">MEP coordination</option>
-          <option value="BIM / VDC support">BIM / VDC support</option>
-          <option value="Healthcare / labs">Healthcare / labs</option>
-          <option value="Data centers / mission critical">
-            Data centers / mission critical
-          </option>
-          <option value="Other">Other</option>
-        </select>
-        <span className={styles.errorSlot} role="alert">
-          {errors.projectType?.message ?? ""}
         </span>
       </label>
 
