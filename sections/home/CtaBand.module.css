@@ -5,7 +5,7 @@
   width: 100%;
   background: var(--color-dark);
   color: #fff;
-  margin-top: clamp(2rem, 4vw, 3rem);
+  --section-pad-balanced: calc(var(--section-pad) / 2);
 }
 
 .inner {

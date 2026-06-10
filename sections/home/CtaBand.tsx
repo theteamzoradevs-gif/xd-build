@@ -25,7 +25,11 @@ export function CtaBand({
     Boolean(secondaryLabel) && Boolean(secondaryHref);
 
   return (
-    <Section band={dark} className={dark ? styles.dark : styles.light}>
+    <Section
+      band={dark}
+      balanced={dark}
+      className={dark ? styles.dark : styles.light}
+    >
       <div className={styles.inner}>
         <div className={styles.copy}>
           <h2 className={styles.title}>{title}</h2>

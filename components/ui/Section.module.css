@@ -26,6 +26,13 @@
   width: 100%;
 }
 
+/* Equal vertical padding (overrides :last-child extra bottom). */
+.section.balanced,
+.section.balanced:last-child {
+  padding-top: var(--section-pad-balanced, var(--section-pad));
+  padding-bottom: var(--section-pad-balanced, var(--section-pad));
+}
+
 @media (max-width: 639px) {
   .section {
     --section-pad: clamp(1.15rem, 4vw, 1.75rem);

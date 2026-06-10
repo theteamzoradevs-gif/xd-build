@@ -11,6 +11,7 @@ type Props = {
   tight?: boolean;
   denseBottom?: boolean;
   denseTop?: boolean;
+  balanced?: boolean;
   "aria-labelledby"?: string;
 };
 
@@ -23,6 +24,7 @@ export function Section({
   tight,
   denseBottom,
   denseTop,
+  balanced,
   "aria-labelledby": labelledBy,
 }: Props) {
   return (
@@ -35,6 +37,7 @@ export function Section({
         band && styles.band,
         denseBottom && styles.denseBottom,
         denseTop && styles.denseTop,
+        balanced && styles.balanced,
         className,
       )}
     >

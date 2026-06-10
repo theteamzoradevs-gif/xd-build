@@ -1,4 +1,5 @@
 .section {
+  --section-pad-balanced: clamp(2.5rem, 5vw, 4rem);
   background: linear-gradient(180deg, #ffffff 0%, #fafafa 100%);
 }
 
