@@ -117,8 +117,6 @@ export default function ContactPage() {
         </div>
       </Section>
 
-      <div className={styles.preFooterGap} aria-hidden />
-
       <CtaBand dark {...WORK_WITH_US_CTA} />
     </>
   );

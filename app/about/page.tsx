@@ -23,7 +23,7 @@ export default function AboutPage() {
         <div className={styles.heroInner}>
           <p className={`${styles.heroKicker} pageKicker`}>About XD Build</p>
           <h1 id="about-hero-title" className="pageTitle">
-            Company overview
+            Company Overview
           </h1>
           <div className={styles.twoCol}>
             <div className={styles.overview}>
@@ -55,7 +55,7 @@ export default function AboutPage() {
 
       
 
-      <Section denseTop denseBottom aria-labelledby="about-cta">
+      <Section denseTop aria-labelledby="about-cta">
         <div className={styles.splitCta}>
           <div>
             <p className="pageKicker">Next step</p>
