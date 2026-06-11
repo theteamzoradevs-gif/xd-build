@@ -3,6 +3,7 @@ import Image from "next/image";
 import { AnimatedCounter } from "@/components/ui/animated-counter";
 import { Section } from "@/components/ui/Section";
 import { CtaBand } from "@/sections/home/CtaBand";
+import { siteConfig } from "@/lib/site";
 import { FinalCta } from "@/sections/home/FinalCta";
 import { RoutePortfolioShowcase } from "@/sections/portfolio/RoutePortfolioShowcase";
 import styles from "./why-us.module.css";
@@ -121,7 +122,7 @@ export default function WhyUsPage() {
         primaryLabel="See related projects"
         primaryHref="/portfolio"
         secondaryLabel="Get Consultation"
-        secondaryHref="/contact"
+        secondaryHref={siteConfig.bookingsUrl}
       />
 
       <Section className={styles.mastery} aria-labelledby="mastery-title">

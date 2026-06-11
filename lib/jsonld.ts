@@ -13,7 +13,7 @@ export function organizationJsonLd() {
       streetAddress: siteConfig.addressLines[0],
       addressLocality: "Calgary",
       addressRegion: "AB",
-      postalCode: "T3S 0P6",
+      postalCode: "T2H 2K6",
       addressCountry: "CA",
     },
     areaServed: "CA",

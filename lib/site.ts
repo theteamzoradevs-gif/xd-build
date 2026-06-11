@@ -10,7 +10,9 @@ export const siteConfig = {
   phoneE164: "+14038882657",
   whatsappE164: "14038882657",
   linkedInCompany: "https://www.linkedin.com/company/xdbuild",
-  addressLines: ["35 Bartlett Crescent SE", "Calgary, AB T3S 0P6"],
+  bookingsUrl:
+    "https://bookings.cloud.microsoft/bookwithme/user/3fe9102e38a248e881e096073b8ad69a%40xdbuild.com/meetingtype/a700ySj_k0mu-rIMFTM__A2?anonymous&ismsaljsauthenabled",
+  addressLines: ["7015 Macleod Trail SW, #400", "Calgary, AB, T2H 2K6"],
   logo: "/images/logo/3.png",
   favicon: "/images/logo/2.png",
   ogImage: "/images/logo/3.png",

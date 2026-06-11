@@ -1,5 +1,6 @@
 ﻿import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
+import { siteConfig } from "@/lib/site";
 import styles from "./FinalCta.module.css";
 
 export function FinalCta() {
@@ -17,7 +18,7 @@ export function FinalCta() {
           Tell us what you are building, where you are stuck, and what "done" looks like. We will map the fastest path to a coordinated model your field team can trust.
         </p>
         <div className={styles.actions}>
-          <Button href="/contact" variant="primary">
+          <Button href={siteConfig.bookingsUrl} variant="primary">
             Get Consultation
           </Button>
         </div>

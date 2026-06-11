@@ -23,6 +23,10 @@ type ButtonAsLink = Common & {
     "className" | "href" | "children"
   >;
 
+function isExternalHref(href: string) {
+  return href.startsWith("http://") || href.startsWith("https://");
+}
+
 export function Button(props: ButtonAsButton | ButtonAsLink) {
   const variant = props.variant ?? "primary";
   const classes = cn(styles.btn, styles[variant], props.className);
@@ -33,10 +37,27 @@ export function Button(props: ButtonAsButton | ButtonAsLink) {
       children,
       variant: _v,
       className: _c,
+      target,
+      rel,
       ...anchorRest
     } = props as ButtonAsLink;
+
+    if (isExternalHref(href)) {
+      return (
+        <a
+          href={href}
+          className={classes}
+          target={target ?? "_blank"}
+          rel={rel ?? "noopener noreferrer"}
+          {...anchorRest}
+        >
+          {children}
+        </a>
+      );
+    }
+
     return (
-      <Link href={href} className={classes} {...anchorRest}>
+      <Link href={href} className={classes} target={target} rel={rel} {...anchorRest}>
         {children}
       </Link>
     );
