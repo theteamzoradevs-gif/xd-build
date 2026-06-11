@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
+import { siteConfig } from "@/lib/site";
 import styles from "./ServiceSection.module.css";
 
 type Props = {
@@ -67,7 +68,7 @@ export function ServiceSection({
               </div>
             </div>
           )}
-          <Button href="/contact" variant="primary">
+          <Button href={siteConfig.bookingsUrl} variant="primary">
             Get Consultation on this scope
           </Button>
         </div>

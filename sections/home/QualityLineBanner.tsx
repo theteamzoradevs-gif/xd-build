@@ -29,7 +29,7 @@ export function QualityLineBanner() {
         </div>
         <div className={styles.actions}>
           <Button
-            href={`tel:${siteConfig.phoneE164}`}
+            href={siteConfig.bookingsUrl}
             variant="primary"
             className={styles.cta}
           >

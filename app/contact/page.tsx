@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 };
 
 const mapEmbedSrc =
-  "https://maps.google.com/maps?q=35+Bartlett+Crescent+SE%2C+Calgary%2C+AB+T3S+0P6&t=m&z=17&output=embed";
+  "https://maps.google.com/maps?q=7015+Macleod+Trail+SW%2C+%23400%2C+Calgary%2C+AB%2C+T2H+2K6&t=m&z=17&output=embed";
 
 export default function ContactPage() {
   return (
@@ -92,7 +92,7 @@ export default function ContactPage() {
                 Send Email
               </Link>
               <Button
-                href="#contact-form"
+                href={siteConfig.bookingsUrl}
                 variant="primary"
                 className={styles.consultBtn}
               >

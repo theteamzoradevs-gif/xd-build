@@ -63,7 +63,7 @@ export async function HomeHero({ hero }: Props) {
             </span>
           </div>
           <div className={styles.actions}>
-            <Button href="/contact" variant="primary">
+            <Button href={siteConfig.bookingsUrl} variant="primary">
               Get Consultation
             </Button>
             <Button

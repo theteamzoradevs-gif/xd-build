@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/Button";
+import { siteConfig } from "@/lib/site";
 import styles from "@/sections/portfolio/RoutePortfolioShowcase.module.css";
 
 export function ClarityCtaBanner() {
@@ -12,7 +13,7 @@ export function ClarityCtaBanner() {
           designs and field execution.
         </p>
         <div className={styles.cardActions}>
-          <Button href="/contact" variant="primary">
+          <Button href={siteConfig.bookingsUrl} variant="primary">
             Get Consultation
           </Button>
         </div>
