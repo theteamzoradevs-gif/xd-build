@@ -3,7 +3,11 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
-import { getAllProjectSlugs, getProjectBySlug } from "@/lib/projects";
+import {
+  getDetailPageSlugs,
+  getProjectBySlug,
+  isDetailPageEnabled,
+} from "@/lib/projects";
 import styles from "./project.module.css";
 
 type Props = {
@@ -15,7 +19,7 @@ export const revalidate = 60;
 
 export async function generateStaticParams() {
   try {
-    const slugs = await getAllProjectSlugs();
+    const slugs = await getDetailPageSlugs();
     return slugs.map((slug) => ({ slug }));
   } catch {
     return [];
@@ -24,7 +28,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const project = await getProjectBySlug(params.slug);
-  if (!project) return { title: "Project" };
+  if (!project || !isDetailPageEnabled(project)) return { title: "Project" };
   return {
     title: project.title,
     description: `${project.outcome} ${project.location}.`,
@@ -34,7 +38,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function ProjectDetailPage({ params }: Props) {
   const project = await getProjectBySlug(params.slug);
-  if (!project) notFound();
+  if (!project || !isDetailPageEnabled(project)) notFound();
 
   const qs = encodeURIComponent(project.title);
 

@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { getAllBlogSlugs } from "@/lib/blog";
 import { isGalleryEnabled } from "@/lib/features/gallery";
-import { getAllProjectSlugs } from "@/lib/projects";
+import { getDetailPageSlugs } from "@/lib/projects";
 import { siteConfig } from "@/lib/site";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -31,7 +31,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   try {
     [projectSlugs, blogSlugs] = await Promise.all([
-      getAllProjectSlugs(),
+      getDetailPageSlugs(),
       getAllBlogSlugs(),
     ]);
   } catch (error) {
