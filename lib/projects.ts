@@ -15,6 +15,7 @@ export type Project = {
   heroBlurDataURL?: string;
   heroAlt: string;
   gridSize?: "large" | "medium" | "tall";
+  detailPageEnabled?: boolean;
   problem: string;
   solution: string;
   result: string;
@@ -38,10 +39,18 @@ export type ApiPortfolioProject = {
   heroBlurDataURL?: string;
   heroAlt: string;
   gridSize?: "large" | "medium" | "tall";
+  detailPageEnabled?: boolean;
   problem: string;
   solution: string;
   result: string;
 };
+
+/** Detail page is on unless admin explicitly disables it. */
+export function isDetailPageEnabled(
+  project: Pick<Project, "detailPageEnabled">,
+): boolean {
+  return project.detailPageEnabled !== false;
+}
 
 export const PROJECT_PLACEHOLDERS: ProjectPlaceholder[] = [];
 
@@ -58,12 +67,14 @@ export function mapApiProject(p: ApiPortfolioProject): Project {
     heroAlt: p.heroAlt,
     heroBlurDataURL: p.heroBlurDataURL,
     gridSize: p.gridSize,
+    detailPageEnabled: p.detailPageEnabled,
     problem: p.problem,
     solution: p.solution,
     result: p.result,
   };
 }
 
+/** All published projects for grids (includes card-only / detailPageEnabled false). */
 export const getProjects = cache(async function getProjects(): Promise<Project[]> {
   const data = await fetchJson<{ projects?: ApiPortfolioProject[] }>(
     "/api/projects?status=published",
@@ -103,7 +114,16 @@ export const getProjectBySlug = cache(async function getProjectBySlug(
   }
 });
 
-export async function getAllProjectSlugs(): Promise<string[]> {
+/**
+ * Slugs that have a detail page — for generateStaticParams and sitemap only.
+ * Do not use this to build the /portfolio grid.
+ */
+export async function getDetailPageSlugs(): Promise<string[]> {
   const projects = await getProjects();
-  return projects.map((p) => p.slug);
+  return projects.filter(isDetailPageEnabled).map((p) => p.slug);
+}
+
+/** @deprecated Use getDetailPageSlugs for static detail routes. */
+export async function getAllProjectSlugs(): Promise<string[]> {
+  return getDetailPageSlugs();
 }
