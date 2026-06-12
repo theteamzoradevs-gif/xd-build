@@ -46,13 +46,15 @@ export default async function ProjectDetailPage({ params }: Props) {
     <>
       <Section className={styles.hero} aria-labelledby="project-hero-title">
         <div className={styles.heroInner}>
-          <div className={styles.heroTags}>
-            {project.categories.map((c) => (
-              <span key={c} className={styles.tag}>
-                {c}
-              </span>
-            ))}
-          </div>
+          {project.categories.length > 0 ? (
+            <div className={styles.heroTags}>
+              {project.categories.map((c) => (
+                <span key={c} className={styles.tag}>
+                  {c}
+                </span>
+              ))}
+            </div>
+          ) : null}
           <h1 id="project-hero-title" className={styles.heroTitle}>
             {project.title}
           </h1>

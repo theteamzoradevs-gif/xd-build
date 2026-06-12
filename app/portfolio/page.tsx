@@ -9,7 +9,7 @@ import { getProjects } from "@/lib/projects";
 export const metadata: Metadata = {
   title: "Portfolio",
   description:
-    "Selected BIM, MEP, and VDC projects with concrete outcomes, from mission critical campuses to HQ builds.",
+    "Selected healthcare, research, education, and infrastructure projects with concrete outcomes across Calgary and the region.",
 };
 
 export const revalidate = 60;
