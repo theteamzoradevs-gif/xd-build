@@ -1,4 +1,8 @@
-import { getProjects } from "@/lib/projects";
+import {
+  getProjects,
+  PORTFOLIO_CATEGORIES,
+  type PortfolioCategory,
+} from "@/lib/projects";
 import { ProjectCard } from "@/components/cards/ProjectCard";
 import { Section } from "@/components/ui/Section";
 import { ClarityCtaBanner } from "@/sections/shared/ClarityCtaBanner";
@@ -13,7 +17,7 @@ const CONFIG: Record<
     subtitle: string;
     lead: string;
     relatedLabel: string;
-    categories: Array<"BIM" | "MEP" | "VDC">;
+    categories: PortfolioCategory[];
   }
 > = {
   services: {
@@ -21,28 +25,28 @@ const CONFIG: Record<
     subtitle: "DISCOVER OUR IMPACTFUL CASE STUDIES",
     lead: "Examples closest to what teams usually ask for on the Services page.",
     relatedLabel: "Related projects",
-    categories: ["BIM", "MEP", "VDC"],
+    categories: [...PORTFOLIO_CATEGORIES],
   },
   "why-us": {
     title: "Proof projects behind our approach",
     subtitle: "EXPLORE OUR FIELD-PROVEN CASE STUDIES",
     lead: "Route-aware picks that show reliability, repeatability, and field-ready outcomes.",
     relatedLabel: "Related projects",
-    categories: ["BIM", "VDC"],
+    categories: ["Healthcare centres", "Research centres"],
   },
   about: {
     title: "Projects that reflect our team DNA",
     subtitle: "SEE THE WORK THAT SHAPED OUR TEAM",
     lead: "Evidence from portfolios where coordination discipline mattered most.",
     relatedLabel: "Related projects",
-    categories: ["BIM", "MEP"],
+    categories: ["Healthcare centres", "Educational facilities"],
   },
   contact: {
     title: "Quick proof before you enquire",
     subtitle: "A FEW PROJECTS TO SET THE CONTEXT",
     lead: "A few closely related projects, plus additional work if you want broader context.",
     relatedLabel: "Related projects",
-    categories: ["MEP", "VDC"],
+    categories: ["Research centres", "Educational facilities", "Other"],
   },
 };
 

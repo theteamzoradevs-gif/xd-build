@@ -53,13 +53,15 @@ export function ProjectCard({ project, compact }: Props) {
         <div className={styles.mediaStatic}>{media}</div>
       )}
       <div className={styles.body}>
-        <div className={styles.tags}>
-          {project.categories.map((c) => (
-            <span key={c} className={styles.tag}>
-              {c}
-            </span>
-          ))}
-        </div>
+        {project.categories.length > 0 ? (
+          <div className={styles.tags}>
+            {project.categories.map((c) => (
+              <span key={c} className={styles.tag}>
+                {c}
+              </span>
+            ))}
+          </div>
+        ) : null}
         <h3 className={styles.title}>{title}</h3>
         {project.budget ? (
           <p className={styles.budget}>Budget: {project.budget}</p>

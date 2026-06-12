@@ -67,13 +67,15 @@ export async function FeaturedPortfolio({ projects: prefetched }: Props) {
                   />
                 </div>
                 <div className={styles.body}>
-                  <div className={styles.tags}>
-                    {p.categories.map((c) => (
-                      <span key={c} className={styles.tag}>
-                        {c}
-                      </span>
-                    ))}
-                  </div>
+                  {p.categories.length > 0 ? (
+                    <div className={styles.tags}>
+                      {p.categories.map((c) => (
+                        <span key={c} className={styles.tag}>
+                          {c}
+                        </span>
+                      ))}
+                    </div>
+                  ) : null}
                   <h3 className={styles.cardTitle}>{p.title}</h3>
                   {p.budget ? (
                     <p className={styles.budget}>Budget: {p.budget}</p>

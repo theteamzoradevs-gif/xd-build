@@ -2,11 +2,11 @@
 
 import { useMemo, useState } from "react";
 import type { Project, ProjectCategory } from "@/lib/projects";
-import { PROJECT_PLACEHOLDERS } from "@/lib/projects";
+import { PORTFOLIO_CATEGORIES, PROJECT_PLACEHOLDERS } from "@/lib/projects";
 import { ProjectCard } from "@/components/cards/ProjectCard";
 import styles from "./PortfolioGallery.module.css";
 
-const FILTERS: ProjectCategory[] = ["All", "MEP", "BIM", "VDC"];
+const FILTERS: ProjectCategory[] = ["All", ...PORTFOLIO_CATEGORIES];
 
 type Props = {
   projects: Project[];
