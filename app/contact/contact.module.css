@@ -30,10 +30,14 @@
   margin: 0;
   padding: 0.85rem 1rem;
   border-radius: var(--radius-card);
-  border: 1px solid var(--color-border);
-  background: var(--color-accent);
-  color: #f9f9f9;
+  border: 1px solid rgba(245, 178, 5, 0.35);
+  background: rgba(245, 178, 5, 0.15);
+  color: #15803d;
   line-height: 1.5;
+}
+
+.trustBadge strong {
+  color: #166534;
 }
 
 .blocks {

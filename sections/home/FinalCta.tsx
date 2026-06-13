@@ -19,7 +19,7 @@ export function FinalCta() {
         </p>
         <div className={styles.actions}>
           <Button href={siteConfig.bookingsUrl} variant="primary">
-            Get Consultation
+            Book a consultation call
           </Button>
         </div>
       </div>
