@@ -30,7 +30,7 @@ export default async function PortfolioPage() {
       <Section denseTop denseBottom aria-labelledby="portfolio-title">
         <p className="pageKicker">Portfolio</p>
         <h1 id="portfolio-title" className="pageTitle">
-          Confirmed projects
+          Projects
         </h1>
         <p className="pageLead">
           Calgary, Alberta, and regional work spanning museums, healthcare, academic

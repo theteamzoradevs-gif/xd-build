@@ -17,11 +17,11 @@ export const WHY_US_PILLARS = [
     body: "We stay ahead of industry trends to offer the most effective solutions.",
   },
   {
-    title: "Global Perspective",
-    body: "Having worked across multiple countries, we understand complex international project demands.",
+    title: "Local teams",
+    body: "Based in Calgary with teams who know Canadian codes, standards, and field realities — we work in your time zone, on your schedule.",
   },
   {
-    title: "Client-Centric",
-    body: "We tailor our services to meet your unique needs, ensuring your success.",
+    title: "MEP specialists",
+    body: "We work exclusively with MEP trades — mechanical, electrical, and plumbing — so every model is built with fabrication and the field in mind.",
   },
 ] as const;
