@@ -1,5 +1,4 @@
 ﻿import { HeroBackgroundVideo } from "@/components/home/HeroBackgroundVideo";
-import { AnimatedCounter } from "@/components/ui/animated-counter";
 import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
 import {
@@ -14,7 +13,6 @@ import type { HomeHero } from "@/types/home";
 import styles from "./Hero.module.css";
 
 const FALLBACK_POSTER = "/images/hero-poster.jpg";
-const FALLBACK_TRUST_BADGE = "120+";
 
 type Props = {
   hero: HomeHero;
@@ -32,7 +30,6 @@ export async function HomeHero({ hero }: Props) {
     videoPoster ||
     (videoSrc ? cloudinaryVideoPosterUrl(videoSrc) : "") ||
     FALLBACK_POSTER;
-  const trustBadgeValue = hero.trustBadgeValue?.trim() || FALLBACK_TRUST_BADGE;
 
   return (
     <Section bleed className={styles.wrap} aria-labelledby="home-hero-title">
@@ -40,7 +37,7 @@ export async function HomeHero({ hero }: Props) {
       <div className={styles.videoTint} aria-hidden />
       <div className={styles.grid}>
         <div className={styles.copy}>
-          <p className={styles.kicker}>Build with clarity from day one</p>
+          <p className={styles.kicker}>The BIM partner behind MEP trades</p>
           <h1 id="home-hero-title" className={styles.title}>
             Construction delivery that stays clear when <br />
             projects get complex.
@@ -51,16 +48,7 @@ export async function HomeHero({ hero }: Props) {
             Decisive coordination. Outcomes you can stand behind.
           </p>
           <div className={styles.badges}>
-            <span className={styles.trustChip}>
-              <span className="sr-only">
-                Trusted across {trustBadgeValue} engagements
-              </span>
-              <span className={styles.trustChipLive} aria-hidden>
-                Trusted across{" "}
-                <AnimatedCounter value={trustBadgeValue} accessibilityHidden />{" "}
-                engagements
-              </span>
-            </span>
+            <span className={styles.trustChip}>Built for MEP trade contractors</span>
           </div>
           <div className={styles.actions}>
             <Button href={siteConfig.bookingsUrl} variant="primary">

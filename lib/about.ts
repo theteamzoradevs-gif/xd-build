@@ -5,10 +5,10 @@ export const COMPANY_OVERVIEW = [
 ] as const;
 
 export const MISSION =
-  "XD Build's mission is to empower construction teams by providing the right tools and expertise to achieve higher efficiency. We support prefabrication efforts by producing quality models that streamline the construction process.";
+  "To support small mechanical and electrical contractors through the design process — delivering coordinated models that help lean teams work faster, bid stronger, and build with confidence.";
 
 export const VISION =
-  "We envision a future where our innovation and collaborative approach enhance every aspect of construction projects, from planning to execution. By prioritising our clients' needs, we aim to create lasting value in the industry.";
+  "We envision MEP projects where every system is planned before it's built — where thorough coordination upfront means safer sites, fewer surprises, and efficient execution from the first day in the field.";
 
 export const WORK_GALLERY_PLACEHOLDERS = [
   {

@@ -1,5 +1,6 @@
 import { cache } from "react";
 import { fetchJson } from "@/lib/api/fetch-json";
+import { getProjectCardSummary } from "@/lib/projectDisplayCopy";
 
 export const PORTFOLIO_CATEGORIES = [
   "Healthcare centres",
@@ -87,10 +88,9 @@ export function mapApiProject(p: ApiPortfolioProject): Project {
     slug: p.slug,
     title: p.title,
     location: p.location,
-    budget: p.budget,
     scope: p.scope,
     categories: normalizeProjectCategories(p.categories ?? []),
-    outcome: p.outcome,
+    outcome: getProjectCardSummary(p.slug, p.outcome),
     heroSrc: p.heroSrc,
     heroAlt: p.heroAlt,
     heroBlurDataURL: p.heroBlurDataURL,

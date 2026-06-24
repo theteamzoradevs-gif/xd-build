@@ -63,9 +63,6 @@ export function ProjectCard({ project, compact }: Props) {
           </div>
         ) : null}
         <h3 className={styles.title}>{title}</h3>
-        {project.budget ? (
-          <p className={styles.budget}>Budget: {project.budget}</p>
-        ) : null}
         <p className={styles.outcome}>{project.outcome}</p>
       </div>
     </article>

@@ -36,13 +36,8 @@ export async function FeaturedPortfolio({ projects: prefetched }: Props) {
         <div>
           <p className={styles.kicker}>Portfolio preview</p>
           <h2 id="featured-portfolio-title" className={styles.title}>
-            Featured projects
+            Projects
           </h2>
-          <p className={styles.lead}>
-            Three flagship engagements — from academic expansion and cultural renewal to
-            hospital infrastructure — showcasing how we coordinate scanning, BIM, and
-            fabrication-ready delivery.
-          </p>
         </div>
         
         {/* Navbar ke primary CTA jaisa sync variant */}
@@ -77,9 +72,6 @@ export async function FeaturedPortfolio({ projects: prefetched }: Props) {
                     </div>
                   ) : null}
                   <h3 className={styles.cardTitle}>{p.title}</h3>
-                  {p.budget ? (
-                    <p className={styles.budget}>Budget: {p.budget}</p>
-                  ) : null}
                   <p className={styles.outcome}>{p.outcome}</p>
                 </div>
               </>

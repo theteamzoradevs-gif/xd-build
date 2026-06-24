@@ -18,11 +18,11 @@ export default function ServicesPage() {
       <Section denseTop denseBottom aria-labelledby="services-title" className={styles.heroHeader}>
         <p className="pageKicker">Services</p>
         <h1 id="services-title" className="pageTitle">
-          Full-lifecycle digital delivery
+          Full-lifecycle MEP delivery
         </h1>
         <p className="pageLead">
           Our services span the full construction lifecycle, from initial coordination
-          through to fabrication-ready deliverables and on-site support.
+          through to new builds, renovations and demolitions.
         </p>
       </Section>
 
