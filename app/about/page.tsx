@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
 import { AboutTeam } from "@/sections/about/AboutTeam";
@@ -6,8 +7,6 @@ import { MissionVision } from "@/sections/about/MissionVision";
 import { FinalCta } from "@/sections/home/FinalCta";
 import { COMPANY_OVERVIEW } from "@/lib/about";
 import { COMPANY_INTRO_REST } from "@/lib/home";
-import { HERO_FEATURED_SERVICES } from "@/lib/services";
-import { HeroFeaturedCarousel } from "@/sections/home/HeroFeaturedCarousel";
 import styles from "./about.module.css";
 
 export const metadata: Metadata = {
@@ -35,12 +34,17 @@ export default function AboutPage() {
               <p className={`${styles.blockText} ${styles.leadQuiet}`}>{COMPANY_INTRO_REST}</p>
             </div>
 
-            <div className={styles.carouselCol}>
-              <HeroFeaturedCarousel
-                items={HERO_FEATURED_SERVICES}
-                mode="services"
-                alignColumn
-              />
+            <div className={styles.mediaCol}>
+              <div className={styles.staticMedia}>
+                <Image
+                  src="/images/construction/5.png"
+                  alt="Architectural visualization of a modern urban building"
+                  fill
+                  className={styles.staticImg}
+                  sizes="(max-width: 899px) 90vw, 480px"
+                  priority
+                />
+              </div>
             </div>
           </div>
         </div>
