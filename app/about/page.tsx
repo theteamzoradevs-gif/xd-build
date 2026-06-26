@@ -36,6 +36,15 @@ export default function AboutPage() {
               <p className={`${styles.blockText} ${styles.leadQuiet}`}>{COMPANY_INTRO_REST}</p>
             </div>
 
+            <div className={styles.mediaCol}>
+              <div className={styles.staticMedia}>
+                <Image
+                  src="/images/construction/5.png"
+                  alt="Architectural visualization of a modern urban building"
+                  fill
+                  className={styles.staticImg}
+                  sizes="(max-width: 899px) 90vw, 480px"
+                  priority
             <div className={styles.featureCol}>
               <div className={styles.featureImage}>
                 <Image
