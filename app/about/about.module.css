@@ -31,7 +31,7 @@
   min-width: 0;
 }
 
-.carouselCol {
+.featureCol {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -40,15 +40,41 @@
   align-self: stretch;
 }
 
+.featureImage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  min-height: 18rem;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.featureImg {
+  display: block;
+  height: 100%;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
 @media (min-width: 900px) {
   .twoCol {
-    grid-template-columns: minmax(0, 1.35fr) minmax(280px, 400px);
+    grid-template-columns: minmax(0, 1.35fr) minmax(240px, 420px);
     gap: clamp(2rem, 4vw, 3.5rem);
     align-items: stretch;
   }
 
-  .carouselCol {
+  .featureCol {
     justify-content: stretch;
+  }
+
+  .featureImage {
+    min-height: 0;
   }
 
   .overview {
