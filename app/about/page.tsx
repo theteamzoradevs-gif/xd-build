@@ -9,6 +9,8 @@ import { COMPANY_OVERVIEW } from "@/lib/about";
 import { COMPANY_INTRO_REST } from "@/lib/home";
 import styles from "./about.module.css";
 
+const ABOUT_FEATURE_IMAGE = "/images/construction/5.png";
+
 export const metadata: Metadata = {
   title: "About",
   description:
@@ -43,6 +45,16 @@ export default function AboutPage() {
                   className={styles.staticImg}
                   sizes="(max-width: 899px) 90vw, 480px"
                   priority
+            <div className={styles.featureCol}>
+              <div className={styles.featureImage}>
+                <Image
+                  src={ABOUT_FEATURE_IMAGE}
+                  alt="Modern commercial building exterior at street level"
+                  width={640}
+                  height={800}
+                  priority
+                  className={styles.featureImg}
+                  style={{ height: "100%", width: "auto", maxWidth: "100%", objectFit: "contain" }}
                 />
               </div>
             </div>
