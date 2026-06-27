@@ -36,11 +36,13 @@ export default function AboutPage() {
 
             <div className={styles.mediaCol}>
               <div className={styles.overviewImageWrap}>
+              <div className={styles.staticMedia}>
                 <Image
                   src="/images/construction/5.png"
                   alt="Architectural visualization of a modern urban building"
                   fill
                   className={styles.overviewImage}
+                  className={styles.staticImg}
                   sizes="(max-width: 899px) 90vw, 480px"
                   priority
                 />
