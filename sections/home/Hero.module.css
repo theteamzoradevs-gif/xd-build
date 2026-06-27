@@ -11,6 +11,7 @@
   padding-block: clamp(1.5rem, 3.5vw, 2.75rem);
 }
 
+
 .grid {
   display: grid;
   gap: 2.5rem;
