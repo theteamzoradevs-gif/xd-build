@@ -78,6 +78,8 @@
   font-size: 0.85rem;
 }
 
+
+
 .title {
   margin: 0 0 1rem;
   font-size: clamp(1.75rem, 3.8vw, 2.85rem);
