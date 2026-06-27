@@ -1,5 +1,4 @@
-﻿import Image from "next/image";
-import { HeroBackgroundVideo } from "@/components/home/HeroBackgroundVideo";
+﻿import { HeroBackgroundVideo } from "@/components/home/HeroBackgroundVideo";
 import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
 import {
@@ -7,12 +6,13 @@ import {
   isCloudinaryUrl,
   optimizeCloudinaryVideoUrl,
 } from "@/lib/cloudinary";
+import { HERO_FEATURED_SERVICES } from "@/lib/services";
 import { siteConfig } from "@/lib/site";
+import { HeroFeaturedCarousel } from "@/sections/home/HeroFeaturedCarousel";
 import type { HomeHero } from "@/types/home";
 import styles from "./Hero.module.css";
 
 const FALLBACK_POSTER = "/images/hero-poster.jpg";
-const HERO_FEATURE_IMAGE = "/images/construction/5.png";
 
 type Props = {
   hero: HomeHero;
@@ -68,16 +68,7 @@ export async function HomeHero({ hero }: Props) {
             </Button>
           </div>
         </div>
-        <div className={styles.featureImage}>
-          <Image
-            src={HERO_FEATURE_IMAGE}
-            alt="Modern architectural building exterior"
-            width={300}
-            height={257}
-            priority
-            className={styles.featureImg}
-          />
-        </div>
+        <HeroFeaturedCarousel items={HERO_FEATURED_SERVICES} mode="services" />
       </div>
     </Section>
   );
