@@ -36,6 +36,7 @@
   align-items: stretch;
   width: 100%;
   min-width: 0;
+  min-height: 100%;
   align-self: stretch;
   margin-inline: auto;
 }
@@ -55,19 +56,6 @@
   object-position: center;
 }
 
-.staticMedia {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 300 / 257;
-  border-radius: 12px;
-  overflow: hidden;
-}
-
-.staticImg {
-  object-fit: contain;
-  object-position: center;
-}
-
 @media (min-width: 900px) {
   .twoCol {
     grid-template-columns: minmax(0, 1.35fr) auto;
@@ -82,7 +70,6 @@
   }
 
   .overviewImageWrap {
-  .staticMedia {
     height: 100%;
     width: auto;
     aspect-ratio: 300 / 257;
