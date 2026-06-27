@@ -38,10 +38,10 @@ export default function AboutPage() {
               <div className={styles.overviewImageWrap}>
                 <Image
                   src="/images/construction/5.png"
-                  alt="Contemporary commercial building in an urban setting"
+                  alt="Architectural visualization of a modern urban building"
                   fill
                   className={styles.overviewImage}
-                  sizes="(max-width: 900px) 90vw, 430px"
+                  sizes="(max-width: 899px) 90vw, 480px"
                   priority
                 />
               </div>
