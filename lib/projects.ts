@@ -103,23 +103,23 @@ export function mapApiProject(p: ApiPortfolioProject): Project {
 }
 
 /** All published projects for grids (includes card-only / detailPageEnabled false). */
-export const getProjects = cache(async function getProjects(): Promise<Project[]> {
+export const getProjects = cache(async function getProjects(): Promise<
+  Project[]
+> {
   const data = await fetchJson<{ projects?: ApiPortfolioProject[] }>(
     "/api/projects?status=published",
   );
   return (data.projects ?? []).map(mapApiProject);
 });
 
-export const getProjectsByCategory = cache(
-  async function getProjectsByCategory(
-    category: PortfolioCategory,
-  ): Promise<Project[]> {
-    const data = await fetchJson<{ projects?: ApiPortfolioProject[] }>(
-      `/api/projects?status=published&category=${encodeURIComponent(category)}`,
-    );
-    return (data.projects ?? []).map(mapApiProject);
-  },
-);
+export const getProjectsByCategory = cache(async function getProjectsByCategory(
+  category: PortfolioCategory,
+): Promise<Project[]> {
+  const data = await fetchJson<{ projects?: ApiPortfolioProject[] }>(
+    `/api/projects?status=published&category=${encodeURIComponent(category)}`,
+  );
+  return (data.projects ?? []).map(mapApiProject);
+});
 
 /** On failure log and return an empty list (does not break the page). */
 export async function getProjectsSafe(): Promise<Project[]> {
@@ -154,7 +154,7 @@ export const getProjectBySlug = cache(async function getProjectBySlug(
 });
 
 /**
- * Slugs that have a detail page — for generateStaticParams and sitemap only.
+ * Slugs that have a detail page , for generateStaticParams and sitemap only.
  * Do not use this to build the /portfolio grid.
  */
 export async function getDetailPageSlugs(): Promise<string[]> {

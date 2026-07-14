@@ -39,9 +39,13 @@ export async function FeaturedPortfolio({ projects: prefetched }: Props) {
             Projects
           </h2>
         </div>
-        
+
         {/* Navbar ke primary CTA jaisa sync variant */}
-        <Button href="/portfolio" variant="primary" className={styles.headerCta}>
+        <Button
+          href="/portfolio"
+          variant="primary"
+          className={styles.headerCta}
+        >
           View all projects
         </Button>
       </div>
@@ -89,7 +93,7 @@ export async function FeaturedPortfolio({ projects: prefetched }: Props) {
               <div
                 key={p.slug}
                 className={`${styles.card} ${styles.cardStatic}`}
-                aria-label={`${p.title} — detail page not available`}
+                aria-label={`${p.title} , detail page not available`}
               >
                 {cardContent}
               </div>

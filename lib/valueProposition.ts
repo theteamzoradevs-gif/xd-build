@@ -13,7 +13,7 @@ export const VALUE_PROPOSITION_ROWS: ValuePropositionRow[] = [
     title: "Local Presence & On-site Representation",
     body: "At XD Build, we have local offices and dedicated on-site representatives, allowing us to collaborate closely with all involved parties throughout the project. Our team actively engages in every phase, facilitating smooth communication and prompt issue resolution.",
     imageSrc: "/images/value-proposition/1.png",
-    imageAlt: "Canadian flag — local presence",
+    imageAlt: "Canadian flag , local presence",
   },
   {
     title: "In-house Scanning and AR tools",

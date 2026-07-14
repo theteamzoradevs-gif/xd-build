@@ -24,7 +24,7 @@ export const HERO_FEATURED_SERVICES: readonly HeroFeaturedService[] = [
     id: "prefab-design",
     title: "Spools, modules, and shop-ready detail",
     description:
-      "Spool and duct fabrication, shop automation and integration, modular construction, and pump skids. We break models down to individual spools and modules, detailed to shop-ready standard — shifting as much work offsite as possible to reduce labour costs and on-site risk.",
+      "Spool and duct fabrication, shop automation and integration, modular construction, and pump skids. We break models down to individual spools and modules, detailed to shop-ready standard , shifting as much work offsite as possible to reduce labour costs and on-site risk.",
     imageSrc:
       "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?q=80&w=1800&auto=format&fit=crop",
     imageAlt: "Prefabrication and modular construction",
@@ -58,7 +58,7 @@ export const SERVICES = [
   {
     id: "pre-fab-design",
     title: "Pre-Fab Design",
-    body: "Spool and duct fabrication, shop automation and integration, modular construction, and pump skids. We break models down to individual spools and modules, detailed to shop-ready standard — shifting as much work offsite as possible to reduce labour costs and on-site risk.",
+    body: "Spool and duct fabrication, shop automation and integration, modular construction, and pump skids. We break models down to individual spools and modules, detailed to shop-ready standard , shifting as much work offsite as possible to reduce labour costs and on-site risk.",
   },
   {
     id: "laser-scanning",

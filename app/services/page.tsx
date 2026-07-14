@@ -15,14 +15,19 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
   return (
     <>
-      <Section denseTop denseBottom aria-labelledby="services-title" className={styles.heroHeader}>
+      <Section
+        denseTop
+        denseBottom
+        aria-labelledby="services-title"
+        className={styles.heroHeader}
+      >
         <p className="pageKicker">Services</p>
         <h1 id="services-title" className="pageTitle">
           Full-lifecycle MEP delivery
         </h1>
         <p className="pageLead">
-          Our services span the full construction lifecycle, from initial coordination
-          through to new builds, renovations and demolitions.
+          Our services span the full construction lifecycle, from initial
+          coordination through to new builds, renovations and demolitions.
         </p>
       </Section>
 
@@ -45,7 +50,7 @@ export default function ServicesPage() {
         problem=""
         solution=""
         outcome=""
-        summary="Spool and duct fabrication, shop automation and integration, modular construction, and pump skids. We break models down to individual spools and modules, detailed to shop-ready standard — shifting as much work offsite as possible to reduce labour costs and on-site risk."
+        summary="Spool and duct fabrication, shop automation and integration, modular construction, and pump skids. We break models down to individual spools and modules, detailed to shop-ready standard , shifting as much work offsite as possible to reduce labour costs and on-site risk."
         imageSrc="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?q=80&w=1800&auto=format&fit=crop"
         imageAlt="Prefabrication and modular construction"
         imagePosition="right"
@@ -53,7 +58,7 @@ export default function ServicesPage() {
 
       <CtaBand
         title="Planning a coordination-intensive package?"
-        subtitle="Send your milestone and discipline mix — we’ll recommend the fastest path to a fabrication-ready model."
+        subtitle="Send your milestone and discipline mix , we’ll recommend the fastest path to a fabrication-ready model."
         primaryLabel="Contact us"
         primaryHref="/contact"
       />
