@@ -21,28 +21,28 @@ export const HOME_SERVICES: HomeServiceItem[] = [
     title: "BIM Solutions",
     description:
       "MEP modeling, coordination, clash resolution, 2D detailing, 4D scheduling, as-builts.",
-    imageSrc: "/images/services/2.png",
+    imageSrc: "/images/services/BIM.png",
   },
   {
     id: "renovation-design",
     title: "Renovation Design",
     description:
       "Renovating complex mechanical systems, demolition planning, phasing, BIM to prefabrication.",
-    imageSrc: "/images/services/3.png",
+    imageSrc: "/images/services/mechanical.jpeg",
   },
   {
     id: "prefab-design",
     title: "Pre-Fab Design",
     description:
       "Spool & duct fabrication, shop automation and integration, modular construction, pump skids.",
-    imageSrc: "/images/services/4.png",
+    imageSrc: "/images/services/Prefab.jpeg",
   },
   {
     id: "laser-scanning",
     title: "Laser Scanning",
     description:
       "Precise data and as-built capture, accurate modeling, efficient project execution.",
-    imageSrc: "/images/services/5.png",
+    imageSrc: "/images/services/laser.jpeg",
   },
   {
     id: "ar-implementation",
