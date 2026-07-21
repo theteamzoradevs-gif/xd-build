@@ -22,7 +22,11 @@ export function PortfolioGallery({ projects }: Props) {
 
   return (
     <div>
-      <div className={styles.filters} role="tablist" aria-label="Filter projects">
+      <div
+        className={styles.filters}
+        role="tablist"
+        aria-label="Filter projects"
+      >
         {FILTERS.map((f) => {
           const selected = f === filter;
           return (
@@ -53,14 +57,16 @@ export function PortfolioGallery({ projects }: Props) {
         <div className={styles.comingSoon}>
           <h2 className={styles.comingSoonTitle}>More projects</h2>
           <p className={styles.comingSoonLead}>
-            Additional case studies (projects 7–15) are in progress — details to be
-            supplied.
+            Additional case studies (projects 7–15) are in progress , details to
+            be supplied.
           </p>
           <ul className={styles.placeholderList}>
             {PROJECT_PLACEHOLDERS.map((p) => (
               <li key={p.id} className={styles.placeholderItem}>
                 <span className={styles.placeholderTitle}>{p.title}</span>
-                <span className={styles.placeholderMeta}>Details to be supplied</span>
+                <span className={styles.placeholderMeta}>
+                  Details to be supplied
+                </span>
               </li>
             ))}
           </ul>

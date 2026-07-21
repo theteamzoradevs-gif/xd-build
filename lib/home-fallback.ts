@@ -4,7 +4,7 @@ import type { HomeContent } from "@/types/home";
 export const DEFAULT_HOME_FALLBACK: HomeContent = {
   statsEnabled: true,
   hero: {
-    /** Empty — avoids shipping the 46MB local MP4 when CMS is unreachable. */
+    /** Empty , avoids shipping the 46MB local MP4 when CMS is unreachable. */
     videoSrc: "",
     videoPoster: "/images/hero-poster.jpg",
     trustBadgeValue: "120+",
@@ -18,8 +18,7 @@ export const DEFAULT_HOME_FALLBACK: HomeContent = {
   testimonialsSection: {
     eyebrow: "Trusted by industry leaders",
     title: "Social proof from teams who ship in the field",
-    subtitle:
-      "Clients who measure us on outcomes — not slide decks.",
+    subtitle: "Clients who measure us on outcomes , not slide decks.",
   },
   testimonials: [
     {

@@ -6,7 +6,7 @@ type CardsProps = {
   photos: GalleryPhoto[];
 };
 
-/** Card markup only — parent supplies the grid container. */
+/** Card markup only , parent supplies the grid container. */
 export function GalleryPhotoCards({ photos }: CardsProps) {
   return (
     <>

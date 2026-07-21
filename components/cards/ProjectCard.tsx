@@ -42,8 +42,15 @@ export function ProjectCard({ project, compact }: Props) {
 
   return (
     <article
-      className={cn(styles.card, span, compact && styles.compact, !clickable && styles.cardStatic)}
-      aria-label={clickable ? undefined : `${project.title} — detail page not available`}
+      className={cn(
+        styles.card,
+        span,
+        compact && styles.compact,
+        !clickable && styles.cardStatic,
+      )}
+      aria-label={
+        clickable ? undefined : `${project.title} , detail page not available`
+      }
     >
       {clickable ? (
         <Link href={detailHref} className={styles.mediaLink}>

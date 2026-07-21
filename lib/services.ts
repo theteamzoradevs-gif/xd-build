@@ -54,7 +54,7 @@ export const SERVICES = [
   {
     id: "pre-fab-design",
     title: "Pre-Fab Design",
-    body: "Spool and duct fabrication, shop automation and integration, modular construction, and pump skids. We break models down to individual spools and modules, detailed to shop-ready standard — shifting as much work offsite as possible to reduce labour costs and on-site risk.",
+    body: "Spool and duct fabrication, shop automation and integration, modular construction, and pump skids. We break models down to individual spools and modules, detailed to shop-ready standard , shifting as much work offsite as possible to reduce labour costs and on-site risk.",
   },
   {
     id: "laser-scanning",

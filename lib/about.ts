@@ -1,14 +1,14 @@
 export const COMPANY_OVERVIEW = [
   "XD Build is a Calgary-based Digital Delivery Partner specialising in BIM (Building Information Modeling) and VDC (Virtual Design and Construction) solutions for the construction industry. We empower mechanical, electrical, and plumbing (MEP) contractors and construction teams with the tools, models, and on-site expertise needed to build smarter.",
   "At XD Build, we believe that technology, when implemented correctly, will help improve efficiency. We support prefabrication efforts by producing quality models that streamline the construction process.",
-  "We are not simply a service provider. We are a committed project partner — embedded in your process, accountable to your schedule, and invested in your success.",
+  "We are not simply a service provider. We are a committed project partner , embedded in your process, accountable to your schedule, and invested in your success.",
 ] as const;
 
 export const MISSION =
-  "To support small mechanical and electrical contractors through the design process — delivering coordinated models that help lean teams work faster, bid stronger, and build with confidence.";
+  "To support small mechanical and electrical contractors through the design process , delivering coordinated models that help lean teams work faster, bid stronger, and build with confidence.";
 
 export const VISION =
-  "We envision MEP projects where every system is planned before it's built — where thorough coordination upfront means safer sites, fewer surprises, and efficient execution from the first day in the field.";
+  "We envision MEP projects where every system is planned before it's built , where thorough coordination upfront means safer sites, fewer surprises, and efficient execution from the first day in the field.";
 
 export const WORK_GALLERY_PLACEHOLDERS = [
   {

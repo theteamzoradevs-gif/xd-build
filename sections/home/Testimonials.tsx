@@ -2,13 +2,7 @@
 
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
-import {
-  type ReactNode,
-  useCallback,
-  useEffect,
-  useId,
-  useState,
-} from "react";
+import { type ReactNode, useCallback, useEffect, useId, useState } from "react";
 import { Section } from "@/components/ui/Section";
 import type { HomeTestimonial, HomeTestimonialsSection } from "@/types/home";
 import styles from "./Testimonials.module.css";
@@ -81,9 +75,7 @@ export function Testimonials({ section, testimonials }: Props) {
                       {active.logoSrc?.trim() ? (
                         <Image
                           src={active.logoSrc}
-                          alt={
-                            active.logoAlt?.trim() || active.authorCompany
-                          }
+                          alt={active.logoAlt?.trim() || active.authorCompany}
                           width={160}
                           height={40}
                           className={styles.cardLogoImg}
@@ -101,7 +93,7 @@ export function Testimonials({ section, testimonials }: Props) {
                       >
                         {active.quote?.trim()
                           ? quoteWithHighlights(active.quote)
-                          : "—"}
+                          : ","}
                       </p>
                     </blockquote>
                     <footer className={styles.attribution}>

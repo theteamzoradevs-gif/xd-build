@@ -9,7 +9,7 @@ import styles from "./page.module.css";
 export const metadata: Metadata = {
   title: "Gallery",
   description:
-    "Project photography from XD Build — field coordination, scanning, and delivery across Canada.",
+    "Project photography from XD Build , field coordination, scanning, and delivery across Canada.",
 };
 
 export const revalidate = 60;
@@ -28,8 +28,8 @@ export default async function GalleryPage() {
           Project Gallery
         </h1>
         <p className={styles.lead}>
-          A visual preview of our work — photos and titles from the field and the
-          model.
+          A visual preview of our work , photos and titles from the field and
+          the model.
         </p>
       </div>
 

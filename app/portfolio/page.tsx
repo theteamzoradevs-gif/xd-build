@@ -33,9 +33,9 @@ export default async function PortfolioPage() {
           Projects
         </h1>
         <p className="pageLead">
-          Calgary, Alberta, and regional work spanning museums, healthcare, academic
-          campuses, and critical infrastructure — with BIM, scanning, and prefabrication
-          at the centre of delivery.
+          Calgary, Alberta, and regional work spanning museums, healthcare,
+          academic campuses, and critical infrastructure , with BIM, scanning,
+          and prefabrication at the centre of delivery.
         </p>
         {loadError ? (
           <p className="pageLead" role="alert">

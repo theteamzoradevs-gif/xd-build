@@ -7,7 +7,12 @@ export function AboutTeam() {
   const nonFounderIndices = TEAM_MEMBERS.filter((m) => !m.isFounder);
 
   return (
-    <Section denseTop denseBottom className={styles.section} aria-labelledby="our-team-title">
+    <Section
+      denseTop
+      denseBottom
+      className={styles.section}
+      aria-labelledby="our-team-title"
+    >
       <header className={styles.header}>
         <div className={styles.titleRow}>
           <h2 id="our-team-title" className={styles.title}>
@@ -25,8 +30,7 @@ export function AboutTeam() {
           const nfIdx = member.isFounder
             ? -1
             : nonFounderIndices.findIndex((m) => m.name === member.name);
-          const rowMirror =
-            !member.isFounder && nfIdx >= 0 && nfIdx % 2 === 0;
+          const rowMirror = !member.isFounder && nfIdx >= 0 && nfIdx % 2 === 0;
 
           return (
             <li
@@ -34,11 +38,15 @@ export function AboutTeam() {
               className={`${styles.row} ${member.isFounder ? styles.rowFounder : ""} ${rowMirror ? styles.rowMirror : ""}`}
             >
               <div className={styles.copy}>
-                <p className={`${styles.name} ${member.isFounder ? styles.nameFounder : ""}`}>
+                <p
+                  className={`${styles.name} ${member.isFounder ? styles.nameFounder : ""}`}
+                >
                   {member.name.toUpperCase()}
                 </p>
                 {member.credentials ? (
-                  <p className={styles.credentials}>{member.credentials.toUpperCase()}</p>
+                  <p className={styles.credentials}>
+                    {member.credentials.toUpperCase()}
+                  </p>
                 ) : null}
                 <p className={styles.role}>{member.title.toUpperCase()}</p>
                 <p className={styles.bio}>{member.bio}</p>
@@ -67,11 +75,16 @@ export function AboutTeam() {
                 <div className={styles.founderStory}>
                   <h3 className={styles.founderStoryTitle}>Why I Started</h3>
                   <p className={styles.founderStoryText}>
-                    I started XD Build with a clear purpose — to bridge the gap between office coordination and on-site execution. My goal was simple: to turn complex designs into practical, buildable solutions that actually work in the real world.
-
-I have deep respect for craftsmanship, realistic timelines, and the ground realities of trade installation. That’s why I focus on reducing rework, eliminating uncertainty, and bringing clarity to every stage of a project.
-
-At the end of the day, it’s about delivering projects on time, within budget, and with fewer surprises.
+                    I started XD Build with a clear purpose , to bridge the gap
+                    between office coordination and on-site execution. My goal
+                    was simple: to turn complex designs into practical,
+                    buildable solutions that actually work in the real world. I
+                    have deep respect for craftsmanship, realistic timelines,
+                    and the ground realities of trade installation. That’s why I
+                    focus on reducing rework, eliminating uncertainty, and
+                    bringing clarity to every stage of a project. At the end of
+                    the day, it’s about delivering projects on time, within
+                    budget, and with fewer surprises.
                   </p>
                 </div>
               ) : null}

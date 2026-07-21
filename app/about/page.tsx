@@ -27,11 +27,16 @@ export default function AboutPage() {
           <div className={styles.twoCol}>
             <div className={styles.overview}>
               {COMPANY_OVERVIEW.map((paragraph) => (
-                <p key={paragraph.slice(0, 40)} className={`${styles.blockText} ${styles.leadQuiet}`}>
+                <p
+                  key={paragraph.slice(0, 40)}
+                  className={`${styles.blockText} ${styles.leadQuiet}`}
+                >
                   {paragraph}
                 </p>
               ))}
-              <p className={`${styles.blockText} ${styles.leadQuiet}`}>{COMPANY_INTRO_REST}</p>
+              <p className={`${styles.blockText} ${styles.leadQuiet}`}>
+                {COMPANY_INTRO_REST}
+              </p>
             </div>
 
             <div className={styles.mediaCol}>
@@ -54,11 +59,6 @@ export default function AboutPage() {
 
       <AboutTeam />
 
-      
-
-
-      
-
       <Section denseTop aria-labelledby="about-cta">
         <div className={styles.splitCta}>
           <div>
@@ -67,8 +67,8 @@ export default function AboutPage() {
               Ready to align office and field?
             </h2>
             <p className={styles.sectionLeadPlain}>
-              Tell us about your next milestone — we’ll map coordination risk and a
-              practical delivery plan.
+              Tell us about your next milestone , we’ll map coordination risk
+              and a practical delivery plan.
             </p>
           </div>
           <div className={styles.ctaActions}>
