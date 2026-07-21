@@ -34,8 +34,8 @@ export default function ServicesPage() {
         solution=""
         outcome=""
         summary="MEP modeling, coordination, and clash resolution. 2D detailing, 4D scheduling, and as-built documentation. We build detailed, fabrication-ready models that align trade contractors and reduce costly rework on site."
-        imageSrc="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1800&auto=format&fit=crop"
-        imageAlt="Construction team coordinating BIM on site"
+        imageSrc="/images/services/BIM.png"
+        imageAlt="BIM coordination and MEP modeling"
       />
 
       <ServiceSection
@@ -46,7 +46,7 @@ export default function ServicesPage() {
         solution=""
         outcome=""
         summary="Spool and duct fabrication, shop automation and integration, modular construction, and pump skids. We break models down to individual spools and modules, detailed to shop-ready standard — shifting as much work offsite as possible to reduce labour costs and on-site risk."
-        imageSrc="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?q=80&w=1800&auto=format&fit=crop"
+        imageSrc="/images/services/Prefab.jpeg"
         imageAlt="Prefabrication and modular construction"
         imagePosition="right"
       />
@@ -66,7 +66,7 @@ export default function ServicesPage() {
         solution=""
         outcome=""
         summary="Precise as-built capture using our own in-house laser scanners. We produce accurate point cloud data and coordinate new services against existing conditions, reducing errors and eliminating surprises during installation."
-        imageSrc="https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=1800&auto=format&fit=crop"
+        imageSrc="/images/services/laser.jpeg"
         imageAlt="Laser scanning and point cloud coordination"
       />
 
@@ -78,8 +78,8 @@ export default function ServicesPage() {
         solution=""
         outcome=""
         summary="Complex mechanical system renovations, demolition planning, phasing, and BIM-to-prefabrication workflows. We plan and coordinate renovations in active facilities, ensuring existing operations are protected while new systems are introduced efficiently."
-        imageSrc="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=1800&auto=format&fit=crop"
-        imageAlt="Healthcare and institutional renovation coordination"
+        imageSrc="/images/services/mechanical.jpeg"
+        imageAlt="Mechanical renovation and phased building work"
         imagePosition="right"
       />
 
